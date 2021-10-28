@@ -2,22 +2,26 @@ package principal;
 
 import java.util.Scanner;
 
-public class Paciente {
-
-	public Paciente() {
+public class Persona {
 	
+	//id es identificador únicode cada elemento de cada elemento Persona.
+	//Es un valor entero > 0
+	//Tiene el valor defecto -1
+
+	public Persona() {
+		
 	}
 
-	private String nombre;
-	private long id;
-	private int edad;
-	private Historial historial = new Historial();
+	protected String nombre;
+	protected long id;
+	protected int edad;
+	private Historial historial;
 	
 	
 	
 	
-	public static Paciente nuevoPaciente() {
-		Paciente ret = new Paciente();
+	public static Persona nuevoPaciente() {
+		Persona ret = new Persona();
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 		
@@ -35,14 +39,14 @@ public class Paciente {
 	}
 
 
-	public Paciente(String nombre, int id) {
+	public Persona(String nombre, int id) {
 		super();
 		this.nombre = nombre;
 		this.id = id;
 	}
 
 
-	public Paciente(String nombre, int id, int edad, Historial documentacion, Historial historial) {
+	public Persona(String nombre, int id, int edad, Historial documentacion, Historial historial) {
 		super();
 		this.nombre = nombre;
 		this.id = id;
