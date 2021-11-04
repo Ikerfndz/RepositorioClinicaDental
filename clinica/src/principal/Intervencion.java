@@ -1,7 +1,7 @@
 package principal;
 
 
-public class Intervencion {
+public class Intervencion extends Cita{
 	private int duracion;
 
 	public float getDuracion() {
