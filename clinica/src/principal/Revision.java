@@ -1,7 +1,7 @@
 package principal;
 
 
-public class Revision {
+public class Revision extends Cita {
 
 	private String anotacion;
 
