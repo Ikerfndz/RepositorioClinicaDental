@@ -38,6 +38,8 @@ public class Persona {
 		nom = teclado.nextLine();
 		ret.setNombre(nom);
 
+		
+		teclado.close();
 		return ret;
 	}
 
