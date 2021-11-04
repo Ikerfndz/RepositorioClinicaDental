@@ -50,4 +50,39 @@ public class Paciente {
 		this.historial = historial;
 	}
 
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	public int getEdad() {
+		return edad;
+	}
+
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+
+	public Historial getHistorial() {
+		return historial;
+	}
+
+
+	public void setHistorial(Historial historial) {
+		this.historial = historial;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
 }
