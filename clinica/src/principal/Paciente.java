@@ -16,7 +16,7 @@ public class Paciente {
 	private long idPaciente;
 	// idPaciente representa al identificador único del paciente.
 	// es un valos entero >0 .
-	private long telefono;
+	private String telefono;
 	// telefono representa al numero de telfono del paciente.
 	// esta formado por 9 digitos
 	// es un valor entero
@@ -24,11 +24,9 @@ public class Paciente {
 	// direccion representa la direccion del paciente.
 	// esta formado por una cadena de caracteres de minimo 5 caracteres y un maximo
 	// de 50
-	private int edad;
+	private String edad;
 	// edad representa a la edad del paciente
-	// es un valor entero >0
-	// no acepta caracteres
-	// un maximo de 3 digitos
+	
 	private String nif;
 
 	private Historial historial = new Historial();
@@ -38,13 +36,40 @@ public class Paciente {
 		Paciente ret = new Paciente();
 		Scanner teclado;
 		teclado = new Scanner(System.in);
-
-		System.out.println("Introduzca el nombre de la nueva persona");
+		
+		System.out.println("Introduzca el nombre del nuevo paciente");
 		String nom = "";
 		nom = teclado.nextLine();
 		ret.setNombre(nom);
-
+		
+		
+		System.out.println("Introduzca el id del nuevo paciente");
+		long id = 0;
+		id = teclado.nextLong();
+		ret.setIdPaciente(id);
+		
+		
+		System.out.println("Introduzca el telefono:");
+		String tel = "";
+		tel= teclado.nextLine();
+		ret.setTelefono(tel);
+		
+		System.out.println("Introduzca la dirección:");
+		String dir = "";
+		dir = teclado.nextLine();
+		ret.setDireccion(dir);
+		
+		System.out.println("Introduzca la edad:");
+		String edad = "";
+		edad= teclado.nextLine();
+		ret.setEdad(edad);
+		
+		System.out.println("Introduzca el NIF.");
+		String nif ="";
+		nif= teclado.nextLine();
+		ret.setNif(nif);
 		return ret;
+	
 	}
 
 	public String getNombre() {
@@ -63,11 +88,11 @@ public class Paciente {
 		this.idPaciente = idPaciente;
 	}
 
-	public long getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(long telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
@@ -79,11 +104,11 @@ public class Paciente {
 		this.direccion = direccion;
 	}
 
-	public int getEdad() {
+	public String getEdad() {
 		return edad;
 	}
 
-	public void setEdad(int edad) {
+	public void setEdad(String edad) {
 		this.edad = edad;
 	}
 
