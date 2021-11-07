@@ -1,7 +1,10 @@
 package principal;
 
+public class Intervencion extends Cita {
 
-public class Intervencion extends Cita{
+	// duracion representa el tiempo que dura la Intervencion.
+	// es un valos entero >0.
+	// no acepta caracteres
 	private int duracion;
 
 	public float getDuracion() {

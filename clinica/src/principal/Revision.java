@@ -1,8 +1,8 @@
 package principal;
 
-
 public class Revision extends Cita {
-
+	// anotacion representa los datos que quiera apuntar el usuario.
+	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 500.
 	private String anotacion;
 
 	public String getAnotacion() {

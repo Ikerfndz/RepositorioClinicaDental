@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Persona {
 
-	// id es identificador únicode cada elemento de cada elemento Persona.
+	// id es identificador único de cada elemento Persona.
 	// Es un valor entero > 0
 	// Tiene el valor defecto -1
 
