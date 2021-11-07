@@ -38,7 +38,9 @@ public class Secretariado extends Empleado {
 
 	@Override
 	public String toString() {
-		return "Secretariado [numAñosExp=" + numAñosExp + "]";
+		return "Secretariado [numAñosExp=" + numAñosExp + ", idEmpleado=" + idEmpleado + ", nombre=" + nombre
+				+ ", apellidos=" + apellidos + ", telefono=" + telefono + ", direccion=" + direccion + ", nif=" + nif
+				+ "]";
 	}
 
 }
