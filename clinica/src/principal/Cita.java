@@ -10,10 +10,12 @@ public class Cita {
 	// fecha representa el dia indicado para la cita.
 	// hora representa la hora a la que se realizara la cita.
 	// Seran para ambos la funcion LocalDate.
-	
+
 	private LocalDate fecha, hora;
-	// rango representa el horario preferido por el cliente siendo de mañana o de tarde.
-	// Es un char que representara una "M" para las mañanas y una "T" para las tardes.
+	// rango representa el horario preferido por el cliente siendo de mañana o de
+	// tarde.
+	// Es un char que representara una "M" para las mañanas y una "T" para las
+	// tardes.
 	// No se aceptara mas de un caracter.
 	private char rango;
 
