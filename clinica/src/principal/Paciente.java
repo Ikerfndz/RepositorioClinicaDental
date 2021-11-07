@@ -18,14 +18,14 @@ public class Paciente {
 	// es un valos entero >0 .
 	private String telefono;
 	// telefono representa al numero de telfono del paciente.
-	
+
 	private String direccion;
 	// direccion representa la direccion del paciente.
 	// esta formado por una cadena de caracteres de minimo 5 caracteres y un maximo
 	// de 50
 	private String edad;
 	// edad representa a la edad del paciente
-	// no admite caracteres especiales
+	
 	private String nif;
 
 	private Historial historial = new Historial();
@@ -35,40 +35,38 @@ public class Paciente {
 		Paciente ret = new Paciente();
 		Scanner teclado;
 		teclado = new Scanner(System.in);
-		
+
 		System.out.println("Introduzca el nombre del nuevo paciente");
 		String nom = "";
 		nom = teclado.nextLine();
 		ret.setNombre(nom);
-		
-		
+
 		System.out.println("Introduzca el id del nuevo paciente");
 		long id = 0;
 		id = teclado.nextLong();
 		ret.setIdPaciente(id);
-		
-		
+
 		System.out.println("Introduzca el telefono:");
 		String tel = "";
-		tel= teclado.nextLine();
+		tel = teclado.nextLine();
 		ret.setTelefono(tel);
-		
+
 		System.out.println("Introduzca la dirección:");
 		String dir = "";
 		dir = teclado.nextLine();
 		ret.setDireccion(dir);
-		
+
 		System.out.println("Introduzca la edad:");
 		String edad = "";
-		edad= teclado.nextLine();
+		edad = teclado.nextLine();
 		ret.setEdad(edad);
-		
+
 		System.out.println("Introduzca el NIF.");
-		String nif ="";
-		nif= teclado.nextLine();
+		String nif = "";
+		nif = teclado.nextLine();
 		ret.setNif(nif);
 		return ret;
-	
+
 	}
 
 	public String getNombre() {
