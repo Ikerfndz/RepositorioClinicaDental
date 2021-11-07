@@ -20,10 +20,16 @@ public class Tratamiento {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		System.out.println("Introduzca el nombre del nuevo tratamiento");
+		System.out.println("Introduzca el nombre del tratamiento");
 		String nom = "";
 		nom = teclado.nextLine();
 		ret.setNombreDescriptivo(nom);
+		
+		System.out.println("introduzca el id deltratamiento");
+		long id = 0;
+		id = teclado.nextLong();
+		ret.setIdTratamiento(id);
+		
 		return ret;
 	}
 
