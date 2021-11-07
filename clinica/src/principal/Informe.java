@@ -3,7 +3,7 @@ package principal;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Informe {
+public class Informe extends Secretariado{
 	private long idInforme;
 	private String descripcion;
 
@@ -45,13 +45,13 @@ public class Informe {
 
 	public Informe(String descripcion, long idInforme) {
 		super();
-		numeroInforme = numeroInformes + 1;
+		numeroInformes = numeroInformes + 1;
 		this.descripcion = descripcion;
 		this.idInforme = numeroInformes;
 	}
 
-	public Informe(long idInforme, String descripcion, Informe[] informes) {
-		super();
+	public Informe(String numAñosExp, Empleado empleado, long idInforme, String descripcion, Informe[] informes) {
+		super(numAñosExp , empleado);
 		this.idInforme = idInforme;
 		this.descripcion = descripcion;
 		this.informes = informes;
@@ -92,9 +92,14 @@ public class Informe {
 	@Override
 	public String toString() {
 		return "Informe [idInforme=" + idInforme + ", descripcion=" + descripcion + ", informes="
-				+ Arrays.toString(informes) + ", getIdInforme()=" + getIdInforme() + ", getDescripcion()="
-				+ getDescripcion() + ", getInformes()=" + Arrays.toString(getInformes()) + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ Arrays.toString(informes) + ", numAñosExp=" + numAñosExp + ", idEmpleado=" + idEmpleado + ", nombre="
+				+ nombre + ", apellidos=" + apellidos + ", telefono=" + telefono + ", direccion=" + direccion + ", nif="
+				+ nif + "]";
+	}
+	
+	
+
+
 	}
 
 }

@@ -3,7 +3,7 @@ package principal;
 import java.util.Scanner;
 
 public class Secretariado extends Empleado {
-	private String numAñosExp;
+	protected String numAñosExp;
 	// almacena los años de experiencia de un secretario
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50
 	// no acepta numeros ni caracteres especiales
