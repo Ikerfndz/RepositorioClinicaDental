@@ -18,15 +18,14 @@ public class Paciente {
 	// es un valos entero >0 .
 	private String telefono;
 	// telefono representa al numero de telfono del paciente.
-	// esta formado por 9 digitos
-	// es un valor entero
+	
 	private String direccion;
 	// direccion representa la direccion del paciente.
 	// esta formado por una cadena de caracteres de minimo 5 caracteres y un maximo
 	// de 50
 	private String edad;
 	// edad representa a la edad del paciente
-	
+	// no admite caracteres especiales
 	private String nif;
 
 	private Historial historial = new Historial();
