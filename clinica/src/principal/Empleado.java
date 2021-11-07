@@ -3,7 +3,7 @@ package principal;
 import java.util.Scanner;
 
 public class Empleado {
-	
+
 	public Empleado(Empleado empleado) {
 		setNombre(empleado.nombre);
 		setApellidos(empleado.apellidos);
@@ -82,9 +82,6 @@ public class Empleado {
 		return ret;
 	}
 
-	void setNombre(String nom) {
-	}
-
 	public Empleado(String nombre, int id) {
 		super();
 		numeroEmpleados = numeroEmpleados + 1;
@@ -102,8 +99,20 @@ public class Empleado {
 		this.nif = nif;
 	}
 
-	public String getId() {
-		return null;
+	public long getIdEmpleado() {
+		return idEmpleado;
+	}
+
+	public void setIdEmpleado(long idEmpleado) {
+		this.idEmpleado = idEmpleado;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getApellidos() {
@@ -146,14 +155,10 @@ public class Empleado {
 		Empleado.numeroEmpleados = numeroEmpleados;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
 	@Override
 	public String toString() {
-		return "Empleado [id=" + idEmpleado + ", nombre=" + nombre + ", apellidos=" + apellidos + ", telefono=" + telefono
-				+ ", direccion=" + direccion + ", nif=" + nif + "]";
+		return "Empleado [idEmpleado=" + idEmpleado + ", nombre=" + nombre + ", apellidos=" + apellidos + ", telefono="
+				+ telefono + ", direccion=" + direccion + ", nif=" + nif + "]";
 	}
 
 }
