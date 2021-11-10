@@ -7,6 +7,12 @@ public class Intervencion extends Cita {
 	// no acepta caracteres
 	private int duracion;
 
+	
+	
+	
+	
+	
+	
 	public float getDuracion() {
 		return duracion;
 	}
