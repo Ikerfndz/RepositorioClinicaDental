@@ -22,7 +22,7 @@ public class Alergia extends Historial {
 		long idAlergia = 0;
 		idAlergia = teclado.nextLong();
 		teclado.close();
-		return new Alergia();
+		
 
 		System.out.println("Introduce el nombre de la alergia (en el caso de que así sea): ");
 		String nom = "";
