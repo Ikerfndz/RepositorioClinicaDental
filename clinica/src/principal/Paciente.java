@@ -27,7 +27,8 @@ public class Paciente {
 	// edad representa a la edad del paciente
 	
 	private String nif;
-
+	// nif representa nif del paciente
+	// esta formado por 8 digitos y 1 caracter
 	private Historial historial = new Historial();
 	private Tratamiento tratamientos[] = new Tratamiento[10];
 
