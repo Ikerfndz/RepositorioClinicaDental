@@ -11,6 +11,11 @@ public class Validador {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public static boolean validarNombrePaciente(String nombre) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 
