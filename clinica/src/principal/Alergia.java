@@ -2,6 +2,8 @@ package principal;
 
 import java.util.Scanner;
 
+import Validación.Validador;
+
 public class Alergia extends Historial {
 
 	// idAlergia es el identificador único de cada elemento Alergia
@@ -22,11 +24,15 @@ public class Alergia extends Historial {
 		long idAlergia = 0;
 		idAlergia = teclado.nextLong();
 		teclado.close();
-		
 
-		System.out.println("Introduce el nombre de la alergia (en el caso de que así sea): ");
 		String nom = "";
-		nom = teclado.nextLine();
+		boolean nomValido = false;
+
+		do {
+			System.out.println("Introduce el nombre de la alergia (en el caso de que así sea): ");
+			nom = teclado.nextLine();
+			nomValido = Validador.validarNombreAlergia(nom);
+		} while (!nomValido);
 		teclado.close();
 		return new Alergia();
 	}
@@ -51,6 +57,5 @@ public class Alergia extends Historial {
 	public String toString() {
 		return "Alergia [idAlergia=" + idAlergia + ", nombre=" + nombre + "]";
 	}
-	
 
 }

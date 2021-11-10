@@ -22,8 +22,8 @@ public class Cobro {
 		Scanner teclado = new Scanner(System.in);
 
 		System.out.println("Introduce el id del nuevo cobro: ");
-		String idCobro = "";
-		idCobro = teclado.nextLine();
+		long idCobro = 0;
+		idCobro = teclado.nextLong();
 		ret.setIdCobro(idCobro);
 
 		System.out.println("Introduce el importe: ");

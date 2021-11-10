@@ -36,9 +36,16 @@ public class Medicamento extends Alergia {
 		teclado.close();
 		ret.setIdMedicamento(idMedicamento);
 
-		System.out.println("Introduce el nombre del medicamento: ");
+		
 		String nombre = "";
-		nombre = teclado.nextLine();
+		boolean nombreValido = false;
+		
+		do {
+			System.out.println("Introduce el nombre del medicamento: ");
+			nombre = teclado.nextLine();
+			nombreValido = validarNombreMedicamento(nombre);
+		} while (      ! nombreValido          );
+		
 		teclado.close();
 		ret.setNombre(nombre);
 
@@ -54,6 +61,11 @@ public class Medicamento extends Alergia {
 		ret.setDosisMaxDiaria(dosisMaximaDiaria);
 
 		return new Medicamento();
+	}
+
+	private static boolean validarNombreMedicamento(String nombre2) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	public long getIdMedicamento() {
