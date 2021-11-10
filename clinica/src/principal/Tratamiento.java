@@ -30,6 +30,11 @@ public class Tratamiento {
 		id = teclado.nextLong();
 		ret.setIdTratamiento(id);
 		
+		System.out.println("consentimiento:");
+		boolean consentimiento= false;
+		consentimiento = teclado.nextBoolean();
+		ret.setConsentimiento(consentimiento);
+		
 		return ret;
 	}
 
