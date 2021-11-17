@@ -13,8 +13,13 @@ public class Validador {
 	}
 
 	public static boolean validarNombrePaciente(String nombre) {
-		// TODO Auto-generated method stub
-		return false;
+		if (nombre.length() < 2)
+			return false;
+		else 
+			if(nombre.length() > 30)
+				return false;
+			else
+				return true;
 	}
 	
 	
