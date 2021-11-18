@@ -1,5 +1,7 @@
 package principal;
 
+import java.util.Scanner;
+
 public class Intervencion extends Cita {
 
 	// duracion representa el tiempo que dura la Intervencion.
@@ -7,7 +9,21 @@ public class Intervencion extends Cita {
 	// no acepta caracteres
 	private int duracion;
 
-	public float getDuracion() {
+	public static Intervencion nuevaDuracion() {
+		Intervencion ret = new Intervencion();
+		Scanner teclado;
+		teclado = new Scanner(System.in);
+
+		System.out.println("Introduzca la duración de la Intervención");
+		int minutos = teclado.nextInt();
+		minutos = teclado.nextInt();
+		ret.setDuracion(minutos);
+		System.out.println("La duración ha sido de " + minutos + " minutos.");
+		return ret;
+
+	}
+
+	public int getDuracion() {
 		return duracion;
 	}
 

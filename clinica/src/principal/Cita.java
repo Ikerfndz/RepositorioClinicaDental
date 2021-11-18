@@ -24,15 +24,16 @@ public class Cita {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		System.out.println("Introduzca la nueva fecha");
-		String nom = "";
-		nom = teclado.nextLine();
-		ret.setFecha(nom);
+		System.out.println("Introduce la nueva fecha: ");
+		LocalDate fecha = "";
+		fecha = teclado.nextLine();
+		ret.setFecha(fecha);
+
+		System.out.println("Introduce la hora: ");
+		LocalDate hora = "";
+		hora = teclado.nextLine();
+		ret.setFecha(hora);
 		return ret;
-	}
-
-	private void setFecha(final String nom) {
-
 	}
 
 	public long getIdCita() {
@@ -72,4 +73,5 @@ public class Cita {
 		return "Cita [idCita=" + idCita + ", fecha=" + fecha + ", hora=" + hora + ", rango=" + rango + "]";
 	}
 
+	
 }
