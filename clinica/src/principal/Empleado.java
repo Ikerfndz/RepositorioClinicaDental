@@ -15,7 +15,8 @@ public class Empleado {
 	protected long idEmpleado;
 	// id es el identificador unico de cada elemento Empleado
 	// es un valor entero > 0
-	// tiene el valor defecto -1
+	// el valor de idEmpleado se va rellenando automaticamente cada vez que se hace
+	// llamada a uno de sus constructores
 	protected String nombre;
 	// nombre representa el nombre de la empleado
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50
@@ -36,21 +37,44 @@ public class Empleado {
 	// indica el nif de cada empleado
 	// es una cadena de caracteres de minimo 3 caracteres y maximo 50
 	// no acepta caracteres especiales
+	private static int numeroEmpleados = 0;
+	// numeroEmpleados es de tipo entero
+	// esta variable nos permitira completar de forma automatica el idEmpleado
+
+	// Constructor por defecto -> cada vez que le hagamos una llamada aumentara el
+	// valor de numeroEmpleados en 1 y se le asignara ese valor al idEmpleado
 
 	public Empleado() {
 		numeroEmpleados++;
 		this.idEmpleado = numeroEmpleados;
 	}
 
-	protected static int numeroEmpleados;
-
-	public static int getNumeroEmpleado() {
-		return numeroEmpleados;
+	// Constructor que se le pide por parametro el nombre del empleado
+	public Empleado(String nombre, int id) {
+		super();
+		numeroEmpleados = numeroEmpleados + 1;
+		this.nombre = nombre;
+		this.idEmpleado = numeroEmpleados;
 	}
 
-	public static void setNumeroEmpleado(int numeroEmpleados) {
-		Empleado.numeroEmpleados = numeroEmpleados;
+	public Empleado(long idEmpleado, String nombre, String apellidos, String telefono, String direccion, String nif) {
+		super();
+		this.idEmpleado = idEmpleado;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.nif = nif;
 	}
+
+	// Metodo nuevoEmpleado -> encargado de registrar a un nuevo empleado
+	// Se le pide al usuario que ingrese los siguentes datos sobre el nuevo
+	// empleado: nombre, apellidos, telefono, direccion y nif
+	// Todos estos datos son guardados en variables auxiliares distintas
+	// Estas variables serán las que pasaremos por parametros haciendo llamada al
+	// constructor anterior para establecer un nuevo empleado con todos sus
+	// atributos
+	// Finalmente se devuelven los datos introducidos
 
 	public static Empleado nuevoEmpleado() {
 		Empleado ret = new Empleado();
@@ -82,22 +106,7 @@ public class Empleado {
 		return ret;
 	}
 
-	public Empleado(String nombre, int id) {
-		super();
-		numeroEmpleados = numeroEmpleados + 1;
-		this.nombre = nombre;
-		this.idEmpleado = numeroEmpleados;
-	}
-
-	public Empleado(long idEmpleado, String nombre, String apellidos, String telefono, String direccion, String nif) {
-		super();
-		this.idEmpleado = idEmpleado;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		this.nif = nif;
-	}
+	// Getters y setters
 
 	public long getIdEmpleado() {
 		return idEmpleado;
@@ -154,6 +163,8 @@ public class Empleado {
 	public static void setNumeroEmpleados(int numeroEmpleados) {
 		Empleado.numeroEmpleados = numeroEmpleados;
 	}
+
+	// To String
 
 	@Override
 	public String toString() {
