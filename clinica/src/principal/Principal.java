@@ -16,18 +16,18 @@ public class Principal {
 				System.out.println("Opcion invalida! Vuelva a introducir su eleccion.");
 
 		} while (!eleccionValida);
-		System.out.println("Usted ha elegido la opción:" + eleccion);
+		System.out.println("Usted ha elegido la opcion:" + eleccion);
 
 		switch (eleccion) {
 		case 1:
-			System.out.println("Elegida la opción 1");
+			System.out.println("Elegida la opcion 1");
 			break;
 
 		case 2:
-			System.out.println("Elegida la opción 2");
+			System.out.println("Elegida la opcion 2");
 			break;
 		case 3:
-			System.out.println("Elegida la opción 3");
+			System.out.println("Elegida la opcion 3");
 			break;
 		default:
 			System.out.println("Otro valor!");	
@@ -36,14 +36,14 @@ public class Principal {
 		int variable;
 
 		Persona pedro = new Persona();
-		pedro.setNombre("Pedro Pérez");
+		pedro.setNombre("Pedro Perez");
 		System.out.println("El id de la variable pedro es:" + pedro.getId());
 		System.out.println("El valor del campo numeroPersonas la variable pedro es:" + Persona.getNumeroPersonas());
 
 	}
 
 	public static void mostrarMenuPrincipal() {
-		System.out.println("Bienvenido/a al programa de gestión:");
+		System.out.println("Bienvenido/a al programa de gestion:");
 
 		System.out.println("Pulse 1 para Nueva persona.");
 		System.out.println("Pulse 2 para ver las personas:");
