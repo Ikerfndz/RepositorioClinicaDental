@@ -81,10 +81,14 @@ public class Empleado {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		System.out.println("Introduzca el nombre del empleado");
 		String nom = "";
+		boolean nombreEmpleadoValido = false;
+		
+		
+		System.out.println("Introduzca el nombre del empleado");
 		nom = teclado.nextLine();
 		ret.setNombre(nom);
+		
 		System.out.println("Introduzca los apellidos del empleado");
 		String ape = "";
 		ape = teclado.nextLine();
