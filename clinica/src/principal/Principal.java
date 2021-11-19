@@ -29,11 +29,18 @@ public class Principal {
 		
 				} while (!eleccionValida);
 				System.out.println("Usted ha elegido la opcion: " + eleccion);
-				int eleccion11;
-				eleccion11= teclado.nextInt();
-				if (eleccion11== 1) {
-					Paciente.nuevoPaciente();
+				
+					if (eleccion== 1) {
+						do {
+							eleccion11();
+							eleccionValida = (eleccion < 1 || eleccion > 5 ? false : true);
+							if (!eleccionValida)
+								System.out.println("Opcion invalida! Vuelva a introducir su eleccion.");
+				
+						} while (!eleccionValida);
+						
 				}
+					Paciente.nuevoPaciente();
 			}
 			
 			if (eleccion== 2) {
@@ -84,6 +91,6 @@ public class Principal {
 		
 	}
 	
-	
+	public static void eleccion11() {}
 	
 }
