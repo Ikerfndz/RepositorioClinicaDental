@@ -1,4 +1,4 @@
-package Validación;
+package validacion;
 
 public class Validador {
 	
