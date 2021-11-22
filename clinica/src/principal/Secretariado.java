@@ -12,11 +12,13 @@ public class Secretariado extends Empleado {
 	public Secretariado() {
 	}
 
-	// Constructor que recibe por parametros los años de experiencia y los atributos
-	// de la clase empleado
-	// Hace una llamada al constructor principal
-	public Secretariado(String numAñosExp, Empleado empleado) {
-		super(empleado);
+	// Constructor que recibe por parametros los atributos de la clase empleado
+	// y los años de experiencia del secretario
+	// Primero hace una llamada a super para sacar los datos del empleado.
+	// Luego guarda los datos recibidos en la variable numAñosExp
+	public Secretariado(String nombre, String apellidos, String telefono, String direccion, String nif,
+			String numAñosExp) {
+		super(nombre, apellidos, telefono, direccion, nif);
 		this.numAñosExp = numAñosExp;
 	}
 
@@ -36,6 +38,7 @@ public class Secretariado extends Empleado {
 		String anios = "";
 		anios = teclado.nextLine();
 		ret.setNumAñosExp(anios);
+		teclado.close();
 		return ret;
 	}
 

@@ -17,9 +17,8 @@ public class Informe extends Secretariado{
 	protected static int numeroInformes;
 	// numeroInfoemes es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idInforme
-	
-	
 	private Informe informes[] = new Informe[10000];
+
 
 	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
 	// numero de informes en 1 y se le asignará ese valor al identificador.
@@ -49,9 +48,6 @@ public class Informe extends Secretariado{
 
 	}
 
-	void setInforme(String des) {
-	}
-
 	public Informe(String descripcion, long idInforme) {
 		super();
 		numeroInformes = numeroInformes + 1;
@@ -59,8 +55,8 @@ public class Informe extends Secretariado{
 		this.idInforme = numeroInformes;
 	}
 
-	public Informe(String numAñosExp, Empleado empleado, long idInforme, String descripcion, Informe[] informes) {
-		super(numAñosExp , empleado);
+	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, String numAñosExp, long idInforme, String descripcion, Informe[] informes) {
+		super(nombre, apellidos, telefono, direccion, nif, numAñosExp);
 		this.idInforme = idInforme;
 		this.descripcion = descripcion;
 		this.informes = informes;
