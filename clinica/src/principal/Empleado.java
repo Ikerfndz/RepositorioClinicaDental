@@ -2,15 +2,9 @@ package principal;
 
 import java.util.Scanner;
 
-public class Empleado {
+import validacion.Validador;
 
-	public Empleado(Empleado empleado) {
-		setNombre(empleado.nombre);
-		setApellidos(empleado.apellidos);
-		setTelefono(empleado.telefono);
-		setDireccion(empleado.direccion);
-		setNif(empleado.nif);
-	}
+public class Empleado {
 
 	protected long idEmpleado;
 	// id es el identificador unico de cada elemento Empleado
@@ -49,17 +43,12 @@ public class Empleado {
 		this.idEmpleado = numeroEmpleados;
 	}
 
-	// Constructor que se le pide por parametro el nombre del empleado
-	public Empleado(String nombre, int id) {
-		super();
-		numeroEmpleados = numeroEmpleados + 1;
-		this.nombre = nombre;
-		this.idEmpleado = numeroEmpleados;
-	}
-
-	public Empleado(long idEmpleado, String nombre, String apellidos, String telefono, String direccion, String nif) {
-		super();
-		this.idEmpleado = idEmpleado;
+	// Constructor que se le pide por parametro el nombre del empleado, los
+	// apellidos, el telefono, la direccion y el nif
+	// Hace una llamada al constructor por defecto.
+	// Guarda el valor del parametro introducido en la variables
+	public Empleado(String nombre, String apellidos, String telefono, String direccion, String nif) {
+		this();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.telefono = telefono;
@@ -81,30 +70,50 @@ public class Empleado {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		String nom = "";
+		String nomEmpleado = "";
 		boolean nombreEmpleadoValido = false;
-		
-		
-		System.out.println("Introduzca el nombre del empleado");
-		nom = teclado.nextLine();
-		ret.setNombre(nom);
-		
-		System.out.println("Introduzca los apellidos del empleado");
-		String ape = "";
-		ape = teclado.nextLine();
-		ret.setApellidos(ape);
-		System.out.println("Introduzca el telefono del empleado");
-		String tel = "";
-		tel = teclado.nextLine();
-		ret.setTelefono(tel);
-		System.out.println("Introduzca la direccion del empleado");
-		String dir = "";
-		dir = teclado.nextLine();
-		ret.setDireccion(dir);
-		System.out.println("Introduzca el nif del empleado");
-		String ni = "";
-		ni = teclado.nextLine();
-		ret.setNif(ni);
+		do {
+			System.out.println("Introduzca el nombre del empleado");
+			nomEmpleado = teclado.nextLine();
+			nombreEmpleadoValido = Validador.validarNombreEmpleado(nomEmpleado);
+		} while (!nombreEmpleadoValido);
+		ret.setNombre(nomEmpleado);
+
+		String apeEmpleado = "";
+		boolean apeEmpleadoValido = false;
+		do {
+			System.out.println("Introduzca los apellidos del empleado");
+			apeEmpleado = teclado.nextLine();
+			apeEmpleadoValido = Validador.validarApellidoEmpleado(apeEmpleado);
+		} while (!apeEmpleadoValido);
+		ret.setApellidos(apeEmpleado);
+
+		String telEmpleado = "";
+		boolean telEmpleadoValido = false;
+		do {
+			System.out.println("Introduzca el telefono del empleado");
+			telEmpleado = teclado.nextLine();
+			telEmpleadoValido = Validador.validarTelefonoValido(telEmpleado);
+		} while (!telEmpleadoValido);
+		ret.setTelefono(telEmpleado);
+
+		String dirEmpleado = "";
+		boolean dirEmpleadoValido = false;
+		do {
+			System.out.println("Introduzca la direccion del empleado");
+			dirEmpleado = teclado.nextLine();
+			dirEmpleadoValido = Validador.validarDireccionEmpleado(dirEmpleado);
+		} while (!dirEmpleadoValido);
+		ret.setDireccion(dirEmpleado);
+
+		String niEmpleado = "";
+		boolean niEmpleadoValido = false;
+		do {
+			System.out.println("Introduzca el nif del empleado");
+			niEmpleado = teclado.nextLine();
+			niEmpleadoValido = Validador.validarnifEmpleado(niEmpleado);
+		} while (!niEmpleadoValido);
+		ret.setNif(niEmpleado);
 
 		teclado.close();
 		return ret;
