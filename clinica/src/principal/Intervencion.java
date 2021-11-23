@@ -20,4 +20,9 @@ public class Intervencion extends Cita {
 		return "Intervencion [duracion=" + duracion + "]";
 	}
 
+	public static Intervencion nuevaIntervencion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
