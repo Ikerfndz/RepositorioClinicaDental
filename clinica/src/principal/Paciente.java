@@ -43,10 +43,10 @@ public class Paciente {
 		boolean nombreValido=false;
 		
 		do {
-			System.out.println("Introduzca el nombre del nuevo paciente");
+			System.out.println("Introduzca el nombre del nuevo paciente: ");
 			nom = teclado.nextLine();
-			nombreValido= Validador.validarNombrePaciente(nombre);
-		} while (!nombreValido(nombre));
+			nombreValido= Validador.validarNombrePaciente(nom);
+		} while (!nombreValido);
 		
 			ret.setNombre(nom);
 
@@ -59,25 +59,25 @@ public class Paciente {
 		System.out.println("Introduzca el telefono:");
 		String tel = "";
 		boolean telefonoValido=false;
-		tel = teclado.nextLine();
+		tel = teclado.next();
 		ret.setTelefono(tel);
 
 		System.out.println("Introduzca la dirección:");
 		String dir = "";
 		boolean direccionValida=false;
-		dir = teclado.nextLine();
+		dir = teclado.next();
 		ret.setDireccion(dir);
 
 		System.out.println("Introduzca la edad:");
 		String edad = "";
 		boolean edadValida=false;
-		edad = teclado.nextLine();
+		edad = teclado.next();
 		ret.setEdad(edad);
 
 		System.out.println("Introduzca el NIF.");
 		String nif = "";
 		boolean nifValido=false;
-		nif = teclado.nextLine();
+		nif = teclado.next();
 		ret.setNif(nif);
 		return ret;
 

@@ -70,6 +70,28 @@ public class Empleado {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
+<<<<<<< HEAD
+		System.out.println(" Introduzca el nombre del empleado: ");
+		String nom = "";
+		nom = teclado.nextLine();
+		ret.setNombre(nom);
+		System.out.println(" Introduzca los apellidos del empleado: ");
+		String ape = "";
+		ape = teclado.nextLine();
+		ret.setApellidos(ape);
+		System.out.println("Introduzca el telefono del empleado");
+		String tel = "";
+		tel = teclado.nextLine();
+		ret.setTelefono(tel);
+		System.out.println("Introduzca la direccion del empleado");
+		String dir = "";
+		dir = teclado.nextLine();
+		ret.setDireccion(dir);
+		System.out.println("Introduzca el nif del empleado");
+		String ni = "";
+		ni = teclado.nextLine();
+		ret.setNif(ni);
+=======
 		String nomEmpleado = "";
 		boolean nombreEmpleadoValido = false;
 		do {
@@ -114,6 +136,7 @@ public class Empleado {
 			niEmpleadoValido = Validador.validarnifEmpleado(niEmpleado);
 		} while (!niEmpleadoValido);
 		ret.setNif(niEmpleado);
+>>>>>>> branch 'main' of https://github.com/Ikerfndz/RepositorioClinicaDental.git
 
 		teclado.close();
 		return ret;

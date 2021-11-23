@@ -30,26 +30,55 @@ public class Principal {
 				} while (!eleccionValida);
 				System.out.println("Usted ha elegido la opcion: " + eleccion);
 				
-					if (eleccion== 1) {
-						do {
-							eleccion11();
-							eleccionValida = (eleccion < 1 || eleccion > 5 ? false : true);
-							if (!eleccionValida)
-								System.out.println("Opcion invalida! Vuelva a introducir su eleccion.");
-				
-						} while (!eleccionValida);
+		
 						
-				}
-					Paciente.nuevoPaciente();
-			}
+				do {
+					
+					eleccionValida = (eleccion < 1 || eleccion > 4 ? false : true);
+					if (!eleccionValida)
+						System.out.println("Opcion invalida! Vuelva a introducir su eleccion.");
+					switch (eleccion) {
+					
+						case 1:
+							Paciente.nuevoPaciente();
+							eleccionValida=true;
+							break;
+						
+						case 2:
+							Cirujano.nuevoCirujano();
+							eleccionValida=true;
+							break;
+							
+						case 3:
+							Enfermeria.nuevoEnfermero();
+							eleccionValida=true;
+							break;
+							
+						case 4 :
+							Secretariado.nuevoSecretario();
+							eleccionValida=true;
+							break;
+						
+						default:
+							eleccion=in.nextInt();
+							break;
+						
+							}			
+					
+						} while(!eleccionValida);
+					
 			
 			if (eleccion== 2) {
 				eleccion2();
+				
 			}
 			if (eleccion== 3) {
 				eleccion3();
 				
 			}
+			
+			}		
+			
 	}
 
 	public static void mostrarMenuPrincipal() {
@@ -91,6 +120,6 @@ public class Principal {
 		
 	}
 	
-	public static void eleccion11() {}
+	
 	
 }
