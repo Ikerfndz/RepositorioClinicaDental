@@ -64,7 +64,7 @@ public class Empleado {
 	// constructor anterior para establecer un nuevo empleado con todos sus
 	// atributos
 	// Finalmente se devuelven los datos introducidos
-
+     // ogvt
 	public static Empleado nuevoEmpleado() {
 		Empleado ret = new Empleado();
 		Scanner teclado;
