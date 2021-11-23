@@ -119,7 +119,7 @@ public class Validador {
 		if (niEmpleado.length() != 8) {
 			return false;
 		} else {
-			return true;
+			return true;    
 		}
 	}
 
