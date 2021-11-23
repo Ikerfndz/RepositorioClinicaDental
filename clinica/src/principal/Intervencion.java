@@ -14,11 +14,11 @@ public class Intervencion extends Cita {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		System.out.println("Introduzca la duración de la Intervención");
+		System.out.println("Introduzca la duracion de la Intervencion");
 		int minutos = teclado.nextInt();
 		minutos = teclado.nextInt();
 		ret.setDuracion(minutos);
-		System.out.println("La duración ha sido de " + minutos + " minutos.");
+		System.out.println("La duracion ha sido de " + minutos + " minutos.");
 		return ret;
 
 	}
@@ -34,6 +34,11 @@ public class Intervencion extends Cita {
 	@Override
 	public String toString() {
 		return "Intervencion [duracion=" + duracion + "]";
+	}
+
+	public static Intervencion nuevaIntervencion() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

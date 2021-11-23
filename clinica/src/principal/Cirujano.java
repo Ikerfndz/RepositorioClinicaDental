@@ -47,7 +47,7 @@ public class Cirujano extends Empleado {
 	// Especialidad pertenece a un cirujano.
 	public static Cirujano nuevoCirujano() {
 		Empleado empleado = Empleado.nuevoEmpleado();
-		Intervencion intervencion = Intervencion.nuevaIntervencion();
+		Intervencion intervencion = Intervencion.nuevaDuracion();
 		Especialidad especialidad = Especialidad.nuevaEspecialidad();
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("¿Tiene el cirujano especialidad?");
