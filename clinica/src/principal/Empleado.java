@@ -40,7 +40,7 @@ public class Empleado {
 
 	public Empleado() {
 		numeroEmpleados++;
-		this.idEmpleado = numeroEmpleados;
+		this.idEmpleado = numeroEmpleados;    
 	}
 
 	// Constructor que se le pide por parametro el nombre del empleado, los
