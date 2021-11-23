@@ -1,5 +1,7 @@
 package validacion;
 
+import java.lang.*;
+
 public class Validador {
 
 	// Medicamento
@@ -73,7 +75,7 @@ public class Validador {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	public static boolean validarDireccionPaciente(String dir) {
 		// TODO Auto-generated method stub
 		return false;
@@ -115,6 +117,15 @@ public class Validador {
 
 	public static boolean validarnifEmpleado(String niEmpleado) {
 		if (niEmpleado.length() != 8) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	// VALIDADORES SECRETARIADO
+	public static boolean validarAniosExpSecretario(String anios) {
+		if (Integer.parseInt(anios) < 0 || Integer.parseInt(anios) > 100) {
 			return false;
 		} else {
 			return true;
