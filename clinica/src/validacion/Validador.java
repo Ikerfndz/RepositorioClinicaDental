@@ -11,7 +11,10 @@ public class Validador {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	// VALIDADORES PACIENTE
+	
+	/* Con esto conseguimos que el nombre escrito tenga un minimo de 
+	 * 2 caracteres y un maximo de 30*/
 	public static boolean validarNombrePaciente(String nombre) {
 		if (nombre.length() < 2)
 			return false;
