@@ -8,7 +8,7 @@ public class Empleado {
 
 	protected long idEmpleado;
 	// id es el identificador unico de cada elemento Empleado
-	// es un valor entero > 0
+	// es un valor entero > 0     
 	// el valor de idEmpleado se va rellenando automaticamente cada vez que se hace
 	// llamada a uno de sus constructores
 	protected String nombre;
