@@ -3,7 +3,7 @@ package principal;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import Validación.Validador;
+
 
 public class Paciente {
 
@@ -59,24 +59,29 @@ public class Paciente {
 		
 		String nom = "";
 		boolean nombreValido=false;
-		
 		do {
 			System.out.println("Introduzca el nombre del nuevo paciente: ");
 			nom = teclado.nextLine();
-			nombreValido= Validador.validarNombrePaciente(nom);
+			nombreValido= validarNombrePaciente(nom);
 		} while (!nombreValido);
 		ret.setNombre(nom);
 
-		System.out.println("Introduzca el telefono:");
 		String tel = "";
 		boolean telefonoValido=false;
-		tel = teclado.next();
+		do {
+			System.out.println("Introduzca el telefono:");
+			tel = teclado.next();
+			telefonoValido=validarTelefonoPaciente(tel);
+		} while(!telefonoValido);
 		ret.setTelefono(tel);
 
-		System.out.println("Introduzca la dirección:");
 		String dir = "";
 		boolean direccionValida=false;
-		dir = teclado.next();
+		do {
+			System.out.println("Introduzca la dirección:");
+			dir = teclado.next();
+			direccionValida= validarDireccionPaciente(dir);
+		} while (!direccionValida);
 		ret.setDireccion(dir);
 
 		System.out.println("Introduzca la edad:");
@@ -98,12 +103,18 @@ public class Paciente {
 	
 	
 	
-	private static boolean nombreValido(String nombre2) {
+	public static boolean validarDireccionPaciente(String dir) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	private static boolean validarNombrePaciente(String nombre2) {
+	public static boolean validarTelefonoPaciente(String tel) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	public static boolean validarNombrePaciente(String nombre2) {
 		// TODO Auto-generated method stub
 		return false;
 	}

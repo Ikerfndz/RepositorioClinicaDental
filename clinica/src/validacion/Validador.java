@@ -69,6 +69,15 @@ public class Validador {
 			return true;
 	}
 
+	public static boolean validarTelefonoPaciente(String tel) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public static boolean validarDireccionPaciente(String dir) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	// VALIDADORES EMPLEADO
 
 	public static boolean validarNombreEmpleado(String nomEmpleado) {
