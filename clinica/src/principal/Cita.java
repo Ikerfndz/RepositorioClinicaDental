@@ -6,33 +6,34 @@ import java.util.Scanner;
 public class Cita {
 	// idCita representa al identificador unico de la cita.
 	// es un valos entero >0.
-	private long idCita;
+	protected long idCita;
 	// fecha representa el dia indicado para la cita.
 	// hora representa la hora a la que se realizara la cita.
 	// Seran para ambos la funcion LocalDate.
 
-	private LocalDate fecha, hora;
+	protected LocalDate fecha, hora;
 	// rango representa el horario preferido por el cliente siendo de mañana o de
 	// tarde.
 	// Es un char que representara una "M" para las mañanas y una "T" para las
 	// tardes.
 	// No se aceptara mas de un caracter.
-	private char rango;
+	protected char rango;
 
 	public static Cita nuevaFecha() {
 		Cita ret = new Cita();
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		System.out.println("Introduzca la nueva fecha");
-		String nom = "";
-		nom = teclado.nextLine();
-		ret.setFecha(nom);
+		System.out.println("Introduce la nueva fecha: ");
+		LocalDate fecha = "";
+		fecha = teclado.nextLine();
+		ret.setFecha(fecha);
+
+		System.out.println("Introduce la hora: ");
+		LocalDate hora = "";
+		hora = teclado.nextLine();
+		ret.setFecha(hora);
 		return ret;
-	}
-
-	private void setFecha(final String nom) {
-
 	}
 
 	public long getIdCita() {
@@ -72,4 +73,5 @@ public class Cita {
 		return "Cita [idCita=" + idCita + ", fecha=" + fecha + ", hora=" + hora + ", rango=" + rango + "]";
 	}
 
+	
 }

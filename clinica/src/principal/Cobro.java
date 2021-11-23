@@ -14,62 +14,84 @@ public class Cobro {
 
 	// fecha almacena la fecha en la que se realiza el cobro
 	// es de tipo Localdate porque almacena una fecha
-	protected Localdate fecha;
+	protected LocalDate fecha;
 
+	// Variable que utilizaremos para completar de forma automática el identificador
+	// del cobro.
+	private static int numeroCobros = 0;
+
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
+	// numero de cobros en 1 y se le asignará ese valor al identificador.
+	public Cobro() {
+		numeroCobros = numeroCobros + 1;
+		idCobro = numeroCobros;
+	}
+
+	// Constructor que se le pide por parametro el nombre de la especialidad.
+	// Hace una llamada al constructor por defecto.
+	// Guarda el valor del parametro introducido en la variable nombeesp.
+	public Cobro(double importe, LocalDate fecha) {
+		numeroCobros = numeroCobros + 1;
+		idCobro = numeroCobros;
+		this.importe = importe;
+		this.fecha = fecha;
+	}
+
+	// Método encargado de guardar el nuevo cobro.
+	// Se le pide al usuario que escriba el importe y la fecha del cobro y se guarda
+	// en
+	// una variable auxiliar.
+	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// constructor anterior.
+	// Finalmente devolvemos los datos introducidos.
 	public static Cobro nuevoCobro() {
 
 		Cobro ret = new Cobro();
 		Scanner teclado = new Scanner(System.in);
-
-		System.out.println("Introduce el id del nuevo cobro: ");
-		String idCobro = "";
-		idCobro = teclado.nextLine();
-		ret.setIdCobro(idCobro);
 
 		System.out.println("Introduce el importe: ");
 		double importe = 0;
 		importe = teclado.nextDouble();
 		ret.setImporte(importe);
 
-		System.out.println("Introduce la fecha: ");
-		Localdate fecha = "";
-		fecha = teclado.nextLine();
+		System.out.println("Introduce la fecha del cobro: ");
+		String fech = "";
+		LocalDate fecha = LocalDate.now();
+		fech = teclado.nextLine();
+		fecha = LocalDate.parse(fech);
 		ret.setFecha(fecha);
 
 		return ret;
 
 	}
 
+	// Getters y setters
+
 	public long getIdCobro() {
 		return idCobro;
 	}
-
 
 	public void setIdCobro(long idCobro) {
 		this.idCobro = idCobro;
 	}
 
-
 	public double getImporte() {
 		return importe;
 	}
-
 
 	public void setImporte(double importe) {
 		this.importe = importe;
 	}
 
-
-	public Localdate getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
-
-	public void setFecha(Localdate fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 
-
+	// ToString
 	@Override
 	public String toString() {
 		return "Cobro [idCobro=" + idCobro + ", importe=" + importe + "]";
