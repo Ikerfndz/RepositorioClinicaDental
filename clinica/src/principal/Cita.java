@@ -21,19 +21,27 @@ public class Cita {
 
 	public static Cita nuevaFecha() {
 		Cita ret = new Cita();
-		Scanner teclado;
-		teclado = new Scanner(System.in);
+		Scanner teclado = new Scanner(System.in);
 
 		System.out.println("Introduce la nueva fecha: ");
-		LocalDate fecha = "";
-		fecha = teclado.nextLine();
+		String fechaCita = "";
+		LocalDate fecha = LocalDate.now();
+		fechaCita = teclado.nextLine();
+		fecha = LocalDate.parse(fechaCita);
 		ret.setFecha(fecha);
 
 		System.out.println("Introduce la hora: ");
-		LocalDate hora = "";
-		hora = teclado.nextLine();
-		ret.setFecha(hora);
+		String horaCita = "";
+		LocalDate hora = LocalDate.now();
+		horaCita = teclado.nextLine();
+		ret.setHora(horaCita);
 		return ret;
+
+	}
+
+	public void setHora(String horaCita) {
+		// TODO Auto-generated method stub
+
 	}
 
 	public long getIdCita() {
@@ -73,5 +81,4 @@ public class Cita {
 		return "Cita [idCita=" + idCita + ", fecha=" + fecha + ", hora=" + hora + ", rango=" + rango + "]";
 	}
 
-	
 }
