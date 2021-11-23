@@ -49,15 +49,28 @@ public class Cobro {
 		Cobro ret = new Cobro();
 		Scanner teclado = new Scanner(System.in);
 
-		System.out.println("Introduce el importe: ");
+		// importe del cobro
 		double importe = 0;
-		importe = teclado.nextDouble();
+		boolean importeValido = false;
+		do {
+			System.out.println("Introduce el importe: ");
+			importe = teclado.nextDouble();
+			importeValido = validarImporteCobro(importe);
+		} while (!importeValido);
+
+		teclado.close();
 		ret.setImporte(importe);
 
-		System.out.println("Introduce la fecha del cobro: ");
+		// fecha del cobro
 		String fech = "";
+		boolean fechaValida = false;
+		do {
+			System.out.println("Introduce la fecha del cobro: ");
+			fech = teclado.nextLine();
+			fechaValida = validarFechaCobro(fech);
+		} while (!fechaValida);
+
 		LocalDate fecha = LocalDate.now();
-		fech = teclado.nextLine();
 		fecha = LocalDate.parse(fech);
 		ret.setFecha(fecha);
 
@@ -65,8 +78,16 @@ public class Cobro {
 
 	}
 
-	// Getters y setters
+	// Validadores
+	public static boolean validarImporteCobro(double importe2) {
+		return false;
+	}
 
+	public static boolean validarFechaCobro(String fech) {
+		return false;
+	}
+
+	// Getters y setters
 	public long getIdCobro() {
 		return idCobro;
 	}

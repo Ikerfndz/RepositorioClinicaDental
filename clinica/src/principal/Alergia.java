@@ -2,8 +2,6 @@ package principal;
 
 import java.util.Scanner;
 
-import Validación.Validador;
-
 public class Alergia extends Historial {
 
 	// idAlergia es el identificador único de cada elemento Alergia
@@ -24,16 +22,16 @@ public class Alergia extends Historial {
 		numeroAlergias = numeroAlergias + 1;
 		idAlergia = numeroAlergias;
 	}
-	
+
 	// Constructor que se le pide por parametro el nombre de la alergia.
 	// Hace una llamada al constructor por defecto.
 	// Guarda el valor del parametro introducido en la variable nombreAlergia.
-		public Alergia(String nombreAlergia) {
-			numeroAlergias = numeroAlergias + 1;
-			idAlergia = numeroAlergias;
-			this.nombreAlergia = nombreAlergia;
-		}
-		
+	public Alergia(String nombreAlergia) {
+		numeroAlergias = numeroAlergias + 1;
+		idAlergia = numeroAlergias;
+		this.nombreAlergia = nombreAlergia;
+	}
+
 	// Método encargado de guardar la nueva alergia de un paciente.
 	// Se le pide al usuario que escriba el nombre de la alergia y se guarda en
 	// una variable auxiliar.
@@ -43,20 +41,26 @@ public class Alergia extends Historial {
 
 	public static Alergia nuevaAlergia() {
 		Scanner teclado = new Scanner(System.in);
-	
+
 		String nom = "";
 		boolean nomValido = false;
 
 		do {
 			System.out.println("Introduce el nombre de la alergia (en el caso de que así sea): ");
 			nom = teclado.nextLine();
-			nomValido = Validador.validarNombreAlergia(nom);
+			nomValido = validarNombreAlergia(nom);
 		} while (!nomValido);
 		teclado.close();
 		return new Alergia();
 	}
 
-	//Getters y setters
+	// Validadores
+
+	private static boolean validarNombreAlergia(String nom) {
+		return false;
+	}
+
+	// Getters y setters
 
 	public long getIdAlergia() {
 		return idAlergia;
@@ -82,7 +86,7 @@ public class Alergia extends Historial {
 		Alergia.numeroAlergias = numeroAlergias;
 	}
 
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
 		return "Alergia [idAlergia=" + idAlergia + ", nombreAlergia=" + nombreAlergia + "]";

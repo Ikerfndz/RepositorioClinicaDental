@@ -54,6 +54,7 @@ public class Medicamento extends Alergia {
 		Medicamento ret = new Medicamento();
 		Scanner teclado = new Scanner(System.in);
 
+		// nombreMedicamento
 		String nombre = "";
 		boolean nombreValido = false;
 
@@ -66,28 +67,49 @@ public class Medicamento extends Alergia {
 		teclado.close();
 		ret.setNombreMedicamento(nombre);
 
-		System.out.println("Introduce el nombre del principio activo: ");
+		// nombrePrincipioActivo
 		String principioActivo = "";
-		principioActivo = teclado.nextLine();
+		boolean nombrepValido = false;
+
+		do {
+			System.out.println("Introduce el nombre del principio activo: ");
+			principioActivo = teclado.nextLine();
+			nombrepValido = validarPrincipioActivo(principioActivo);
+		} while (!nombrepValido);
+
 		teclado.close();
 		ret.setPrincipioActivo(principioActivo);
 
-		System.out.print("Introduce la dosis máxima diaria: ");
+		// dosisMáxima
 		double dosisMaximaDiaria = 0;
-		dosisMaximaDiaria = teclado.nextDouble();
+		boolean dosisValida = false;
+
+		do {
+			System.out.print("Introduce la dosis máxima diaria: ");
+			dosisMaximaDiaria = teclado.nextDouble();
+			dosisValida = validarDosisMaxima(dosisMaximaDiaria);
+		} while (!dosisValida);
+
 		ret.setDosisMaxDiaria(dosisMaximaDiaria);
 
 		return new Medicamento();
 	}
-	
-	//Validadores
 
-	private static boolean validarNombreMedicamento(String nombre) {
+	// Validadores
+
+	public static boolean validarNombreMedicamento(String nombre) {
+		return false;
+	}
+
+	public static boolean validarPrincipioActivo(String principioActivo2) {
+		return false;
+	}
+
+	public static boolean validarDosisMaxima(double dosisMaximaDiaria) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	//Getters y setters
+	// Getters y setters
 
 	public long getIdMedicamento() {
 		return idMedicamento;
@@ -129,7 +151,7 @@ public class Medicamento extends Alergia {
 		this.dosisMaxDiaria = dosisMaxDiaria;
 	}
 
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
 		return "Medicamento [idMedicamento=" + idMedicamento + ", nombreMedicamento=" + nombreMedicamento
