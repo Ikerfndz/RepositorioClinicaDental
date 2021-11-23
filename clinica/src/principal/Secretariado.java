@@ -8,14 +8,27 @@ public class Secretariado extends Empleado {
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50
 	// no acepta numeros ni caracteres especiales
 
+	// Constructor por defecto de la clase Secretariado
 	public Secretariado() {
 	}
 
-	public Secretariado(String numAñosExp, Empleado empleado) {
-		super(empleado);
+	// Constructor que recibe por parametros los atributos de la clase empleado
+	// y los años de experiencia del secretario
+	// Primero hace una llamada a super para sacar los datos del empleado.
+	// Luego guarda los datos recibidos en la variable numAñosExp
+	public Secretariado(String nombre, String apellidos, String telefono, String direccion, String nif,
+			String numAñosExp) {
+		super(nombre, apellidos, telefono, direccion, nif);
 		this.numAñosExp = numAñosExp;
 	}
 
+	// Metodo nuevoSecretario -> encargado de guardar los años de experiencia de un
+	// secretario
+	// Se le pide al usuario que ingrese los años de experiencia y los guarda en una
+	// variable auxiliar
+	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// constructor anterior para establecer el numero de años de experiencia
+	// Finalmente devolvemos los datos introducidos.
 	public static Secretariado nuevoSecretario() {
 		Secretariado ret = new Secretariado();
 		Scanner teclado;
@@ -25,9 +38,11 @@ public class Secretariado extends Empleado {
 		String anios = "";
 		anios = teclado.nextLine();
 		ret.setNumAñosExp(anios);
+		teclado.close();
 		return ret;
 	}
 
+	// Getters y setters
 	public String getNumAñosExp() {
 		return numAñosExp;
 	}
@@ -36,6 +51,7 @@ public class Secretariado extends Empleado {
 		this.numAñosExp = numAñosExp;
 	}
 
+	// To String
 	@Override
 	public String toString() {
 		return "Secretariado [numAñosExp=" + numAñosExp + ", idEmpleado=" + idEmpleado + ", nombre=" + nombre

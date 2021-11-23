@@ -10,21 +10,40 @@ public class Alergia extends Historial {
 	protected long idAlergia;
 
 	// nombre representa el nombre de la alergia
-	// Es una cadena de caracteres de longiyud mínimo 3 y máximo 50 caracteres
+	// Es una cadena de caracteres de longitud mínimo 3 y máximo 50 caracteres
 	// No acepta dígitos ni caracteres especiales
-	protected String nombre;
+	protected String nombreAlergia;
 
+	// Variable que utilizaremos para completar de forma automática el identificador
+	// de la alergia.
+	private static int numeroAlergias = 0;
+
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
+	// numero de alergias en 1 y se le asignará ese valor al identificador.
 	public Alergia() {
-
+		numeroAlergias = numeroAlergias + 1;
+		idAlergia = numeroAlergias;
 	}
+	
+	// Constructor que se le pide por parametro el nombre de la alergia.
+	// Hace una llamada al constructor por defecto.
+	// Guarda el valor del parametro introducido en la variable nombreAlergia.
+		public Alergia(String nombreAlergia) {
+			numeroAlergias = numeroAlergias + 1;
+			idAlergia = numeroAlergias;
+			this.nombreAlergia = nombreAlergia;
+		}
+		
+	// Método encargado de guardar la nueva alergia de un paciente.
+	// Se le pide al usuario que escriba el nombre de la alergia y se guarda en
+	// una variable auxiliar.
+	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// constructor anterior para establecer el nombre de la alergia
+	// Finalmente devolvemos los datos introducidos.
 
 	public static Alergia nuevaAlergia() {
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce la id de la alergia (en el caso de que así sea): ");
-		long idAlergia = 0;
-		idAlergia = teclado.nextLong();
-		teclado.close();
-
+	
 		String nom = "";
 		boolean nomValido = false;
 
@@ -37,6 +56,8 @@ public class Alergia extends Historial {
 		return new Alergia();
 	}
 
+	//Getters y setters
+
 	public long getIdAlergia() {
 		return idAlergia;
 	}
@@ -45,17 +66,26 @@ public class Alergia extends Historial {
 		this.idAlergia = idAlergia;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getNombreAlergia() {
+		return nombreAlergia;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombreAlergia(String nombreAlergia) {
+		this.nombreAlergia = nombreAlergia;
 	}
 
+	public static int getNumeroAlergias() {
+		return numeroAlergias;
+	}
+
+	public static void setNumeroAlergias(int numeroAlergias) {
+		Alergia.numeroAlergias = numeroAlergias;
+	}
+
+	//ToString
 	@Override
 	public String toString() {
-		return "Alergia [idAlergia=" + idAlergia + ", nombre=" + nombre + "]";
+		return "Alergia [idAlergia=" + idAlergia + ", nombreAlergia=" + nombreAlergia + "]";
 	}
 
 }

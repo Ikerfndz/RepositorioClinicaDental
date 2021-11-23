@@ -21,19 +21,44 @@ public class Pago {
 	// No acepta dígitos ni caracteres especiales
 	protected String metododePago;
 
+	// Variable que utilizaremos para completar de forma automática el identificador
+	// del cobro.
+	private static int numeroPagos = 0;
+
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
+	// numero de cobros en 1 y se le asignará ese valor al identificador.
+	public Pago() {
+			numeroPagos = numeroPagos + 1;
+			idPago = numeroPagos;
+		}
+
+	// Constructor que se le pide por parametro el nombre de la especialidad.
+	// Hace una llamada al constructor por defecto.
+	// Guarda el valor del parametro introducido en la variable nombeesp.
+	public Pago(double importe, LocalDate fecha, String metododePago) {
+			numeroPagos = numeroPagos + 1;
+			idPago = numeroPagos;
+			this.importe = importe;
+			this.fecha = fecha;
+			this.metododePago = metododePago;
+		}
+	
+	// Método encargado de guardar los nuevos pagos de un Paciente.
+	// Se le pide al usuario que escriba la fecha, el importe y el método de pago y se guarda en
+	// una variable auxiliar.
+	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// constructor anterior.
+	// Finalmente devolvemos los datos introducidos.
 	public static Pago nuevoPago() {
 
 		Pago ret = new Pago();
 		Scanner teclado = new Scanner(System.in);
 
-		System.out.println("Introduce el id del nuevo pago: ");
-		long idPago = 0;
-		idPago = teclado.nextLong();
-		ret.setIdPago(idPago);
-
 		System.out.println("Introduce la fecha del pago: ");
-		LocalDate fecha = "";
-		fecha = teclado.nextLocalDate();
+		String fech = "";
+		LocalDate fecha = LocalDate.now();
+		fech = teclado.nextLine();
+		fecha = LocalDate.parse(fech);
 		ret.setFecha(fecha);
 
 		System.out.println("Introduce el importe del pago: ");
@@ -48,6 +73,8 @@ public class Pago {
 
 		return ret;
 	}
+	
+	//Getters y setters
 
 	public long getIdPago() {
 		return idPago;
@@ -80,7 +107,9 @@ public class Pago {
 	public void setMetododePago(String metododePago) {
 		this.metododePago = metododePago;
 	}
+	
 
+	//ToString
 	@Override
 	public String toString() {
 		return "Pago [idPago=" + idPago + ", fecha=" + fecha + ", importe=" + importe + ", metododePago=" + metododePago
