@@ -2,7 +2,6 @@ package validacion;
 
 public class Validador {
 
-
 	// Medicamento
 	public static boolean validarNombreMedicamento(String nombre2) {
 		return false;
@@ -55,6 +54,12 @@ public class Validador {
 	}
 
 	// Paciente
+
+	// VALIDADORES PACIENTE
+	/*
+	 * Con esto conseguimos que el nombre escrito tenga un minimo de 2 caracteres y
+	 * un maximo de 30
+	 */
 	public static boolean validarNombrePaciente(String nombre) {
 		if (nombre.length() < 2)
 			return false;

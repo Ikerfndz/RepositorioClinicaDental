@@ -7,9 +7,7 @@ import Validación.Validador;
 
 public class Paciente {
 
-	public Paciente() {
-
-	}
+	
 	// nombre representa el nombre del paciente.
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50.
 	// no acepta numeros ni caracteres especiales .
@@ -29,10 +27,30 @@ public class Paciente {
 	// nif representa nif del paciente
 	// esta formado por 8 digitos y 1 caracter
 	private String nif;
+	// numeroPacientes es de tipo entero
+	// esta variable nos permitira completar de forma automatica el idPaciente
+	private static int numeroPacientes = 0;
 	
 	private Historial historial = new Historial();
 	private Tratamiento tratamientos[] = new Tratamiento[10];
 
+	// Constructor por defecto que cada vez que le hagamos una llamada aumentara el
+	// valor de numeroPacientes en 1 y se le asignara ese valor al idPaciente
+	public Paciente () {
+		numeroPacientes++;
+		this.idPaciente = numeroPacientes;}
+	
+	public Paciente (String nombre, String edad, String telefono, String direccion, String nif) {
+		this();
+		this.nombre = nombre;
+		this.edad = edad;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.nif = nif;
+	}
+
+	
+	 // Metodo nuevoPaciente encargado de registrar a un nuevo paciente
 	public static Paciente nuevoPaciente() {
 		Paciente ret = new Paciente();
 		Scanner teclado;
@@ -47,14 +65,7 @@ public class Paciente {
 			nom = teclado.nextLine();
 			nombreValido= Validador.validarNombrePaciente(nom);
 		} while (!nombreValido);
-		
-			ret.setNombre(nom);
-
-		System.out.println("Introduzca el id del nuevo paciente");
-		long id = 0;
-		boolean idPacienteValido=false;
-		id = teclado.nextLong();
-		ret.setIdPaciente(id);
+		ret.setNombre(nom);
 
 		System.out.println("Introduzca el telefono:");
 		String tel = "";
@@ -83,6 +94,10 @@ public class Paciente {
 
 	}
 
+	
+	
+	
+	
 	private static boolean nombreValido(String nombre2) {
 		// TODO Auto-generated method stub
 		return false;

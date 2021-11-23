@@ -117,5 +117,4 @@ public class Cobro {
 	public String toString() {
 		return "Cobro [idCobro=" + idCobro + ", importe=" + importe + "]";
 	}
-
 }
