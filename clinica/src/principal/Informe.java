@@ -3,10 +3,10 @@ package principal;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Informe extends Secretariado{
-	
+public class Informe extends Secretariado {
+
 	private long idInforme;
-	// 	id es el identificador unico de cada elemento Informe
+	// id es el identificador unico de cada elemento Informe
 	// es un valor entero > 0
 	// el valor de idInforme se va rellenando automaticamente cada vez que se hace
 	// llamada a uno de sus constructores
@@ -18,7 +18,6 @@ public class Informe extends Secretariado{
 	// numeroInfoemes es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idInforme
 	private Informe informes[] = new Informe[10000];
-
 
 	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
 	// numero de informes en 1 y se le asignará ese valor al identificador.
@@ -48,14 +47,15 @@ public class Informe extends Secretariado{
 
 	}
 
-	public Informe(String descripcion, long idInforme) {
-		super();
-		numeroInformes = numeroInformes + 1;
-		this.descripcion = descripcion;
-		this.idInforme = numeroInformes;
-	}
-
-	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, String numAñosExp, long idInforme, String descripcion, Informe[] informes) {
+	// // Constructor que recibe por parametros los atributos de la clase empleado,
+	// los de la clase secretariado y la descripcion de cada informe
+	// Hace una llamada al constructor por defecto (que permite introducir el
+	// idInforme)
+	// Despues hace una llamada a super para sacar los datos de las clases padre:
+	// empleado y secretariado.
+	// Luego guarda los datos recibidos en la variables descripcion y informes.
+	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, String numAñosExp,
+			long idInforme, String descripcion, Informe[] informes) {
 		super(nombre, apellidos, telefono, direccion, nif, numAñosExp);
 		this.idInforme = idInforme;
 		this.descripcion = descripcion;
@@ -103,10 +103,5 @@ public class Informe extends Secretariado{
 				+ nombre + ", apellidos=" + apellidos + ", telefono=" + telefono + ", direccion=" + direccion + ", nif="
 				+ nif + "]";
 	}
-	
-	
 
-
-	}
-
-
+}
