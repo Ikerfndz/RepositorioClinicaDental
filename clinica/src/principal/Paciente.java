@@ -29,7 +29,7 @@ public class Paciente {
 	private String nif;
 	// numeroPacientes es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idPaciente
-	private static int numeroPacientes = 0;
+	private static long numeroPacientes = 0;
 	
 	private Historial historial = new Historial();
 	private Tratamiento tratamientos[] = new Tratamiento[10];
