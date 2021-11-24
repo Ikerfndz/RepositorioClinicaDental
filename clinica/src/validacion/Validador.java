@@ -14,7 +14,7 @@ public class Validador {
 	}
 
 	public static boolean validarDosisMaxima(double dosisMaximaDiaria) {
-		// con este if else conseguimos que el programa de error si la dosis máxima
+		// con este if else conseguimos que el programa de error si la dosis mï¿½xima
 		// diaria es menor de 1
 		if (dosisMaximaDiaria < 1)
 			return false;
@@ -42,9 +42,9 @@ public class Validador {
 	}
 
 	public static boolean validarMetodoPago(String metododePago) {
-		// con este if else nos encargamos de que el paciente sólo pueda escribir
+		// con este if else nos encargamos de que el paciente sï¿½lo pueda escribir
 		// dos tipos de pago distintos: efectivo o tarjeta, sino es ninguno
-		// de estos dos, dará un error
+		// de estos dos, darï¿½ un error
 		if (metododePago == "Efectivo" && metododePago == "Tarjeta")
 			return true;
 		else
@@ -167,9 +167,9 @@ public class Validador {
 	// VALIDADORES SECRETARIADO
 
 	// validarAniosExpSecretariado es un metodo que recibe como argumento la
-	// variable auxiliar anios, para validar el numero de años del empleado
+	// variable auxiliar anios, para validar el numero de aï¿½os del empleado
 	// En este caso, mediante la clase Integer, que nos permite pasar un dato de
-	// tipo string a int, decimos que el numero de años de experiencia introducidos
+	// tipo string a int, decimos que el numero de aï¿½os de experiencia introducidos
 	// sera invalido si es menor que 0 o mayor que 100
 	// En caso de que no fuera asi, seria aceptada
 	public static boolean validarAniosExpSecretario(String anios) {
@@ -179,5 +179,24 @@ public class Validador {
 			return true;
 		}
 	}
+	// Cita
+	
 
+		public static boolean validarFechaCita(String fechaCita) {
+			return false;
+		}
+		public static boolean validarHoraCita(String horaCita) {
+			return false;
+		}
+
+	//Intervencion
+		
+		public static boolean validarDuracion(int minutos) {
+			return false;
+		}
+	//Revision
+		
+		public static boolean validarAnotacion(String comt) {
+			return false;
+		}
 }

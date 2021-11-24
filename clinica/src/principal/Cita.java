@@ -19,6 +19,12 @@ public class Cita {
 	// No se aceptara mas de un caracter.
 	protected char rango;
 
+	private static long numeroPacientes=0;
+	public Cita() {
+		numeroPacientes++;
+		this.idCita=numeroPacientes;
+	}
+	
 	public static Cita nuevaFecha() {
 		Cita ret = new Cita();
 		Scanner teclado = new Scanner(System.in);
