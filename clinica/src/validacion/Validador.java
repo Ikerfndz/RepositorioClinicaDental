@@ -179,5 +179,24 @@ public class Validador {
 			return true;
 		}
 	}
-
+	
+	// VALIDADORES PERSONA
+	
+	
+	public static boolean validarEdadEmpleado(int edadPersona) {
+		if (edadPersona > 1 || edadPersona < 130);
+			return false;
+	}
+	
+	
+	
+	public static boolean validarNombrePersona(String nombrePersona) {
+		if (nombrePersona.length() < 2)
+			return false;
+		else if (nombrePersona.length() > 30)
+			return false;
+		return true;
+	}
+		
 }
+
