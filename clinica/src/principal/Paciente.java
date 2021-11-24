@@ -171,7 +171,7 @@ public class Paciente {
 		this.direccion = direccion;
 	}
 
-	public String getEdad() {
+	public int getEdad() {
 		return edad;
 	}
 
