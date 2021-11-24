@@ -191,11 +191,15 @@ public class Validador {
 	//Intervencion
 		
 		public static boolean validarDuracion(int minutos) {
+			if (minutos > 0 || minutos < 999)
+				;
 			return false;
 		}
 	//Revision
 		
 		public static boolean validarAnotacion(String comt) {
+			if (comt.length() > 1 || comt.length() < 2000)
+				return false;
 			return false;
 		}
 	

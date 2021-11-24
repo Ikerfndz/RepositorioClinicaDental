@@ -2,6 +2,8 @@ package principal;
 
 import java.util.Scanner;
 
+import validacion.Validador;
+
 public class Intervencion extends Cita {
 
 	// duracion representa el tiempo que dura la Intervencion.
@@ -14,13 +16,24 @@ public class Intervencion extends Cita {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		System.out.println("Introduzca la duracion de la Intervencion");
-		int minutos = teclado.nextInt();
-		minutos = teclado.nextInt();
+		int minutos;
+		boolean duracionValido = false;
+		do {
+			System.out.println("Introduzca la duracion de la Intervencion");
+			minutos = teclado.nextInt();
+			minutos = validarDuracion(minutos);
+		} while (!duracionValido);
 		ret.setDuracion(minutos);
+
 		System.out.println("La duracion ha sido de " + minutos + " minutos.");
+
 		return ret;
 
+	}
+
+	private static int validarDuracion(int minutos) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	public int getDuracion() {
