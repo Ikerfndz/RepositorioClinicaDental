@@ -30,6 +30,11 @@ public class Cita {
 		fecha = LocalDate.parse(fechaCita);
 		ret.setFecha(fecha);
 
+		char rango;
+		System.out.print("Introduce mañana o tarde: ");
+		rango = teclado.next().charAt(0); // se obtiene el primer carácter del String introducido por teclado
+		System.out.println("Carácter introducido -> " + rango);
+
 		System.out.println("Introduce la hora: ");
 		String horaCita = "";
 		LocalDate hora = LocalDate.now();
