@@ -8,7 +8,7 @@ public class Empleado {
 
 	protected long idEmpleado;
 	// id es el identificador unico de cada elemento Empleado
-	// es un valor entero > 0     
+	// es un valor entero > 0
 	// el valor de idEmpleado se va rellenando automaticamente cada vez que se hace
 	// llamada a uno de sus constructores
 	protected String nombre;
@@ -38,10 +38,9 @@ public class Empleado {
 	// Constructor por defecto -> cada vez que le hagamos una llamada aumentara el
 	// valor de numeroEmpleados en 1 y se le asignara ese valor al idEmpleado
 
-	
 	public Empleado() {
 		numeroEmpleados++;
-		this.idEmpleado = numeroEmpleados;    
+		this.idEmpleado = numeroEmpleados;
 	}
 
 	// Constructor que se le pide por parametro el nombre del empleado, los
@@ -56,9 +55,14 @@ public class Empleado {
 		this.direccion = direccion;
 		this.nif = nif;
 	}
-		
-	public Empleado(Empleado empleado) {
-		
+
+	// Constructor de copia -> para copiar los atributos de la clase padre empleado
+	public Empleado(Empleado e) {
+		this.nombre = e.getNombre();
+		this.apellidos = e.getApellidos();
+		this.telefono = e.getTelefono();
+		this.direccion = e.getDireccion();
+		this.nif = e.getNif();
 	}
 
 	// Metodo nuevoEmpleado -> encargado de registrar a un nuevo empleado

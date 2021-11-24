@@ -172,8 +172,8 @@ public class Validador {
 	// tipo string a int, decimos que el numero de a�os de experiencia introducidos
 	// sera invalido si es menor que 0 o mayor que 100
 	// En caso de que no fuera asi, seria aceptada
-	public static boolean validarAniosExpSecretario(String anios) {
-		if (Integer.parseInt(anios) < 0 || Integer.parseInt(anios) > 100) {
+	public static boolean validarAniosExpSecretario(int anios) {
+		if (anios < 0 || anios > 100) {
 			return false;
 		} else {
 			return true;
@@ -217,6 +217,22 @@ public class Validador {
 			return false;
 		return true;
 	}
+	
+	// VALIDADORES INFORME
+
+		// validardescripcionInforme es un metodo que recibe como argumento la variable
+		// auxiliar des, para validar la descripcion de cada informe
+		// des sera valida si la longitud de la descripcion del informe introducida no
+		// tiene menos de 10 o mas de 500 caracteres
+		// en caso contrario la descripcion introducida no sera valida
+
+		public static boolean validardescripcionInforme(String des) {
+			if (des.length() < 10 || des.length() > 500) {
+				return false;
+			} else {
+				return true;
+			}
+		}
 		
 }
 
