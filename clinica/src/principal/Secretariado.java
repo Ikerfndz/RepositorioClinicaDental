@@ -5,10 +5,9 @@ import java.util.Scanner;
 import validacion.Validador;
 
 public class Secretariado extends Empleado {
-	protected String numAñosExp;
+	protected int numAñosExp;
 	// almacena los años de experiencia de un secretario
-	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50
-	// no acepta numeros ni caracteres especiales
+	// se almacenan en una variable de tipo int
 
 	// Constructor por defecto de la clase Secretariado
 	public Secretariado() {
@@ -19,9 +18,19 @@ public class Secretariado extends Empleado {
 	// Primero hace una llamada a super para sacar los datos del empleado.
 	// Luego guarda los datos recibidos en la variable numAñosExp
 	public Secretariado(String nombre, String apellidos, String telefono, String direccion, String nif,
-			String numAñosExp) {
+			int numAñosExp) {
 		super(nombre, apellidos, telefono, direccion, nif);
 		this.numAñosExp = numAñosExp;
+	}
+
+//	public Secretariado(Empleado e, int aniosExp) {
+//		super(e.getNombre(), e.getApellidos(), e.gettelefono(), e.getdireccion(), e.getnif());
+//		this.numAñosExp = aniosExp;		
+//	}
+	
+	public Secretariado(Empleado e, int aniosExp) {
+		super(e);
+		this.numAñosExp = aniosExp;
 	}
 
 	// Metodo nuevoSecretario -> encargado de guardar los años de experiencia de un
@@ -36,11 +45,11 @@ public class Secretariado extends Empleado {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 		
-		String anios="";
+		int anios=0;
 		boolean aniosExpvalidoSecretario=false;
 		do {
 		System.out.println("Introduzca los años de experiencia del secretario");
-		anios = teclado.nextLine();
+		anios = teclado.nextInt();
 		aniosExpvalidoSecretario=Validador.validarAniosExpSecretario(anios);
 		} while(!aniosExpvalidoSecretario);
 		teclado.close();
@@ -48,11 +57,11 @@ public class Secretariado extends Empleado {
 	}
 
 	// Getters y setters
-	public String getNumAñosExp() {
+	public int getNumAñosExp() {
 		return numAñosExp;
 	}
 
-	public void setNumAñosExp(String numAñosExp) {
+	public void setNumAñosExp(int numAñosExp) {
 		this.numAñosExp = numAñosExp;
 	}
 
