@@ -55,55 +55,43 @@ public class Validador {
 		return false;
 	}
 
-	
-
 	// VALIDADORES PACIENTE
-	
+
 	public static boolean validarNombrePaciente(String nomPaciente) {
 		if (nomPaciente.length() < 2)
 			return false;
-		else 
-			if (nomPaciente.length() > 30)
+		else if (nomPaciente.length() > 30)
 			return false;
-			
-			return true;
+
+		return true;
 	}
 
 	public static boolean validarNifPaciente(String nifPaciente) {
-		if (nifPaciente.length() != 8) 
+		if (nifPaciente.length() != 8)
 			return false;
-		return false;
-		}
-	
-	
-	public static boolean validarEdadPaciente(int edadPaciente) {
-		if (edadPaciente > 1) 
-			return false;
-		else (edadPaciente < 100)
-		return false;
-		
 		return false;
 	}
-<<<<<<< HEAD
-	
+
+	public static boolean validarEdadPaciente(int edadPaciente) {
+		if (edadPaciente > 1 || edadPaciente < 130)
+			;
+		return false;
+	}
+
+	public static boolean validarDireccionPaciente(String dirPaciente) {
+		if (dirPaciente.length() > 2 || dirPaciente.length() < 150)
+			return false;
+		return false;
+	}
+
 	public static boolean validarTelefonoPaciente(String telPaciente) {
 		if (telPaciente.length() == 8 && (telPaciente.charAt(0) == 9 || telPaciente.charAt(0) == 8
-				|| telPaciente.charAt(0) == 6 || telPaciente.charAt(0) == 7)) 
+				|| telPaciente.charAt(0) == 6 || telPaciente.charAt(0) == 7))
 			return false;
 		else
 			return true;
-			}
-	
-	public static boolean validarDireccionPaciente(String dirPaciente) {
-		if(dirPaciente.length()< 10  ||  dirPaciente.length() > 150)
-			return true;
-=======
-
-	public static boolean validarDireccionPaciente(String dir) {
-		// TODO Auto-generated method stub
->>>>>>> branch 'main' of https://github.com/Ikerfndz/RepositorioClinicaDental.git
-		return false;
 	}
+
 	// VALIDADORES EMPLEADO
 
 	// validarNombreEmpleado es un metodo que recibe como argumento la variable
