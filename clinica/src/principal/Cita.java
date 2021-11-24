@@ -3,6 +3,8 @@ package principal;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import validacion.Validador;
+
 public class Cita {
 	// idCita representa al identificador unico de la cita.
 	// es un valos entero >0.
@@ -19,35 +21,66 @@ public class Cita {
 	// No se aceptara mas de un caracter.
 	protected char rango;
 
-	private static long numeroPacientes=0;
+	private static long numeroPacientes = 0;
+
 	public Cita() {
 		numeroPacientes++;
-		this.idCita=numeroPacientes;
+		this.idCita = numeroPacientes;
 	}
-	
+
 	public static Cita nuevaFecha() {
 		Cita ret = new Cita();
 		Scanner teclado = new Scanner(System.in);
 
-		System.out.println("Introduce la nueva fecha: ");
 		String fechaCita = "";
+		boolean fechaCitaValida = false;
+
+		do {
+			System.out.println("Introduce la nueva fecha: ");
+			fechaCita = teclado.nextLine();
+			fechaCitaValida = validarFechaCita(fechaCita);
+		} while (!fechaCitaValida);
+
 		LocalDate fecha = LocalDate.now();
-		fechaCita = teclado.nextLine();
 		fecha = LocalDate.parse(fechaCita);
-		ret.setFecha(fecha);
+		ret.setFecha(fechaCita);
+		teclado.close();
 
 		char rango;
 		System.out.print("Introduce mañana o tarde: ");
 		rango = teclado.next().charAt(0); // se obtiene el primer carácter del String introducido por teclado
 		System.out.println("Carácter introducido -> " + rango);
 
-		System.out.println("Introduce la hora: ");
 		String horaCita = "";
+		boolean horaCitaValida = false;
+
+		do {
+			System.out.println("Introduce la hora: ");
+			horaCita = teclado.nextLine();
+			horaCitaValida = validarhoraCita(horaCita);
+		} while (!horaCitaValida);
+
 		LocalDate hora = LocalDate.now();
-		horaCita = teclado.nextLine();
+		hora = LocalDate.parse(horaCita);
 		ret.setHora(horaCita);
+		teclado.close();
 		return ret;
 
+	}
+
+	private static boolean validarhoraCita(String horaCita) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private void setFecha(String fechaCita) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static boolean validarFechaCita(String fechaCita) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	public void setHora(String horaCita) {
