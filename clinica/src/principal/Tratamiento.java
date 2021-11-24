@@ -17,27 +17,21 @@ public class Tratamiento {
 
 	public static Tratamiento nuevoTratammiento() {
 		Tratamiento ret = new Tratamiento();
-		Scanner teclado;
-		teclado = new Scanner(System.in);
-
-		System.out.println("Introduzca el nombre del tratamiento");
-		String nom = "";
-		nom = teclado.nextLine();
-		ret.setNombreDescriptivo(nom);
-		
-		System.out.println("introduzca el id deltratamiento");
-		long id = 0;
-		id = teclado.nextLong();
-		ret.setIdTratamiento(id);
-		
-		System.out.println("consentimiento:");
-		boolean consentimiento= false;
-		consentimiento = teclado.nextBoolean();
-		ret.setConsentimiento(consentimiento);
-		
 		return ret;
 	}
+		private static int numTratamientos = 0;
+		public Tratamiento() {
+			numTratamientos++;
+			this.idTratamiento = numTratamientos;}
+			
+		public Tratamiento (String nombreDescriptivo, boolean consentimiento) {
+			this();
+			this.consentimiento = consentimiento;
+			this.nombreDescriptivo = nombreDescriptivo;
+		}
+	
 
+	
 	public long getIdTratamiento() {
 		return idTratamiento;
 	}

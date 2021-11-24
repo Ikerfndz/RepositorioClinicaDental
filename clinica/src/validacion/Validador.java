@@ -53,29 +53,47 @@ public class Validador {
 		return false;
 	}
 
-	// Paciente
+	
 
 	// VALIDADORES PACIENTE
-	/*
-	 * Con esto conseguimos que el nombre escrito tenga un minimo de 2 caracteres y
-	 * un maximo de 30
-	 */
-	public static boolean validarNombrePaciente(String nombre) {
-		if (nombre.length() < 2)
+	
+	public static boolean validarNombrePaciente(String nomPaciente) {
+		if (nomPaciente.length() < 2)
 			return false;
-		else if (nombre.length() > 30)
+		else 
+			if (nomPaciente.length() > 30)
 			return false;
-		else
+			
 			return true;
 	}
 
-	public static boolean validarTelefonoPaciente(String tel) {
-		// TODO Auto-generated method stub
+	public static boolean validarNifPaciente(String nifPaciente) {
+		if (nifPaciente.length() != 8) 
+			return false;
+		return false;
+		}
+	
+	
+	public static boolean validarEdadPaciente(int edadPaciente) {
+		if (edadPaciente > 1) 
+			return false;
+		else (edadPaciente < 100)
+		return false;
+		
 		return false;
 	}
 	
-	public static boolean validarDireccionPaciente(String dir) {
-		// TODO Auto-generated method stub
+	public static boolean validarTelefonoPaciente(String telPaciente) {
+		if (telPaciente.length() == 8 && (telPaciente.charAt(0) == 9 || telPaciente.charAt(0) == 8
+				|| telPaciente.charAt(0) == 6 || telPaciente.charAt(0) == 7)) 
+			return false;
+		else
+			return true;
+			}
+	
+	public static boolean validarDireccionPaciente(String dirPaciente) {
+		if(dirPaciente.length()< 10  ||  dirPaciente.length() > 150)
+			return true;
 		return false;
 	}
 	// VALIDADORES EMPLEADO
