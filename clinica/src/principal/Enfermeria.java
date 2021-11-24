@@ -22,7 +22,7 @@ public class Enfermeria extends Empleado {
 	// Guarda la intervención en el array intervenciones.
 
 	public Enfermeria(char categoria, Empleado empleado, Intervencion intervencion) {
-		super(empleado);
+		super();
 		setCategoria(categoria);
 		intervenciones[0] = intervencion;
 	}

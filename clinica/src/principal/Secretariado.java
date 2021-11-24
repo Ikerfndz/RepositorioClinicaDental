@@ -2,6 +2,8 @@ package principal;
 
 import java.util.Scanner;
 
+import validacion.Validador;
+
 public class Secretariado extends Empleado {
 	protected String numAñosExp;
 	// almacena los años de experiencia de un secretario
@@ -33,11 +35,14 @@ public class Secretariado extends Empleado {
 		Secretariado ret = new Secretariado();
 		Scanner teclado;
 		teclado = new Scanner(System.in);
-
+		
+		String anios="";
+		boolean aniosExpvalidoSecretario=false;
+		do {
 		System.out.println("Introduzca los años de experiencia del secretario");
-		String anios = "";
 		anios = teclado.nextLine();
-		ret.setNumAñosExp(anios);
+		aniosExpvalidoSecretario=Validador.validarAniosExpSecretario(anios);
+		} while(!aniosExpvalidoSecretario);
 		teclado.close();
 		return ret;
 	}
