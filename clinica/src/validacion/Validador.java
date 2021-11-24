@@ -1,22 +1,34 @@
 package validacion;
 
-import java.lang.*;
-
 public class Validador {
 
 	// Medicamento
 	public static boolean validarNombreMedicamento(String nombre2) {
-		return false;
+		// con este if else conseguimos que el programa de error si el
+		// nombre del medicamento tiene menos de 2 y mas de 30 caracteres
+		if (nombre2.length() < 2)
+			return false;
+		else if (nombre2.length() > 30)
+			return false;
+
+		return true;
 	}
 
 	public static boolean validarPrincipioActivo(String principioActivo2) {
-		return false;
+		// con este if else conseguimos que el programa de error si el
+		// principio activo tiene menos de 2 y mas de 50 caracteres
+		if (principioActivo2.length() < 2)
+			return false;
+		else if (principioActivo2.length() > 50)
+			return false;
+
+		return true;
 	}
 
 	public static boolean validarDosisMaxima(double dosisMaximaDiaria) {
 		// con este if else conseguimos que el programa de error si la dosis máxima
-		// diaria es menor de 1
-		if (dosisMaximaDiaria < 1)
+		// diaria es menor de 0
+		if (dosisMaximaDiaria < 0)
 			return false;
 		else
 			return true;
@@ -24,12 +36,22 @@ public class Validador {
 
 	// Alergia
 	public static boolean validarNombreAlergia(String nom) {
-		return false;
+		// con este if else conseguimos que el programa de error si el nombre
+		// de la alergia tiene menos de 2 y mas de 30 caracteres
+		if (nom.length() < 2)
+			return false;
+		else if (nom.length() > 30)
+			return false;
+		return true;
 	}
 
 	// Cobro
 	public static boolean validarImporteCobro(double importe2) {
-		return false;
+		// con esta condicion conseguimos que el programa de error si
+		// el importe es menor de 0
+		if (importe2 < 0)
+			return false;
+		return true;
 	}
 
 	public static boolean validarFechaCobro(String fech) {
@@ -38,14 +60,18 @@ public class Validador {
 
 	// Pago
 	public static boolean validarImportePago(double importe2) {
-		return false;
+		// con esta condicion conseguimos que el programa de error si
+		// el importe es menor de 0
+		if (importe2 < 0)
+			return false;
+		return true;
 	}
 
 	public static boolean validarMetodoPago(String metododePago) {
 		// con este if else nos encargamos de que el paciente sólo pueda escribir
 		// dos tipos de pago distintos: efectivo o tarjeta, sino es ninguno
 		// de estos dos, dará un error
-		if (metododePago == "Efectivo" && metododePago == "Tarjeta")
+		if (metododePago == "Efectivo" || metododePago == "Tarjeta")
 			return true;
 		else
 			return false;
@@ -179,17 +205,15 @@ public class Validador {
 			return true;
 		}
 	}
-	
+
 	// VALIDADORES PERSONA
-	
-	
+
 	public static boolean validarEdadEmpleado(int edadPersona) {
-		if (edadPersona > 1 || edadPersona < 130);
-			return false;
+		if (edadPersona > 1 || edadPersona < 130)
+			;
+		return false;
 	}
-	
-	
-	
+
 	public static boolean validarNombrePersona(String nombrePersona) {
 		if (nombrePersona.length() < 2)
 			return false;
@@ -197,6 +221,5 @@ public class Validador {
 			return false;
 		return true;
 	}
-		
-}
 
+}

@@ -50,7 +50,6 @@ public class Alergia extends Historial {
 			nom = teclado.nextLine();
 			nomValido = validarNombreAlergia(nom);
 		} while (!nomValido);
-		teclado.close();
 		return new Alergia();
 	}
 

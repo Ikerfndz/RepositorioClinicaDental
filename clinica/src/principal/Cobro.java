@@ -58,7 +58,6 @@ public class Cobro {
 			importeValido = validarImporteCobro(importe);
 		} while (!importeValido);
 
-		teclado.close();
 		ret.setImporte(importe);
 
 		// fecha del cobro
