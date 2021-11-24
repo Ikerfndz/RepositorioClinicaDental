@@ -2,8 +2,6 @@ package principal;
 
 import java.util.Scanner;
 
-import validador.Validador;
-
 public class Persona {
 
 	// id es identificador único de cada elemento Persona.
@@ -41,20 +39,33 @@ public class Persona {
 		do {
 			System.out.println("Introduzca el nombre de la nueva persona");
 			nombrePersona = teclado.nextLine();
-			nombreValido = Validador.validarNombrePersona(nombre);
+			nombreValido = validarNombrePersona(nombrePersona);
 		}
 		while (!nombreValido);
-		
-	
 		ret.setNombre(nombrePersona);
 
-		System.out.println("Introduzca la edad de la nueva persona");
-		int edad = -1;
-		edad = teclado.nextInt();
-		ret.setEdad(edad);
-
-		teclado.close();
+		int edadPersona = -1;
+		boolean edadValida = false;
+		do {
+			System.out.println("Introduzca la edad de la nueva persona");
+			edadPersona = teclado.nextInt();
+			edadValida = validarEdadEmpleado(edadPersona);
+		} while (!edadValida);
+		ret.setEdad(edadPersona);
 		return ret;
+
+		
+		
+	}
+
+	public static boolean validarNombrePersona(String nombrePersona) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public static boolean validarEdadEmpleado(int edadPersona) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	void setNombre(String nom) {
