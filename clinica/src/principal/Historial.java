@@ -13,12 +13,18 @@ public class Historial {
 	// es una cadena de caracteres con un minimo de 10 caracteres
 
 	public static Historial nuevoHistorial() {
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el id del historial");
-		String nom = "";
-		nom = teclado.nextLine();
-		teclado.close();
+		
 		return new Historial();
+	}
+	
+	private static int numHistorial = 0;
+	public Historial() {
+		numHistorial++;
+		this.idHistorial = numHistorial;}
+
+	public Historial (String descripcion) {
+		this ();
+		this.descripcion = descripcion;
 	}
 
 	public long getIdHistorial() {

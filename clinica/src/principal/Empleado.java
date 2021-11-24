@@ -38,6 +38,7 @@ public class Empleado {
 	// Constructor por defecto -> cada vez que le hagamos una llamada aumentara el
 	// valor de numeroEmpleados en 1 y se le asignara ese valor al idEmpleado
 
+	
 	public Empleado() {
 		numeroEmpleados++;
 		this.idEmpleado = numeroEmpleados;    
@@ -54,6 +55,10 @@ public class Empleado {
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.nif = nif;
+	}
+		
+	public Empleado(Empleado empleado) {
+		
 	}
 
 	// Metodo nuevoEmpleado -> encargado de registrar a un nuevo empleado
