@@ -3,6 +3,8 @@ package principal;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import validacion.Validador;
+
 public class Informe extends Secretariado {
 
 	private long idInforme;
@@ -18,6 +20,8 @@ public class Informe extends Secretariado {
 	// numeroInfoemes es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idInforme
 	private Informe informes[] = new Informe[10000];
+	// Array donde se guarda el numero de informes que puede tener un/a
+	// secretario/a.
 
 	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
 	// numero de informes en 1 y se le asignará ese valor al identificador.
@@ -37,9 +41,13 @@ public class Informe extends Secretariado {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		System.out.println("Introduzca la descripcion del nuevo informe");
 		String des = "";
-		des = teclado.nextLine();
+		boolean descripcionValida = false;
+		do {
+			System.out.println("Introduzca la descripcion del nuevo informe");
+			des = teclado.nextLine();
+			descripcionValida = Validador.validardescripcionInforme(des);
+		} while (!descripcionValida);
 		ret.setDescripcion(des);
 
 		teclado.close();
@@ -47,14 +55,14 @@ public class Informe extends Secretariado {
 
 	}
 
-	// // Constructor que recibe por parametros los atributos de la clase empleado,
+	// Constructor que recibe por parametros los atributos de la clase empleado,
 	// los de la clase secretariado y la descripcion de cada informe
 	// Hace una llamada al constructor por defecto (que permite introducir el
 	// idInforme)
 	// Despues hace una llamada a super para sacar los datos de las clases padre:
 	// empleado y secretariado.
 	// Luego guarda los datos recibidos en la variables descripcion y informes.
-	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, String numAñosExp,
+	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, int numAñosExp,
 			long idInforme, String descripcion, Informe[] informes) {
 		super(nombre, apellidos, telefono, direccion, nif, numAñosExp);
 		this.idInforme = idInforme;
