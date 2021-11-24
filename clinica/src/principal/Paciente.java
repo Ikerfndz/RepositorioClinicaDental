@@ -87,7 +87,7 @@ public class Paciente {
 			ret.setDireccion(dirPaciente);
 	
 			// Edad
-			int edadPaciente ;
+			int edadPaciente = 0 ;
 			boolean edadValida=false;
 			do {
 				System.out.println("Introduzca la edad: ");

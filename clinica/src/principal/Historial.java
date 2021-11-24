@@ -13,10 +13,30 @@ public class Historial {
 	// es una cadena de caracteres con un minimo de 10 caracteres
 
 	public static Historial nuevoHistorial() {
+		Historial ret = new Historial();
+		Scanner teclado;
+		teclado = new Scanner(System.in);
 		
-		return new Historial();
+		String desHistorial = ("");
+		boolean historialValido = false;
+		do {
+			System.out.println("Introduzca la descripcion: ");
+			desHistorial = teclado.next();
+			historialValido= validarHistorialPaciente(desHistorial);
+		} while (!historialValido);
+		
+	ret.setDescripcion(desHistorial);
+		return ret;
+		
+		
+		
 	}
 	
+	public static boolean validarHistorialPaciente(String desHistorial) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	private static int numHistorial = 0;
 	public Historial() {
 		numHistorial++;
@@ -26,6 +46,9 @@ public class Historial {
 		this ();
 		this.descripcion = descripcion;
 	}
+
+	
+	
 
 	public long getIdHistorial() {
 		return idHistorial;

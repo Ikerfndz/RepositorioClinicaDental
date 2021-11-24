@@ -69,7 +69,7 @@ public class Validador {
 	public static boolean validarNifPaciente(String nifPaciente) {
 		if (nifPaciente.length() != 8)
 			return false;
-		return false;
+		return true;
 	}
 
 	public static boolean validarEdadPaciente(int edadPaciente) {
@@ -81,15 +81,14 @@ public class Validador {
 	public static boolean validarDireccionPaciente(String dirPaciente) {
 		if (dirPaciente.length() > 2 || dirPaciente.length() < 150)
 			return false;
-		return false;
+		return true;
 	}
 
 	public static boolean validarTelefonoPaciente(String telPaciente) {
 		if (telPaciente.length() == 8 && (telPaciente.charAt(0) == 9 || telPaciente.charAt(0) == 8
 				|| telPaciente.charAt(0) == 6 || telPaciente.charAt(0) == 7))
 			return false;
-		else
-			return true;
+		return true;
 	}
 
 	// VALIDADORES EMPLEADO
@@ -234,5 +233,20 @@ public class Validador {
 			}
 		}
 		
+		//VALIDADOR HISTORIAL
+		
+		public static boolean validarHistorialPaciente(String desHistorial) {
+			if (desHistorial.length() > 10 )
+				return false;
+			return true;
+		}
+		
+		// VALIDADORES TRATAMIENTOS
+		public static boolean validarnombreDescriptivoTratamiento(String nomDescriptivo) {
+			if (nomDescriptivo.length() < 2  || nomDescriptivo.length() <50)
+			return true;
+			
+		return false;
+		}
 }
 

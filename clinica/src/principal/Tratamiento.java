@@ -15,23 +15,42 @@ public class Tratamiento {
 	// consentimientos representa la aceptación o rechazo del paciente al
 	// tratamiento.
 
-	public static Tratamiento nuevoTratammiento() {
+	public static Tratamiento nuevotratamiento() {
 		Tratamiento ret = new Tratamiento();
-		return ret;
-	}
-		private static int numTratamientos = 0;
-		public Tratamiento() {
-			numTratamientos++;
-			this.idTratamiento = numTratamientos;}
-			
-		public Tratamiento (String nombreDescriptivo, boolean consentimiento) {
-			this();
-			this.consentimiento = consentimiento;
-			this.nombreDescriptivo = nombreDescriptivo;
-		}
-	
+		Scanner teclado;
+		teclado = new Scanner(System.in);
 
-	
+		String nomDescriptivo = ("");
+		boolean nombreDescriptivolValido = false;
+		do {
+			System.out.println("Introduzca el nombre descriptivo: ");
+			nomDescriptivo = teclado.next();
+			nombreDescriptivolValido = validarnombreDescriptivoTratamiento(nomDescriptivo);
+		} while (!nombreDescriptivolValido);
+		ret.setNombreDescriptivo(nomDescriptivo);
+		return ret;
+		
+		
+	}
+
+	private static int numTratamientos = 0;
+
+	public Tratamiento() {
+		numTratamientos++;
+		this.idTratamiento = numTratamientos;
+	}
+
+	public Tratamiento(String nombreDescriptivo, boolean consentimiento) {
+		this();
+		this.consentimiento = consentimiento;
+		this.nombreDescriptivo = nombreDescriptivo;
+	}
+
+	public static boolean validarnombreDescriptivoTratamiento(String nomDescriptivo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	public long getIdTratamiento() {
 		return idTratamiento;
 	}
