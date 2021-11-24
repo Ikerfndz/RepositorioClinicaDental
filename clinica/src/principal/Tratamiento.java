@@ -20,6 +20,7 @@ public class Tratamiento {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
+		// nombreDescriptivo
 		String nomDescriptivo = ("");
 		boolean nombreDescriptivolValido = false;
 		do {

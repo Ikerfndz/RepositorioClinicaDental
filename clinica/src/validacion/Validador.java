@@ -168,7 +168,8 @@ public class Validador {
 	// validarAniosExpSecretariado es un metodo que recibe como argumento la
 	// variable auxiliar anios, para validar el numero de a�os del empleado
 	// En este caso, mediante la clase Integer, que nos permite pasar un dato de
-	// tipo string a int, decimos que el numero de a�os de experiencia introducidos
+	// tipo string a int, decimos que el numero de a�os de experiencia
+	// introducidos
 	// sera invalido si es menor que 0 o mayor que 100
 	// En caso de que no fuera asi, seria aceptada
 	public static boolean validarAniosExpSecretario(int anios) {
@@ -179,40 +180,38 @@ public class Validador {
 		}
 	}
 	// Cita
-	
 
-		public static boolean validarFechaCita(String fechaCita) {
-			return false;
-		}
-		public static boolean validarHoraCita(String horaCita) {
-			return false;
-		}
-
-	//Intervencion
-		
-		public static boolean validarDuracion(int minutos) {
-			if (minutos > 0 || minutos < 999)
-				;
-			return false;
-		}
-	//Revision
-		
-		public static boolean validarAnotacion(String comt) {
-			if (comt.length() > 1 || comt.length() < 2000)
-				return false;
-			return false;
-		}
-	
-	// VALIDADORES PERSONA
-	
-	
-	public static boolean validarEdadEmpleado(int edadPersona) {
-		if (edadPersona > 1 || edadPersona < 130);
-			return false;
+	public static boolean validarFechaCita(String fechaCita) {
+		return false;
 	}
-	
-	
-	
+
+	public static boolean validarHoraCita(String horaCita) {
+		return false;
+	}
+
+	// Intervencion
+
+	public static boolean validarDuracion(int minutos) {
+		if (minutos > 0 || minutos < 999)
+			;
+		return false;
+	}
+	// Revision
+
+	public static boolean validarAnotacion(String comt) {
+		if (comt.length() > 1 || comt.length() < 2000)
+			return false;
+		return false;
+	}
+
+	// VALIDADORES PERSONA
+
+	public static boolean validarEdadEmpleado(int edadPersona) {
+		if (edadPersona > 1 || edadPersona < 130)
+			;
+		return false;
+	}
+
 	public static boolean validarNombrePersona(String nombrePersona) {
 		if (nombrePersona.length() < 2)
 			return false;
@@ -220,37 +219,36 @@ public class Validador {
 			return false;
 		return true;
 	}
-	
+
 	// VALIDADORES INFORME
 
-		// validardescripcionInforme es un metodo que recibe como argumento la variable
-		// auxiliar des, para validar la descripcion de cada informe
-		// des sera valida si la longitud de la descripcion del informe introducida no
-		// tiene menos de 10 o mas de 500 caracteres
-		// en caso contrario la descripcion introducida no sera valida
+	// validardescripcionInforme es un metodo que recibe como argumento la variable
+	// auxiliar des, para validar la descripcion de cada informe
+	// des sera valida si la longitud de la descripcion del informe introducida no
+	// tiene menos de 10 o mas de 500 caracteres
+	// en caso contrario la descripcion introducida no sera valida
 
-		public static boolean validardescripcionInforme(String des) {
-			if (des.length() < 10 || des.length() > 500) {
-				return false;
-			} else {
-				return true;
-			}
-		}
-		
-		//VALIDADOR HISTORIAL
-		
-		public static boolean validarHistorialPaciente(String desHistorial) {
-			if (desHistorial.length() > 10 )
-				return false;
+	public static boolean validardescripcionInforme(String des) {
+		if (des.length() < 10 || des.length() > 500) {
+			return false;
+		} else {
 			return true;
 		}
-		
-		// VALIDADORES TRATAMIENTOS
-		public static boolean validarnombreDescriptivoTratamiento(String nomDescriptivo) {
-			if (nomDescriptivo.length() < 2  || nomDescriptivo.length() <50)
+	}
+
+	// VALIDADOR HISTORIAL
+
+	public static boolean validarHistorialPaciente(String desHistorial) {
+		if (desHistorial.length() > 10)
+			return false;
+		return true;
+	}
+
+	// VALIDADORES TRATAMIENTOS
+	public static boolean validarnombreDescriptivoTratamiento(String nomDescriptivo) {
+		if (nomDescriptivo.length() < 2 || nomDescriptivo.length() < 50)
 			return true;
-			
+
 		return false;
-		}
+	}
 }
-
