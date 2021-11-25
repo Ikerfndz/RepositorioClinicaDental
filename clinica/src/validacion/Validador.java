@@ -129,8 +129,10 @@ public class Validador {
 	// si las condiciones mencionadas anteriormente no se cumplen, el telefono
 	// introducido sera invalido
 	public static boolean validarTelefonoValido(String telEmpleado) {
-		if (telEmpleado.length() == 8 && (telEmpleado.charAt(0) == 9 || telEmpleado.charAt(0) == 8
-				|| telEmpleado.charAt(0) == 6 || telEmpleado.charAt(0) == 7)) {
+		char caracterinicial=telEmpleado.charAt(0);
+		int enteroinicial=Character.getNumericValue(caracterinicial);
+		if (telEmpleado.length() == 8 && (enteroinicial == 9 || enteroinicial == 8
+				|| enteroinicial == 6 || enteroinicial == 7)) {
 			return true;
 		} else {
 			return false;
