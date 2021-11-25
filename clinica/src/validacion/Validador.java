@@ -28,7 +28,7 @@ public class Validador {
 	}
 
 	public static boolean validarDosisMaxima(double dosisMaximaDiaria) {
-		// con este if else conseguimos que el programa de error si la dosis máxima
+		// con este if else conseguimos que el programa de error si la dosis mï¿½xima
 		// diaria es menor de 0
 		if (dosisMaximaDiaria < 0)
 			return false;
@@ -72,7 +72,7 @@ public class Validador {
 	public static boolean validarMetodoPago(String metododePago) {
 		// con este if else nos encargamos de que el paciente sï¿½lo pueda escribir
 		// dos tipos de pago distintos: efectivo o tarjeta, sino es ninguno
-		// de estos dos, dará un error
+		// de estos dos, darï¿½ un error
 		if (metododePago == "Efectivo" || metododePago == "Tarjeta")
 			return true;
 		else
@@ -221,6 +221,14 @@ public class Validador {
 			return false;
 		}
 
+		/*public static boolean validarRango(char rango) {
+		
+			if (rango == M || rango == T)
+				return true;
+			else
+				return false;
+		} 
+		*/
 	//Intervencion
 		
 		public static boolean validarDuracion(int minutos) {
