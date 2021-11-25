@@ -85,8 +85,10 @@ public class Validador {
 	}
 
 	public static boolean validarTelefonoPaciente(String telPaciente) {
-		if (telPaciente.length() == 8 && (telPaciente.charAt(0) == 9 || telPaciente.charAt(0) == 8
-				|| telPaciente.charAt(0) == 6 || telPaciente.charAt(0) == 7))
+		char caracterinicial1=telPaciente.charAt(0);
+		int enteroinicial1=Character.getNumericValue(caracterinicial1);
+		if (telPaciente.length() == 8 && (enteroinicial1 == 9 || enteroinicial1 == 8
+				|| enteroinicial1 == 6 || enteroinicial1 == 7))
 			return false;
 		return true;
 	}
