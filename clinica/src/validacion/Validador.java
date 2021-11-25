@@ -220,7 +220,8 @@ public class Validador {
 		public static boolean validarHoraCita(String horaCita) {
 			return false;
 		}
-
+		
+			
 		/*public static boolean validarRango(char rango) {
 		
 			if (rango == M || rango == T)
