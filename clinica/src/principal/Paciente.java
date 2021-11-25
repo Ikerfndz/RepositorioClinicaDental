@@ -3,6 +3,7 @@ package principal;
 import java.util.Arrays;
 import java.util.Scanner;
 import utils.Datos;
+import validacion.Validador;
 
 
 
@@ -72,7 +73,7 @@ public class Paciente {
 			do {
 				System.out.println("Introduzca el nombre del nuevo paciente: ");
 				nomPaciente = teclado.nextLine();
-				nombreValido= validarNombrePaciente(nomPaciente);
+				nombreValido= Validador.validarNombrePaciente(nomPaciente);
 			} while (!nombreValido);
 			ret.setNombre(nomPaciente);
 	
@@ -82,7 +83,7 @@ public class Paciente {
 			do {
 				System.out.println("Introduzca el telefono: ");
 				telPaciente = teclado.next();
-				telefonoValido=validarTelefonoPaciente(telPaciente);
+				telefonoValido=Validador.validarTelefonoPaciente(telPaciente);
 			} while(!telefonoValido);
 			ret.setTelefono(telPaciente);
 	
@@ -92,7 +93,7 @@ public class Paciente {
 			do {
 				System.out.println("Introduzca la dirección: ");
 				dirPaciente = teclado.next();
-				direccionValida= validarDireccionPaciente(dirPaciente);
+				direccionValida= Validador.validarDireccionPaciente(dirPaciente);
 			} while (!direccionValida);
 			ret.setDireccion(dirPaciente);
 	
@@ -102,7 +103,7 @@ public class Paciente {
 			do {
 				System.out.println("Introduzca la edad: ");
 				edadPaciente = teclado.nextInt();
-				edadValida=validarEdadPaciente(edadPaciente);
+				edadValida=Validador.validarEdadPaciente(edadPaciente);
 			} while(!edadValida);
 			ret.setEdad(edadPaciente);
 				
@@ -112,7 +113,7 @@ public class Paciente {
 			do {
 				System.out.println("Introduzca el NIF: ");
 				nifPaciente = teclado.next();
-				nifValido=validarNifPaciente(nifPaciente);
+				nifValido=Validador.validarNifPaciente(nifPaciente);
 			}while(!nifValido);
 			ret.setNif(nifPaciente);
 			return ret;
@@ -122,33 +123,6 @@ public class Paciente {
 	
 	
 	
-	
-	public static boolean validarNifPaciente(String nifPaciente) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public static boolean validarEdadPaciente(int edadPaciente) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public static boolean validarDireccionPaciente(String dirPaciente) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public static boolean validarTelefonoPaciente(String telPaciente) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	
-	public static boolean validarNombrePaciente(String nomPaciente) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
