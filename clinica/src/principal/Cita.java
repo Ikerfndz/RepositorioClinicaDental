@@ -24,10 +24,21 @@ public class Cita {
 	private static long numeroPacientes = 0;
 
 	public Cita() {
-		numeroPacientes++;
-		this.idCita = numeroPacientes;
 	}
 
+	public Cita(long idCita, LocalDate fecha, LocalDate hora, char rango) {
+		numeroPacientes++;
+		this.idCita = numeroPacientes;
+		this.fecha = fecha;
+		this.hora = hora;
+		this.rango = rango;
+	}
+
+	/**
+	 * * Implementacion de un método nuevaFecha que pida por pantalla al usuario
+	 * 
+	 * @return una nueva Cita
+	 */
 	public static Cita nuevaFecha() {
 		Cita ret = new Cita();
 		Scanner teclado = new Scanner(System.in);
@@ -69,22 +80,18 @@ public class Cita {
 	}
 
 	private static boolean validarhoraCita(String horaCita) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	private void setFecha(String fechaCita) {
-		// TODO Auto-generated method stub
 
 	}
 
 	private static boolean validarFechaCita(String fechaCita) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public void setHora(String horaCita) {
-		// TODO Auto-generated method stub
 
 	}
 
