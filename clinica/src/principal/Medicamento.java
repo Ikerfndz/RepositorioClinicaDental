@@ -155,4 +155,5 @@ public class Medicamento extends Alergia {
 		return "Medicamento [idMedicamento=" + idMedicamento + ", nombreMedicamento=" + nombreMedicamento
 				+ ", principioActivo=" + principioActivo + ", dosisMaxDiaria=" + dosisMaxDiaria + "]";
 	}
+	
 }

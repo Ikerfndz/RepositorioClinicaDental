@@ -91,4 +91,5 @@ public class Alergia extends Historial {
 		return "Alergia [idAlergia=" + idAlergia + ", nombreAlergia=" + nombreAlergia + "]";
 	}
 
+	
 }

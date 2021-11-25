@@ -149,4 +149,5 @@ public class Pago {
 		return "Pago [idPago=" + idPago + ", fecha=" + fecha + ", importe=" + importe + ", metododePago=" + metododePago
 				+ "]";
 	}
+
 }

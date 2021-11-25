@@ -68,7 +68,7 @@ public class Validador {
 	}
 
 	public static boolean validarMetodoPago(String metododePago) {
-		// con este if else nos encargamos de que el paciente sólo pueda escribir
+		// con este if else nos encargamos de que el paciente sï¿½lo pueda escribir
 		// dos tipos de pago distintos: efectivo o tarjeta, sino es ninguno
 		// de estos dos, dará un error
 		if (metododePago == "Efectivo" || metododePago == "Tarjeta")
@@ -193,20 +193,40 @@ public class Validador {
 	// VALIDADORES SECRETARIADO
 
 	// validarAniosExpSecretariado es un metodo que recibe como argumento la
-	// variable auxiliar anios, para validar el numero de años del empleado
+	// variable auxiliar anios, para validar el numero de aï¿½os del empleado
 	// En este caso, mediante la clase Integer, que nos permite pasar un dato de
-	// tipo string a int, decimos que el numero de años de experiencia introducidos
+	// tipo string a int, decimos que el numero de aï¿½os de experiencia introducidos
 	// sera invalido si es menor que 0 o mayor que 100
 	// En caso de que no fuera asi, seria aceptada
-	public static boolean validarAniosExpSecretario(String anios) {
-		if (Integer.parseInt(anios) < 0 || Integer.parseInt(anios) > 100) {
+	public static boolean validarAniosExpSecretario(int anios) {
+		if (anios < 0 || anios > 100) {
 			return false;
 		} else {
 			return true;
 		}
 	}
+	// Cita
+	
 
-	// VALIDADORES PERSONA
+		public static boolean validarFechaCita(String fechaCita) {
+			return false;
+		}
+		public static boolean validarHoraCita(String horaCita) {
+			return false;
+		}
+
+	//Intervencion
+		
+		public static boolean validarDuracion(int minutos) {
+			return false;
+		}
+	//Revision
+		
+		public static boolean validarAnotacion(String comt) {
+			return false;
+		}
+	
+
 
 	public static boolean validarEdadEmpleado(int edadPersona) {
 		if (edadPersona > 1 || edadPersona < 130)
@@ -222,4 +242,21 @@ public class Validador {
 		return true;
 	}
 
+	// VALIDADORES INFORME
+
+		// validardescripcionInforme es un metodo que recibe como argumento la variable
+		// auxiliar des, para validar la descripcion de cada informe
+		// des sera valida si la longitud de la descripcion del informe introducida no
+		// tiene menos de 10 o mas de 500 caracteres
+		// en caso contrario la descripcion introducida no sera valida
+
+		public static boolean validardescripcionInforme(String des) {
+			if (des.length() < 10 || des.length() > 500) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+		
 }
+
