@@ -11,16 +11,15 @@ public class Intervencion extends Cita {
 	// no acepta caracteres
 	private int duracion;
 
-	
-	
 	public Intervencion() {
-		
+
 	}
-	
+
 	public Intervencion(int duracion) {
-		this.duracion=duracion;
+		this.duracion = duracion;
 	}
-	public static Intervencion nuevaDuracion() {
+
+	public static Intervencion nuevaIntervencion() {
 		Intervencion ret = new Intervencion();
 		Scanner teclado;
 		teclado = new Scanner(System.in);
@@ -56,11 +55,6 @@ public class Intervencion extends Cita {
 	@Override
 	public String toString() {
 		return "Intervencion [duracion=" + duracion + "]";
-	}
-
-	public static Intervencion nuevaIntervencion() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

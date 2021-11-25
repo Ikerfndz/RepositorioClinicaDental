@@ -1,11 +1,26 @@
 package principal;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Revision extends Cita {
 	// anotacion representa los datos que quiera apuntar el usuario.
 	// es una cadena de caracteres con un minimo de 1 caracteres y maximo de 2000.
 	private String anotacion;
+	
+	
+	
+	
+	public Revision() {
+	}
+
+	public Revision(String anotacion) {
+	
+		this.anotacion = anotacion;
+	}
+	
+	
+	
 
 	public static Revision nuevaAnotacion() {
 		Revision ret = new Revision();
@@ -24,12 +39,10 @@ public class Revision extends Cita {
 	}
 
 	private static String validarAnotacion(String comt) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	private void setComentario(String comt) {
-		// TODO Auto-generated method stub
 
 	}
 

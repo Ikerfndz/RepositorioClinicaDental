@@ -5,26 +5,34 @@ import java.util.Scanner;
 
 import validacion.Validador;
 
-public class Informe extends Secretariado {
+public class Informe {
 
-	private long idInforme;
 	// id es el identificador unico de cada elemento Informe
 	// es un valor entero > 0
 	// el valor de idInforme se va rellenando automaticamente cada vez que se hace
 	// llamada a uno de sus constructores
-	private String descripcion;
+	private long idInforme;
+
 	// descripcion guarda la descripcion de cada uno de los informes
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50
 	// no acepta numeros ni caracteres especiales
-	protected static int numeroInformes;
+	private String descripcion;
+
 	// numeroInfoemes es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idInforme
-	private Informe informes[] = new Informe[10000];
+
+	protected static int numeroInformes;
 	// Array donde se guarda el numero de informes que puede tener un/a
 	// secretario/a.
 
-	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
-	// numero de informes en 1 y se le asignará ese valor al identificador.
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentarï¿½ el
+	// numero de informes en 1 y se le asignarï¿½ ese valor al identificador.
+	private Informe informes[] = new Informe[10000];
+
+	
+	private Secretariado[] secretarios;
+	
+	
 	public Informe() {
 		numeroInformes++;
 		this.idInforme = numeroInformes;
@@ -33,7 +41,7 @@ public class Informe extends Secretariado {
 	// Metodo nuevoInforme -> encargado de registrar un nuevo informe
 	// Se le pide al secretario que ingrese la descripcion del nuevo informe
 	// Esta descripcion es guardada en una variable auxiliar distinta
-	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// Esta variable serï¿½ la que pasaremos por parametros haciendo llamada al
 	// constructor anterior para establecer un nuevo informe con su descripcion
 	// Finalmente se devuelven los datos introducidos
 	public static Informe nuevoInforme() {
@@ -50,6 +58,20 @@ public class Informe extends Secretariado {
 		} while (!descripcionValida);
 		ret.setDescripcion(des);
 
+		numeroInformes++;
+		ret.idInforme = numeroInformes;
+		
+		
+		
+		/*
+		 * 1) Mostrar todos los secretarios del sistema
+			2) El usuario selecciona uno de ellos
+			3) comprobar que el secretario seleccionado es valido
+			4a) si es valido , entonces ret.secretarios[0]= el_elegido
+			4b) volver al paso 1
+			5)
+		
+		*/
 		teclado.close();
 		return ret;
 
@@ -62,9 +84,8 @@ public class Informe extends Secretariado {
 	// Despues hace una llamada a super para sacar los datos de las clases padre:
 	// empleado y secretariado.
 	// Luego guarda los datos recibidos en la variables descripcion y informes.
-	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, int numAñosExp,
-			long idInforme, String descripcion, Informe[] informes) {
-		super(nombre, apellidos, telefono, direccion, nif, numAñosExp);
+	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, 
+			int numAniosExp, long idInforme, String descripcion, Informe[] informes) {
 		this.idInforme = idInforme;
 		this.descripcion = descripcion;
 		this.informes = informes;
@@ -103,13 +124,15 @@ public class Informe extends Secretariado {
 		Informe.numeroInformes = numeroInformes;
 	}
 
-	// To String
 	@Override
 	public String toString() {
-		return "Informe [idInforme=" + idInforme + ", descripcion=" + descripcion + ", informes="
-				+ Arrays.toString(informes) + ", numAñosExp=" + numAñosExp + ", idEmpleado=" + idEmpleado + ", nombre="
-				+ nombre + ", apellidos=" + apellidos + ", telefono=" + telefono + ", direccion=" + direccion + ", nif="
-				+ nif + "]";
+		String ret="";
+		ret +="Informe [id=" + idInforme + ", descripcion=" + descripcion + ", secretarios que scribieron en el informe:";
+		for(Secretariado s: secretarios) {
+			ret += "\n"+s.getNombre() + " " + s.getApellidos() + "("+s.getNif()+")";
+		}		
+		return ret;
 	}
+
 
 }
