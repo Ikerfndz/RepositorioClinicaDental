@@ -2,6 +2,8 @@ package principal;
 
 import java.util.Scanner;
 
+import validacion.Validador;
+
 public class Historial {
 
 	private long idHistorial;
@@ -22,7 +24,7 @@ public class Historial {
 		do {
 			System.out.println("Introduzca la descripcion: ");
 			desHistorial = teclado.next();
-			historialValido= validarHistorialPaciente(desHistorial);
+			historialValido= Validador.validarHistorialPaciente(desHistorial);
 		} while (!historialValido);
 		
 	ret.setDescripcion(desHistorial);
@@ -32,10 +34,7 @@ public class Historial {
 		
 	}
 	
-	public static boolean validarHistorialPaciente(String desHistorial) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	private static int numHistorial = 0;
 	public Historial() {

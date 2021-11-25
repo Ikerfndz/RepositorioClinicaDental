@@ -2,6 +2,8 @@ package principal;
 
 import java.util.Scanner;
 
+import validacion.Validador;
+
 public class Tratamiento {
 
 	private long idTratamiento;
@@ -26,7 +28,7 @@ public class Tratamiento {
 		do {
 			System.out.println("Introduzca el nombre descriptivo: ");
 			nomDescriptivo = teclado.next();
-			nombreDescriptivolValido = validarnombreDescriptivoTratamiento(nomDescriptivo);
+			nombreDescriptivolValido = Validador.validarnombreDescriptivoTratamiento(nomDescriptivo);
 		} while (!nombreDescriptivolValido);
 		ret.setNombreDescriptivo(nomDescriptivo);
 		return ret;
@@ -47,10 +49,7 @@ public class Tratamiento {
 		this.nombreDescriptivo = nombreDescriptivo;
 	}
 
-	public static boolean validarnombreDescriptivoTratamiento(String nomDescriptivo) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	public long getIdTratamiento() {
 		return idTratamiento;
