@@ -8,7 +8,7 @@ public class Validador {
 	public static boolean validarNombreMedicamento(String nombre2) {
 		// con este if else conseguimos que el programa de error si el
 		// nombre del medicamento tiene menos de 2 y mas de 30 caracteres
-		if (nombre2.length() < 2)
+		if (nombre2.length() < 2) 
 			return false;
 		else if (nombre2.length() > 30)
 			return false;
