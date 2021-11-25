@@ -2,13 +2,15 @@ package principal;
 
 import java.util.Scanner;
 
+import utils.Datos;
+
 public class Especialidad {
 	private long idEsp;
 	// Identificador de la especialidad que se va rellenando automáticamente cada
 	// vez que se hace una llamada a sus constructores
 	private String nombreEsp;
 	// Nombre de la especialidad de tipo String
-	private static int numeroEspecialiades = 0;
+	private static int numeroEspecialiades = Datos.numEspecialidades;
 	// Variable que utilizaremos para completar de forma automática el identificador
 	// de la especialidad.
 	private Cirujano cirujano;
@@ -25,10 +27,17 @@ public class Especialidad {
 	// Constructor que se le pide por parametro el nombre de la especialidad.
 	// Hace una llamada al constructor por defecto.
 	// Guarda el valor del parametro introducido en la variable nombeesp.
+	public Especialidad(String nombreEsp, long id) {
+		this();
+		this.nombreEsp = nombreEsp;
+		idEsp=id;
+	}
+	
 	public Especialidad(String nombreEsp) {
 		this();
 		this.nombreEsp = nombreEsp;
 	}
+
 
 	// Método encargado de guardar la nueva especialidad de un cirujano.
 	// Se le pide al usuario que escriba el nombre de la especialidad y se guarda en

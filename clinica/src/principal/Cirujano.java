@@ -17,6 +17,7 @@ public class Cirujano extends Empleado {
 
 	// Constructor por defecto
 	public Cirujano() {
+		super();
 	}
 
 	// Constructor que recibe por parametros la especialidad el empleado y la
@@ -25,13 +26,29 @@ public class Cirujano extends Empleado {
 	// Se guarda la especialidad en el array.
 	// Se guarda la intervencion en el array.
 
-	public Cirujano(Especialidad especialidad, Empleado empleado, Intervencion intervencion, boolean tieneEsp) {
+	public Cirujano(Empleado empleado,  boolean tieneEsp, Especialidad especialidad, Intervencion intervencion) {
 		super(empleado);
 		especialidades[0] = especialidad;
 		intervenciones[0] = intervencion;
 		this.tieneEsp = tieneEsp;
 
 	}
+
+	public Cirujano(Empleado empleado, boolean tieneEsp, Intervencion intervencion) {
+		super(empleado);
+		intervenciones[0] = intervencion;
+		this.tieneEsp = tieneEsp;
+
+	}
+	
+	public Cirujano( Especialidad especialidad, Empleado empleado, Intervencion intervencion, boolean tieneEsp) {
+		super(empleado);
+		especialidades[0] = especialidad;
+		intervenciones[0] = intervencion;
+		this.tieneEsp = tieneEsp;
+
+	}
+
 
 	// Método encargado de crear un nuevo cirujano.
 	// Se declara una variable de tipo Empleado donde se guardan los datos del

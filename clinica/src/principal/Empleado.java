@@ -2,6 +2,7 @@ package principal;
 
 import java.util.Scanner;
 
+import utils.Datos;
 import validacion.Validador;
 
 public class Empleado {
@@ -31,7 +32,7 @@ public class Empleado {
 	// indica el nif de cada empleado
 	// es una cadena de caracteres de minimo 3 caracteres y maximo 50
 	// no acepta caracteres especiales
-	private static int numeroEmpleados = 0;
+	private static int numeroEmpleados = Datos.numEmpleadosd;
 	// numeroEmpleados es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idEmpleado
 

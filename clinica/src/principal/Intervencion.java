@@ -11,6 +11,15 @@ public class Intervencion extends Cita {
 	// no acepta caracteres
 	private int duracion;
 
+	
+	
+	public Intervencion() {
+		
+	}
+	
+	public Intervencion(int duracion) {
+		this.duracion=duracion;
+	}
 	public static Intervencion nuevaDuracion() {
 		Intervencion ret = new Intervencion();
 		Scanner teclado;

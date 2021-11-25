@@ -2,6 +2,7 @@ package principal;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import utils.Datos;
 
 
 
@@ -29,7 +30,7 @@ public class Paciente {
 	private String nif;
 	// numeroPacientes es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idPaciente
-	private static long numeroPacientes = 0;
+	private static long numeroPacientes = Datos.numPacientesd;
 	
 	private Historial historial = new Historial();
 	private Tratamiento tratamientos[] = new Tratamiento[10];
@@ -50,7 +51,16 @@ public class Paciente {
 	}
 
 	
-	 // Metodo nuevoPaciente encargado de registrar a un nuevo paciente
+	 public Paciente(String nombre, long id, String telefono, String direccion, int edad, String nif) {
+			this();
+			this.nombre = nombre;
+			this.edad = edad;
+			this.telefono = telefono;
+			this.direccion = direccion;
+			this.nif = nif;
+	}
+
+	// Metodo nuevoPaciente encargado de registrar a un nuevo paciente
 	public static Paciente nuevoPaciente() {
 		Paciente ret = new Paciente();
 		Scanner teclado;
