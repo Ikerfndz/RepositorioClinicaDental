@@ -21,8 +21,15 @@ public class Enfermeria extends Empleado {
 	// ser con this.categoria=categoria)
 	// Guarda la intervención en el array intervenciones.
 
-	public Enfermeria(char categoria, Empleado empleado, Intervencion intervencion) {
-		super();
+	public Enfermeria(Empleado empleado,char categoria, Intervencion intervencion) {
+		super(empleado);
+		setCategoria(categoria);
+		intervenciones[0] = intervencion;
+	}
+	
+
+	public Enfermeria(char cat, Empleado empleado, Intervencion intervencion) {
+		super(empleado);
 		setCategoria(categoria);
 		intervenciones[0] = intervencion;
 	}

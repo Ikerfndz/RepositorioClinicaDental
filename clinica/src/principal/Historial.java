@@ -2,6 +2,8 @@ package principal;
 
 import java.util.Scanner;
 
+import validacion.Validador;
+
 public class Historial {
 
 	private long idHistorial;
@@ -13,10 +15,27 @@ public class Historial {
 	// es una cadena de caracteres con un minimo de 10 caracteres
 
 	public static Historial nuevoHistorial() {
+		Historial ret = new Historial();
+		Scanner teclado;
+		teclado = new Scanner(System.in);
 		
-		return new Historial();
+		String desHistorial = ("");
+		boolean historialValido = false;
+		do {
+			System.out.println("Introduzca la descripcion: ");
+			desHistorial = teclado.next();
+			historialValido= Validador.validarHistorialPaciente(desHistorial);
+		} while (!historialValido);
+		
+	ret.setDescripcion(desHistorial);
+		return ret;
+		
+		
+		
 	}
 	
+	
+
 	private static int numHistorial = 0;
 	public Historial() {
 		numHistorial++;
@@ -26,6 +45,9 @@ public class Historial {
 		this ();
 		this.descripcion = descripcion;
 	}
+
+	
+	
 
 	public long getIdHistorial() {
 		return idHistorial;

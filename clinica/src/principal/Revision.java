@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Revision extends Cita {
 	// anotacion representa los datos que quiera apuntar el usuario.
-	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 500.
+	// es una cadena de caracteres con un minimo de 1 caracteres y maximo de 2000.
 	private String anotacion;
 
 	public static Revision nuevaAnotacion() {
@@ -12,14 +12,26 @@ public class Revision extends Cita {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		System.out.println("Introduzca el comentario");
 		String comt = "";
-		comt = teclado.nextLine();
-		ret.setAnotacion(comt);
+		boolean comentariofValido = false;
+		do {
+			System.out.println("Introduzca el comentario:");
+			comt = teclado.next();
+			comt = validarAnotacion(comt);
+		} while (!comentariofValido);
+		ret.setComentario(comt);
 		return ret;
 	}
 
+	private static String validarAnotacion(String comt) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	private void setComentario(String comt) {
+		// TODO Auto-generated method stub
+
+	}
 
 	public String getAnotacion() {
 		return anotacion;

@@ -11,7 +11,7 @@ public class Principal {
 				do {
 					mostrarMenuPrincipal();
 					eleccion = in.nextInt();
-					eleccionValida = (eleccion < 1 || eleccion > 3 ? false : true);
+					eleccionValida = (eleccion < 1 || eleccion > 4 ? false : true);
 					if (!eleccionValida)
 						System.out.println("Opcion invalida! Vuelva a introducir su eleccion.");
 		
@@ -72,32 +72,33 @@ public class Principal {
 				eleccion2();
 				
 			}
-			if (eleccion== 3) {
-				eleccion3();
+			if (eleccion== 4) {
+				eleccion4();
 				
 			}
 			
-			}		
+		}		
 			
 	}
 
 	public static void mostrarMenuPrincipal() {
 		System.out.println("Bienvenido/a al programa de gestion:");
 
-		System.out.println("Pulse 1 para Nueva persona.");
-		System.out.println("Pulse 2 para ver las personas:");
-		System.out.println("Pulse 3 para salir.");
+		System.out.println("Pulse 1 para gestionar los pacientes. ");
+		System.out.println("Pulse 2 para gestionar los empleados ");
+		System.out.println("Pulse 3 para gestionar las citas ");
+		System.out.println("Pulse 4 para salir.");
 
 	}
 	
 	public static void eleccion1() {
-		System.out.println("Bienvenido/a al programa de registro de una nueva persona:");
+		System.out.println("Bienvenido/a al programa de gestion de los pacientes: ");
 
-		System.out.println("Pulse 1 para registrar un nuevo Paciente:");
-		System.out.println("Pulse 2 para registrar un nuevo Cirujano/a:");
-		System.out.println("Pulse 3 para registrar un nuevo Enfermero/a:");
-		System.out.println("Pulse 4 para registrar un nuevo Secretario/a:");
-		System.out.println("Pulse 5 para salir.");
+		System.out.println("Pulse 1 para ver un Paciente:");
+		System.out.println("Pulse 2 para registrar un nuevo Paciente");
+		System.out.println("Pulse 3 para buscar un Paciente");
+		System.out.println("Pulse 4 para ver un historial de un paciente");
+		System.out.println("Pulse 5 para volver atras.");
 
 	
 	}
@@ -114,7 +115,7 @@ public class Principal {
 	
 	}
 	
-	public static void eleccion3() {
+	public static void eleccion4() {
 		
 		System.out.println("Hasta pronto!! <3");
 		

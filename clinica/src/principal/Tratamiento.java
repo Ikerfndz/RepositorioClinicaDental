@@ -2,6 +2,8 @@ package principal;
 
 import java.util.Scanner;
 
+import validacion.Validador;
+
 public class Tratamiento {
 
 	private long idTratamiento;
@@ -15,23 +17,40 @@ public class Tratamiento {
 	// consentimientos representa la aceptación o rechazo del paciente al
 	// tratamiento.
 
-	public static Tratamiento nuevoTratammiento() {
+	public static Tratamiento nuevotratamiento() {
 		Tratamiento ret = new Tratamiento();
+		Scanner teclado;
+		teclado = new Scanner(System.in);
+
+		// nombreDescriptivo
+		String nomDescriptivo = ("");
+		boolean nombreDescriptivolValido = false;
+		do {
+			System.out.println("Introduzca el nombre descriptivo: ");
+			nomDescriptivo = teclado.next();
+			nombreDescriptivolValido = Validador.validarnombreDescriptivoTratamiento(nomDescriptivo);
+		} while (!nombreDescriptivolValido);
+		ret.setNombreDescriptivo(nomDescriptivo);
 		return ret;
+		
+		
 	}
-		private static int numTratamientos = 0;
-		public Tratamiento() {
-			numTratamientos++;
-			this.idTratamiento = numTratamientos;}
-			
-		public Tratamiento (String nombreDescriptivo, boolean consentimiento) {
-			this();
-			this.consentimiento = consentimiento;
-			this.nombreDescriptivo = nombreDescriptivo;
-		}
-	
+
+	private static int numTratamientos = 0;
+
+	public Tratamiento() {
+		numTratamientos++;
+		this.idTratamiento = numTratamientos;
+	}
+
+	public Tratamiento(String nombreDescriptivo, boolean consentimiento) {
+		this();
+		this.consentimiento = consentimiento;
+		this.nombreDescriptivo = nombreDescriptivo;
+	}
 
 	
+
 	public long getIdTratamiento() {
 		return idTratamiento;
 	}

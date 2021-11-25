@@ -1,5 +1,7 @@
 package validacion;
 
+import java.lang.*;
+
 public class Validador {
 
 	// Medicamento
@@ -95,7 +97,7 @@ public class Validador {
 	public static boolean validarNifPaciente(String nifPaciente) {
 		if (nifPaciente.length() != 8)
 			return false;
-		return false;
+		return true;
 	}
 
 	public static boolean validarEdadPaciente(int edadPaciente) {
@@ -107,15 +109,16 @@ public class Validador {
 	public static boolean validarDireccionPaciente(String dirPaciente) {
 		if (dirPaciente.length() > 2 || dirPaciente.length() < 150)
 			return false;
-		return false;
+		return true;
 	}
 
 	public static boolean validarTelefonoPaciente(String telPaciente) {
-		if (telPaciente.length() == 8 && (telPaciente.charAt(0) == 9 || telPaciente.charAt(0) == 8
-				|| telPaciente.charAt(0) == 6 || telPaciente.charAt(0) == 7))
+		char caracterinicial1=telPaciente.charAt(0);
+		int enteroinicial1=Character.getNumericValue(caracterinicial1);
+		if (telPaciente.length() == 8 && (enteroinicial1 == 9 || enteroinicial1 == 8
+				|| enteroinicial1 == 6 || enteroinicial1 == 7))
 			return false;
-		else
-			return true;
+		return true;
 	}
 
 	// VALIDADORES EMPLEADO
@@ -156,8 +159,10 @@ public class Validador {
 	// si las condiciones mencionadas anteriormente no se cumplen, el telefono
 	// introducido sera invalido
 	public static boolean validarTelefonoValido(String telEmpleado) {
-		if (telEmpleado.length() == 8 && (telEmpleado.charAt(0) == 9 || telEmpleado.charAt(0) == 8
-				|| telEmpleado.charAt(0) == 6 || telEmpleado.charAt(0) == 7)) {
+		char caracterinicial=telEmpleado.charAt(0);
+		int enteroinicial=Character.getNumericValue(caracterinicial);
+		if (telEmpleado.length() == 8 && (enteroinicial == 9 || enteroinicial == 8
+				|| enteroinicial == 6 || enteroinicial == 7)) {
 			return true;
 		} else {
 			return false;
@@ -195,7 +200,8 @@ public class Validador {
 	// validarAniosExpSecretariado es un metodo que recibe como argumento la
 	// variable auxiliar anios, para validar el numero de a�os del empleado
 	// En este caso, mediante la clase Integer, que nos permite pasar un dato de
-	// tipo string a int, decimos que el numero de a�os de experiencia introducidos
+	// tipo string a int, decimos que el numero de a�os de experiencia
+	// introducidos
 	// sera invalido si es menor que 0 o mayor que 100
 	// En caso de que no fuera asi, seria aceptada
 	public static boolean validarAniosExpSecretario(int anios) {
@@ -206,11 +212,11 @@ public class Validador {
 		}
 	}
 	// Cita
-	
 
 		public static boolean validarFechaCita(String fechaCita) {
 			return false;
 		}
+		
 		public static boolean validarHoraCita(String horaCita) {
 			return false;
 		}
@@ -244,19 +250,33 @@ public class Validador {
 
 	// VALIDADORES INFORME
 
-		// validardescripcionInforme es un metodo que recibe como argumento la variable
-		// auxiliar des, para validar la descripcion de cada informe
-		// des sera valida si la longitud de la descripcion del informe introducida no
-		// tiene menos de 10 o mas de 500 caracteres
-		// en caso contrario la descripcion introducida no sera valida
+	// validardescripcionInforme es un metodo que recibe como argumento la variable
+	// auxiliar des, para validar la descripcion de cada informe
+	// des sera valida si la longitud de la descripcion del informe introducida no
+	// tiene menos de 10 o mas de 500 caracteres
+	// en caso contrario la descripcion introducida no sera valida
 
-		public static boolean validardescripcionInforme(String des) {
-			if (des.length() < 10 || des.length() > 500) {
-				return false;
-			} else {
-				return true;
-			}
+	public static boolean validardescripcionInforme(String des) {
+		if (des.length() < 10 || des.length() > 500) {
+			return false;
+		} else {
+			return true;
 		}
-		
-}
+	}
 
+	// VALIDADOR HISTORIAL
+
+	public static boolean validarHistorialPaciente(String desHistorial) {
+		if (desHistorial.length() > 10)
+			return false;
+		return true;
+	}
+
+	// VALIDADORES TRATAMIENTOS
+	public static boolean validarnombreDescriptivoTratamiento(String nomDescriptivo) {
+		if (nomDescriptivo.length() < 2 || nomDescriptivo.length() < 50)
+			return true;
+
+		return false;
+	}
+}
