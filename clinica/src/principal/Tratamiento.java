@@ -7,15 +7,26 @@ import validacion.Validador;
 public class Tratamiento {
 
 	private long idTratamiento;
-	// idTratamiento representa al identificador único de cada tratamiento.
+	// idTratamiento representa al identificador ï¿½nico de cada tratamiento.
 	// es un valos entero >0 .
 	private String nombreDescriptivo;
 	// nombreDescriptivo representa el nombre del tratamiento.
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50.
 	// no acepta numeros ni caracteres especiales .
 	private boolean consentimiento = true;
-	// consentimientos representa la aceptación o rechazo del paciente al
+	// consentimientos representa la aceptaciï¿½n o rechazo del paciente al
 	// tratamiento.
+	
+	private Informe informe;
+
+	
+	public Informe getInforme() {
+		return informe;
+	}
+
+	public void setInforme(Informe informe) {
+		this.informe = informe;
+	}
 
 	public static Tratamiento nuevotratamiento() {
 		Tratamiento ret = new Tratamiento();
@@ -31,6 +42,10 @@ public class Tratamiento {
 			nombreDescriptivolValido = Validador.validarnombreDescriptivoTratamiento(nomDescriptivo);
 		} while (!nombreDescriptivolValido);
 		ret.setNombreDescriptivo(nomDescriptivo);
+
+		//para la parte del informe
+		ret.setInforme(Informe.nuevoInforme());
+		
 		return ret;
 		
 		

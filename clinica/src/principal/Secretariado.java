@@ -5,8 +5,8 @@ import java.util.Scanner;
 import validacion.Validador;
 
 public class Secretariado extends Empleado {
-	protected int numAñosExp;
-	// almacena los años de experiencia de un secretario
+	protected int numAniosExp;
+	// almacena los aï¿½os de experiencia de un secretario
 	// se almacenan en una variable de tipo int
 
 	// Constructor por defecto de la clase Secretariado
@@ -14,31 +14,31 @@ public class Secretariado extends Empleado {
 	}
 
 	// Constructor que recibe por parametros los atributos de la clase empleado
-	// y los años de experiencia del secretario
+	// y los aï¿½os de experiencia del secretario
 	// Primero hace una llamada a super para sacar los datos del empleado.
-	// Luego guarda los datos recibidos en la variable numAñosExp
+	// Luego guarda los datos recibidos en la variable numAï¿½osExp
 	public Secretariado(String nombre, String apellidos, String telefono, String direccion, String nif,
-			int numAñosExp) {
+			int numAniosExp) {
 		super(nombre, apellidos, telefono, direccion, nif);
-		this.numAñosExp = numAñosExp;
+		this.numAniosExp = numAniosExp;
 	}
 
 //	public Secretariado(Empleado e, int aniosExp) {
 //		super(e.getNombre(), e.getApellidos(), e.gettelefono(), e.getdireccion(), e.getnif());
-//		this.numAñosExp = aniosExp;		
+//		this.numAï¿½osExp = aniosExp;		
 //	}
 	
 	public Secretariado(Empleado e, int aniosExp) {
 		super(e);
-		this.numAñosExp = aniosExp;
+		this.numAniosExp = aniosExp;
 	}
 
-	// Metodo nuevoSecretario -> encargado de guardar los años de experiencia de un
+	// Metodo nuevoSecretario -> encargado de guardar los aï¿½os de experiencia de un
 	// secretario
-	// Se le pide al usuario que ingrese los años de experiencia y los guarda en una
+	// Se le pide al usuario que ingrese los aï¿½os de experiencia y los guarda en una
 	// variable auxiliar
-	// Esta variable será la que pasaremos por parametros haciendo llamada al
-	// constructor anterior para establecer el numero de años de experiencia
+	// Esta variable serï¿½ la que pasaremos por parametros haciendo llamada al
+	// constructor anterior para establecer el numero de aï¿½os de experiencia
 	// Finalmente devolvemos los datos introducidos.
 	public static Secretariado nuevoSecretario() {
 		Secretariado ret = new Secretariado();
@@ -48,7 +48,7 @@ public class Secretariado extends Empleado {
 		int anios=0;
 		boolean aniosExpvalidoSecretario=false;
 		do {
-		System.out.println("Introduzca los años de experiencia del secretario");
+		System.out.println("Introduzca los aï¿½os de experiencia del secretario");
 		anios = teclado.nextInt();
 		aniosExpvalidoSecretario=Validador.validarAniosExpSecretario(anios);
 		} while(!aniosExpvalidoSecretario);
@@ -57,18 +57,18 @@ public class Secretariado extends Empleado {
 	}
 
 	// Getters y setters
-	public int getNumAñosExp() {
-		return numAñosExp;
+	public int getNumAniosExp() {
+		return numAniosExp;
 	}
 
-	public void setNumAñosExp(int numAñosExp) {
-		this.numAñosExp = numAñosExp;
+	public void setNumAniosExp(int numAniosExp) {
+		this.numAniosExp = numAniosExp;
 	}
 
 	// To String
 	@Override
 	public String toString() {
-		return "Secretariado [numAñosExp=" + numAñosExp + ", idEmpleado=" + idEmpleado + ", nombre=" + nombre
+		return "Secretariado [numAï¿½osExp=" + numAniosExp + ", idEmpleado=" + idEmpleado + ", nombre=" + nombre
 				+ ", apellidos=" + apellidos + ", telefono=" + telefono + ", direccion=" + direccion + ", nif=" + nif
 				+ "]";
 	}

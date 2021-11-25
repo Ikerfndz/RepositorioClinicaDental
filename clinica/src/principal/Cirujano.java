@@ -21,7 +21,7 @@ public class Cirujano extends Empleado {
 	}
 
 	// Constructor que recibe por parametros la especialidad el empleado y la
-	// intervención.
+	// intervenciï¿½n.
 	// Primero hace una llamada a super para sacar los datos del empleado.
 	// Se guarda la especialidad en el array.
 	// Se guarda la intervencion en el array.
@@ -50,13 +50,13 @@ public class Cirujano extends Empleado {
 	}
 
 
-	// Método encargado de crear un nuevo cirujano.
+	// Mï¿½todo encargado de crear un nuevo cirujano.
 	// Se declara una variable de tipo Empleado donde se guardan los datos del
-	// empleado haciendo llamada al método nuevoEmpleado.
+	// empleado haciendo llamada al mï¿½todo nuevoEmpleado.
 	// Se declara una variable de tipo Intervencion donde se guardan los datos de la
-	// intervención haciendo llamada al método nuevaIntervencion.
+	// intervenciï¿½n haciendo llamada al mï¿½todo nuevaIntervencion.
 	// Se declara una variable de tipo Especialidad donde se guardan los datos de la
-	// especialidad haciendo llamada al método nuevaEspecialidad.
+	// especialidad haciendo llamada al mï¿½todo nuevaEspecialidad.
 	// Se declara una variable de tipo Cirujano que se instancia haciendo llamada al
 	// constructor anterior y se le pasa por parametros las variables creadas en
 	// este metodo.
@@ -64,10 +64,10 @@ public class Cirujano extends Empleado {
 	// Especialidad pertenece a un cirujano.
 	public static Cirujano nuevoCirujano() {
 		Empleado empleado = Empleado.nuevoEmpleado();
-		Intervencion intervencion = Intervencion.nuevaDuracion();
+		Intervencion intervencion = Intervencion.nuevaIntervencion();
 		Especialidad especialidad = Especialidad.nuevaEspecialidad();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("¿Tiene el cirujano especialidad?");
+		System.out.println("Â¿Tiene el cirujano especialidad?");
 		boolean aux = teclado.nextBoolean();
 		Cirujano ret = new Cirujano(especialidad, empleado, intervencion, aux);
 		especialidad.setCirujano(ret);
