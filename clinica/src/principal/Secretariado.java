@@ -2,6 +2,7 @@ package principal;
 
 import java.util.Scanner;
 
+import utils.Datos;
 import validacion.Validador;
 
 public class Secretariado extends Empleado {
@@ -55,6 +56,14 @@ public class Secretariado extends Empleado {
 		teclado.close();
 		return ret;
 	}
+    public static void motrarSecretario() {
+        System.out.println("Lista de Secretarios disponibles:");
+        for (int i = 0; i < Datos.numSecretarios; i++) {
+            Secretariado s = Datos.SECRETARIOS[i];
+                System.out.println(s.toString());
+            }
+        }
+    
 
 	// Getters y setters
 	public int getNumAniosExp() {
@@ -68,7 +77,7 @@ public class Secretariado extends Empleado {
 	// To String
 	@Override
 	public String toString() {
-		return "Secretariado [numA�osExp=" + numAniosExp + ", idEmpleado=" + idEmpleado + ", nombre=" + nombre
+		return "Secretariado [numAniosExp=" + numAniosExp + ", idEmpleado=" + idEmpleado + ", nombre=" + nombre
 				+ ", apellidos=" + apellidos + ", telefono=" + telefono + ", direccion=" + direccion + ", nif=" + nif
 				+ "]";
 	}

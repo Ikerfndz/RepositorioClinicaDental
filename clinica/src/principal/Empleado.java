@@ -56,6 +56,16 @@ public class Empleado {
 		this.direccion = direccion;
 		this.nif = nif;
 	}
+	
+	public Empleado(String nombre,long id, String apellidos, String telefono, String direccion, String nif) {
+		this();
+		this.nombre = nombre;
+		this.idEmpleado=id;
+		this.apellidos = apellidos;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.nif = nif;
+	}
 
 	// Constructor de copia -> para copiar los atributos de la clase padre empleado
 	public Empleado(Empleado e) {
@@ -128,6 +138,15 @@ public class Empleado {
 		return ret;
 	}
 
+	
+	   public static void motrarEmpleado() {
+	        System.out.println("Lista de Empleados disponibles:");
+	        for (int i = 0; i < Datos.numEmpleadosd; i++) {
+	            Empleado e = Datos.EMPLEADOS[i];
+	                System.out.println(e.toString());
+	            }
+	        }
+	    
 	// Getters y setters
 
 	public long getIdEmpleado() {

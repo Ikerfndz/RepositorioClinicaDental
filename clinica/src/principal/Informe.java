@@ -3,6 +3,7 @@ package principal;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import utils.Datos;
 import validacion.Validador;
 
 public class Informe {
@@ -30,7 +31,7 @@ public class Informe {
 	private Informe informes[] = new Informe[10000];
 
 	
-	private Secretariado[] secretarios;
+	private Secretariado[] secretarios = new Secretariado[1000];
 	
 	
 	public Informe() {
@@ -61,6 +62,16 @@ public class Informe {
 		numeroInformes++;
 		ret.idInforme = numeroInformes;
 		
+		Secretariado.motrarSecretario();
+		System.out.println("Selecciona un secretario.");
+		int eleccion=0;
+		eleccion = teclado.nextInt();
+		boolean eleccionValidaS= false;
+		do{
+			if (eleccion >= 0 && eleccion < Datos.numSecretarios) {
+				ret.secretarios[0]=Datos.SECRETARIOS[eleccion];
+			}
+		}while(!eleccionValidaS);
 		
 		
 		/*
@@ -72,7 +83,6 @@ public class Informe {
 			5)
 		
 		*/
-		teclado.close();
 		return ret;
 
 	}

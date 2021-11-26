@@ -1,7 +1,5 @@
 package validacion;
 
-import java.lang.*;
-
 public class Validador {
 
 	// Medicamento
