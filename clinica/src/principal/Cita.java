@@ -43,6 +43,12 @@ public class Cita {
 	public static Cita nuevaCita() {
 		Cita ret = new Cita();
 		Scanner teclado = new Scanner(System.in);
+		
+		char rango;
+		System.out.print("Introduce mañana o tarde: ");
+		rango = teclado.next().charAt(0); // se obtiene el primer carácter del String introducido por teclado
+		System.out.println("Carácter introducido -> " + rango);
+
 
 		String fechaCita = "";
 		boolean fechaCitaValida = false;
@@ -58,10 +64,7 @@ public class Cita {
 		ret.setFecha(fechaCita);
 //		teclado.close();
 
-		char rango;
-		System.out.print("Introduce mañana o tarde: ");
-		rango = teclado.next().charAt(0); // se obtiene el primer carácter del String introducido por teclado
-		System.out.println("Carácter introducido -> " + rango);
+		
 
 		String horaCita = "";
 		boolean horaCitaValida = false;
