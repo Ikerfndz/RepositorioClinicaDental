@@ -160,11 +160,10 @@ public class Validador {
 		char caracterinicial=telEmpleado.charAt(0);
 		int enteroinicial=Character.getNumericValue(caracterinicial);
 		if (telEmpleado.length() == 8 && (enteroinicial == 9 || enteroinicial == 8
-				|| enteroinicial == 6 || enteroinicial == 7)) {
-			return true;
-		} else {
+				|| enteroinicial == 6 || enteroinicial == 7)) 
 			return false;
-		}
+		return true;
+		
 	}
 
 	// validarDireccionEmpleado es un metodo que recibe como arugumento la variable
@@ -186,11 +185,11 @@ public class Validador {
 	// es igual a 8, el numero de caracteres del Dni
 	// en caso contrario sera invalido
 	public static boolean validarnifEmpleado(String niEmpleado) {
-		if (niEmpleado.length() != 8) {
+		if (niEmpleado.length() != 9) 
 			return false;
-		} else {
-			return true;
-		}
+		
+		return true;
+		
 	}
 
 	// VALIDADORES SECRETARIADO

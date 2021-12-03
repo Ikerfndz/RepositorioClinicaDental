@@ -38,17 +38,17 @@ public class Principal {
 						break;
 
 					case 2:
-						Cirujano.nuevoCirujano();
+						
 						eleccionValida = true;
 						break;
 
 					case 3:
-						Enfermeria.nuevoEnfermero();
+						
 						eleccionValida = true;
 						break;
 
 					case 4:
-						Secretariado.nuevoSecretario();
+						
 						eleccionValida = true;
 						break;
 
@@ -70,6 +70,10 @@ public class Principal {
 				
 			switch (eleccion) {
 			
+			case 1 :
+			case 2:
+				Empleado.nuevoEmpleado();
+				eleccionValida= true;
 			
 			}
 			
