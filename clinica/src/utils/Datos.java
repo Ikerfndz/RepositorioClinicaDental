@@ -18,7 +18,8 @@ public class Datos {
         new Paciente("Maria", 2, "Gijon","marta11@educastur.es", 20,"3875643h"),
         new Paciente("Juan", 3, "Malaga","illojuan1@educastur.es", 25,"5345643d"),
         new Paciente("Fermin", 4, "Lugones","fermin22@educastur.es", 19,"6375643n"),
-        new Paciente("Catalina", 5, "Palencia","catali@educastur.es", 22,"7875643n")
+        new Paciente("Catalina", 5, "Palencia","catali@educastur.es", 22,"7875643n"),
+
     };
      public static final int numPacientesd = PACIENTES.length;
      
@@ -31,6 +32,9 @@ public class Datos {
     	        new Empleado("Alberto", "Hummels", "666129812","alberto@educastur.es","12343543T"),
     	        new Empleado("Julia", "Bermudez", "684659893","julia@educastur.es","54323543D"),
     	        new Empleado("Barbara", "Leiva", "680250980","barbara@educastur.es","71783143B"),
+    	        new Empleado("Barbara", "Leiva", "680250980","barbara@educastur.es","71783143B"),
+    	        new Empleado("Barbara", "Leiva", "680250980","barbara@educastur.es","71783143B"),
+    	        
     	    };
      public static final int numEmpleadosd = EMPLEADOS.length;
      
@@ -60,8 +64,12 @@ public class Datos {
     };
  
     public static final Secretariado SECRETARIOS[] = {
-    		new Secretariado(EMPLEADOS[4], 4)
+    		new Secretariado(EMPLEADOS[4], 4),
+    		new Secretariado(EMPLEADOS[6], 10),
+    		new Secretariado(EMPLEADOS[7], 1),
     };
+    
+    public static final int numSecretarios = ESPECIALIDADES.length;
 
  
     public static final Alergia ALERGIAS[] = {

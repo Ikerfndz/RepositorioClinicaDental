@@ -50,7 +50,6 @@ public class Alergia extends Historial {
 			nom = teclado.nextLine();
 			nomValido = validarNombreAlergia(nom);
 		} while (!nomValido);
-		teclado.close();
 		return new Alergia();
 	}
 
@@ -92,4 +91,5 @@ public class Alergia extends Historial {
 		return "Alergia [idAlergia=" + idAlergia + ", nombreAlergia=" + nombreAlergia + "]";
 	}
 
+	
 }

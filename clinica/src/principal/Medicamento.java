@@ -64,7 +64,6 @@ public class Medicamento extends Alergia {
 			nombreValido = validarNombreMedicamento(nombre);
 		} while (!nombreValido);
 
-		teclado.close();
 		ret.setNombreMedicamento(nombre);
 
 		// nombrePrincipioActivo
@@ -77,7 +76,6 @@ public class Medicamento extends Alergia {
 			nombrepValido = validarPrincipioActivo(principioActivo);
 		} while (!nombrepValido);
 
-		teclado.close();
 		ret.setPrincipioActivo(principioActivo);
 
 		// dosisMáxima
@@ -157,4 +155,5 @@ public class Medicamento extends Alergia {
 		return "Medicamento [idMedicamento=" + idMedicamento + ", nombreMedicamento=" + nombreMedicamento
 				+ ", principioActivo=" + principioActivo + ", dosisMaxDiaria=" + dosisMaxDiaria + "]";
 	}
+	
 }

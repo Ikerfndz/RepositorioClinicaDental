@@ -68,7 +68,6 @@ public class Pago {
 		LocalDate fecha = LocalDate.now();
 		fecha = LocalDate.parse(fech);
 		ret.setFecha(fecha);
-		teclado.close();
 
 		// importe pago
 		double importe = 0;
@@ -150,4 +149,5 @@ public class Pago {
 		return "Pago [idPago=" + idPago + ", fecha=" + fecha + ", importe=" + importe + ", metododePago=" + metododePago
 				+ "]";
 	}
+
 }
