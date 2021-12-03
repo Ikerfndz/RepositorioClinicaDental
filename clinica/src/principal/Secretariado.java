@@ -53,7 +53,7 @@ public class Secretariado extends Empleado {
 		anios = teclado.nextInt();
 		aniosExpvalidoSecretario=Validador.validarAniosExpSecretario(anios);
 		} while(!aniosExpvalidoSecretario);
-		teclado.close();
+//		teclado.close();
 		return ret;
 	}
     public static void motrarSecretario() {

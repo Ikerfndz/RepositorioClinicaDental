@@ -70,18 +70,45 @@ public class Principal {
 				
 			switch (eleccion) {
 			
-			case 1 :
-			case 2:
+			case 1:
 				Empleado.nuevoEmpleado();
 				eleccionValida= true;
-			
+				break;
+			case 2:
+				
+				eleccionValida = true;
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			default:
+				eleccionValida= true;
+				break;
+			}
+			}
+			if (eleccion == 3 ) {
+				eleccion3();
+				do {
+					eleccionValida = false;
+					eleccion = in.nextInt();
+					eleccionValida = (eleccion < 1 || eleccion > 4 ? false : true);
+				} while (!eleccionValida);
+				
+				switch (eleccion){
+				
+				case 1: 
+					Cita.nuevaCita();
+					break;
+				}
+				
+				
 			}
 			
 			
-			}
 				if (eleccion == 4) {
 					eleccion4();
-
+					salir=true;
 				}
 
 			
@@ -112,13 +139,23 @@ public class Principal {
 	public static void eleccion2() {
 		System.out.println("Bienvenido/a al programa de gestion de empleados.");
 
-		System.out.println("Pulse 1 para ver los empleados.");
-		System.out.println("Pulse 2 para registrar un nuevo empleado.");
+		System.out.println("Pulse 1 para registrar un nuevo empleado.");
+		System.out.println("Pulse 2 para ver los empleados.");
 		System.out.println("Pulse 3 para buscar un empleado.");
 		System.out.println("Pulse 5 para salir.");
 
 	}
 
+	
+	public static void eleccion3() {
+		
+		System.out.println("Bienvenido/a al programa de gestion de citas.");
+
+		System.out.println("Pulse 1 para registrar una nueva cita.");
+		System.out.println("Pulse 2 para ver las citas.");
+		System.out.println("Pulse 3 para buscar una cita.");
+		System.out.println("Pulse 4 para salir.");
+	}
 	public static void eleccion4() {
 
 		System.out.println("Hasta pronto!! <3");

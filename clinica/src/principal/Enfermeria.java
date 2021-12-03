@@ -52,7 +52,7 @@ public class Enfermeria extends Empleado {
 		char cat;
 		cat = teclado.next().charAt(0);
 		Enfermeria ret = new Enfermeria(cat, empleado, intervencion);
-		teclado.close();
+//		teclado.close();
 		return ret;
 	}
 

@@ -50,7 +50,7 @@ public class Especialidad {
 		System.out.println("Introduce el nombre de la especialidad");
 		String nom = "";
 		nom = teclado.nextLine();
-		teclado.close();
+//		teclado.close();
 		return new Especialidad(nom);
 	}
 

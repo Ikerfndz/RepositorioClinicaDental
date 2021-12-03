@@ -134,7 +134,7 @@ public class Empleado {
 		} while (!niEmpleadoValido);
 		ret.setNif(niEmpleado);
 
-		teclado.close();
+//		teclado.close();
 		return ret;
 	}
 

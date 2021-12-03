@@ -211,6 +211,7 @@ public class Validador {
 	// Cita
 
 		public static boolean validarFechaCita(String fechaCita) {
+			
 			return false;
 		}
 		

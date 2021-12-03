@@ -1,6 +1,7 @@
 package principal;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import validacion.Validador;
@@ -13,7 +14,7 @@ public class Cita {
 	// hora representa la hora a la que se realizara la cita.
 	// Seran para ambos la funcion LocalDate.
 
-	protected LocalDate fecha, hora;
+	protected LocalDateTime fecha, hora;
 	// rango representa el horario preferido por el cliente siendo de mañana o de
 	// tarde.
 	// Es un char que representara una "M" para las mañanas y una "T" para las
@@ -26,7 +27,7 @@ public class Cita {
 	public Cita() {
 	}
 
-	public Cita(long idCita, LocalDate fecha, LocalDate hora, char rango) {
+	public Cita(long idCita, LocalDateTime fecha, LocalDateTime hora, char rango) {
 		numeroPacientes++;
 		this.idCita = numeroPacientes;
 		this.fecha = fecha;
@@ -39,7 +40,7 @@ public class Cita {
 	 * 
 	 * @return una nueva Cita
 	 */
-	public static Cita nuevaFecha() {
+	public static Cita nuevaCita() {
 		Cita ret = new Cita();
 		Scanner teclado = new Scanner(System.in);
 
@@ -52,10 +53,10 @@ public class Cita {
 			fechaCitaValida = validarFechaCita(fechaCita);
 		} while (!fechaCitaValida);
 
-		LocalDate fecha = LocalDate.now();
-		fecha = LocalDate.parse(fechaCita);
+		LocalDateTime fecha = LocalDateTime.now();
+		fecha = LocalDateTime.parse(fechaCita);
 		ret.setFecha(fechaCita);
-		teclado.close();
+//		teclado.close();
 
 		char rango;
 		System.out.print("Introduce mañana o tarde: ");
@@ -71,10 +72,10 @@ public class Cita {
 			horaCitaValida = validarhoraCita(horaCita);
 		} while (!horaCitaValida);
 
-		LocalDate hora = LocalDate.now();
-		hora = LocalDate.parse(horaCita);
+		LocalDateTime hora = LocalDateTime.now();
+		hora = LocalDateTime.parse(horaCita);
 		ret.setHora(horaCita);
-		teclado.close();
+//		teclado.close();
 		return ret;
 
 	}
@@ -103,19 +104,19 @@ public class Cita {
 		this.idCita = idCita;
 	}
 
-	public LocalDate getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 
-	public LocalDate getHora() {
+	public LocalDateTime getHora() {
 		return hora;
 	}
 
-	public void setHora(LocalDate hora) {
+	public void setHora(LocalDateTime hora) {
 		this.hora = hora;
 	}
 
