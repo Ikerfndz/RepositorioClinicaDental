@@ -1,7 +1,7 @@
 package principal;
 
 import java.util.Scanner;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Cobro {
 
@@ -14,7 +14,7 @@ public class Cobro {
 
 	// fecha almacena la fecha en la que se realiza el cobro
 	// es de tipo Localdate porque almacena una fecha
-	protected LocalDate fecha;
+	protected LocalDateTime fecha;
 
 	// Variable que utilizaremos para completar de forma automática el identificador
 	// del cobro.
@@ -30,7 +30,7 @@ public class Cobro {
 	// Constructor que se le pide por parametro el nombre de la especialidad.
 	// Hace una llamada al constructor por defecto.
 	// Guarda el valor del parametro introducido en la variable nombeesp.
-	public Cobro(double importe, LocalDate fecha) {
+	public Cobro(double importe, LocalDateTime fecha) {
 		numeroCobros = numeroCobros + 1;
 		idCobro = numeroCobros;
 		this.importe = importe;
@@ -69,8 +69,8 @@ public class Cobro {
 			fechaValida = validarFechaCobro(fech);
 		} while (!fechaValida);
 
-		LocalDate fecha = LocalDate.now();
-		fecha = LocalDate.parse(fech);
+		LocalDateTime fecha = LocalDateTime.now();
+		fecha = LocalDateTime.parse(fech);
 		ret.setFecha(fecha);
 
 		return ret;
@@ -103,11 +103,11 @@ public class Cobro {
 		this.importe = importe;
 	}
 
-	public LocalDate getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 

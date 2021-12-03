@@ -1,7 +1,7 @@
 package principal;
 
 import java.util.Scanner;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Pago {
 
@@ -10,7 +10,7 @@ public class Pago {
 
 	// fecha almacena la fecha en la que se realiza el pago
 	// es de tipo Localdate porque almacena una fecha
-	protected LocalDate fecha;
+	protected LocalDateTime fecha;
 
 	// importe representa el importe del cobro
 	// es un valor >0
@@ -35,7 +35,7 @@ public class Pago {
 	// Constructor que se le pide por parametro el nombre de la especialidad.
 	// Hace una llamada al constructor por defecto.
 	// Guarda el valor del parametro introducido en la variable nombeesp.
-	public Pago(double importe, LocalDate fecha, String metododePago) {
+	public Pago(double importe, LocalDateTime fecha, String metododePago) {
 		numeroPagos = numeroPagos + 1;
 		idPago = numeroPagos;
 		this.importe = importe;
@@ -65,8 +65,8 @@ public class Pago {
 			fechaValida = validarFechaPago(fech);
 		} while (!fechaValida);
 
-		LocalDate fecha = LocalDate.now();
-		fecha = LocalDate.parse(fech);
+		LocalDateTime fecha = LocalDateTime.now();
+		fecha = LocalDateTime.parse(fech);
 		ret.setFecha(fecha);
 
 		// importe pago
@@ -119,11 +119,11 @@ public class Pago {
 		this.idPago = idPago;
 	}
 
-	public LocalDate getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 
