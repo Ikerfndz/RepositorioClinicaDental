@@ -67,21 +67,21 @@ public class Validador {
 	}
 
 	public static boolean validarNifPaciente(String nifPaciente) {
-		if (nifPaciente.length() != 8)
+		if (nifPaciente.length() != 9)
 			return false;
 		return true;
 	}
 
 	public static boolean validarEdadPaciente(int edadPaciente) {
 		if (edadPaciente > 1 || edadPaciente < 130)
-			;
-		return false;
+		return true;
+	return false;
 	}
 
 	public static boolean validarDireccionPaciente(String dirPaciente) {
 		if (dirPaciente.length() > 2 || dirPaciente.length() < 150)
-			return false;
-		return true;
+			return true;
+		return false;
 	}
 
 	public static boolean validarTelefonoPaciente(String telPaciente) {
