@@ -52,12 +52,11 @@ public class Cita {
 
 		String fechaCita = "";
 		boolean fechaCitaValida = false;
-
+		System.out.println(" <<<Por favor, siga el siguente formato como se muestra en el ejemplo a continuación: 02/12/2022>>> ");
 		do {
 			System.out.println("Introduce la nueva fecha: ");
-			System.out.println(" <<<Por favor, siga el siguente formato como se muestra en el ejemplo a continuación: 02/12/2022>>> ");
-			fechaCita = teclado.nextLine();
-			fechaCitaValida = validarFechaCita(fechaCita);
+			fechaCita = teclado.next();
+			fechaCitaValida = Validador.validarFechaCita(fechaCita);
 		} while (!fechaCitaValida);
 
 		LocalDateTime fecha = LocalDateTime.now();
