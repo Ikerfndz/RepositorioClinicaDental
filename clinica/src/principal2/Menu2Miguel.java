@@ -14,7 +14,7 @@ public class Menu2Miguel {
 				continuarintroducido=in.nextLine();
 				if (continuar.equals(continuarintroducido)==false) {
 					System.out.println("Pulse 1 para continuar");
-				}
+				}     
 			}
 			
 			int eleccion;
