@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import utils.Utilidades;
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -42,7 +44,13 @@ public class Principal {
 
 					case 2:
 						System.out.println("Usted ha elegido la opcion: " + eleccion);
-						eleccionValida = true;
+						Paciente[] pacientes = utils.Datos.PACIENTES;
+
+						System.out.println("Hay " + utils.Datos.numPacientesd + " pacientes en el sistema.");
+					
+						for (Paciente i : pacientes)
+							System.out.println("Nombre: " + i.getNombre() + ". Identificador del paciente: " + i.getIdPaciente());
+						eleccionValida = false;
 						break;
 
 					case 3:
@@ -75,11 +83,19 @@ public class Principal {
 					switch (eleccion) {
 
 					case 1:
+						System.out.println("Usted ha elegido la opcion: " + eleccion);
 						Empleado.nuevoEmpleado();
 						eleccionValida = false;
 						break;
 					case 2:
-						eleccionValida = true;
+						System.out.println("Usted ha elegido la opcion: " + eleccion);
+						Empleado[] empleados = utils.Datos.EMPLEADOS;
+
+						System.out.println("Hay " + utils.Datos.numEmpleadosd + " empleados en el sistema.");
+					
+						for (Empleado i : empleados)
+							System.out.println("Nombre: " + i.getNombre() + ". Identificador del empleado: " + i.getIdEmpleado());
+						eleccionValida = false;
 						break;
 					case 3:
 						eleccionValida = true;
@@ -109,8 +125,8 @@ public class Principal {
 			}
 
 			if (eleccion == 4) {
-				eleccionSalida();
-				salir = true;
+				
+				
 			}
 
 		} while (!salir);
@@ -143,7 +159,7 @@ public class Principal {
 		System.out.println("- Pulse 1 para registrar un nuevo empleado.");
 		System.out.println("- Pulse 2 para ver los empleados.");
 		System.out.println("- Pulse 3 para buscar un empleado.");
-		System.out.println("- Pulse 4 para salir.");
+		System.out.println("- Pulse 4 para volver atrás.");
 
 	}
 
