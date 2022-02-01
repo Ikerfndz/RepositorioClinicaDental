@@ -56,11 +56,11 @@ public class Empleado {
 		this.direccion = direccion;
 		this.nif = nif;
 	}
-	
-	public Empleado(String nombre,long id, String apellidos, String telefono, String direccion, String nif) {
+
+	public Empleado(String nombre, long id, String apellidos, String telefono, String direccion, String nif) {
 		this();
 		this.nombre = nombre;
-		this.idEmpleado=id;
+		this.idEmpleado = id;
 		this.apellidos = apellidos;
 		this.telefono = telefono;
 		this.direccion = direccion;
@@ -80,73 +80,67 @@ public class Empleado {
 	// Se le pide al usuario que ingrese los siguentes datos sobre el nuevo
 	// empleado: nombre, apellidos, telefono, direccion y nif
 	// Todos estos datos son guardados en variables auxiliares distintas
-	// Estas variables serán las que pasaremos por parametros haciendo llamada al
+	// Estas variables serï¿½n las que pasaremos por parametros haciendo llamada al
 	// constructor anterior para establecer un nuevo empleado con todos sus
 	// atributos
 	// Finalmente se devuelven los datos introducidos
 	public static Empleado nuevoEmpleado() {
-		Empleado ret = new Empleado();
+		Empleado ret = null;
 		Scanner teclado;
-		teclado = new Scanner(System.in);
+		boolean valido = false;
 
 		String nomEmpleado = "";
-		boolean nombreEmpleadoValido = false;
 		do {
-			System.out.println("Introduzca el nombre del empleado");
+			System.out.println("Introduzca el nombre del nuevo empleado: ");
+			teclado = new Scanner(System.in);
 			nomEmpleado = teclado.nextLine();
-			nombreEmpleadoValido = Validador.validarNombreEmpleado(nomEmpleado);
-		} while (!nombreEmpleadoValido);
-		ret.setNombre(nomEmpleado);
+			valido = Validador.validarNombreEmpleado(nomEmpleado);
+		} while (!valido);
 
+		valido = false;
 		String apeEmpleado = "";
-		boolean apeEmpleadoValido = false;
 		do {
-			System.out.println("Introduzca los apellidos del empleado");
+			System.out.println("Introduzca los apellidos del nuevo empleado");
 			apeEmpleado = teclado.nextLine();
-			apeEmpleadoValido = Validador.validarApellidoEmpleado(apeEmpleado);
-		} while (!apeEmpleadoValido);
-		ret.setApellidos(apeEmpleado);
+			valido = Validador.validarApellidoEmpleado(apeEmpleado);
+		} while (!valido);
 
+		valido = false;
 		String telEmpleado = "";
-		boolean telEmpleadoValido = false;
 		do {
-			System.out.println("Introduzca el telefono del empleado");
+			System.out.println("Introduzca el telefono del nuevo empleado");
 			telEmpleado = teclado.nextLine();
-			telEmpleadoValido = Validador.validarTelefonoValido(telEmpleado);
-		} while (!telEmpleadoValido);
-		ret.setTelefono(telEmpleado);
+			valido = Validador.validarTelefonoValido(telEmpleado);
+		} while (!valido);
 
+		valido = false;
 		String dirEmpleado = "";
-		boolean dirEmpleadoValido = false;
 		do {
-			System.out.println("Introduzca la direccion del empleado");
+			System.out.println("Introduzca la direccion del nuevo empleado");
 			dirEmpleado = teclado.nextLine();
-			dirEmpleadoValido = Validador.validarDireccionEmpleado(dirEmpleado);
-		} while (!dirEmpleadoValido);
-		ret.setDireccion(dirEmpleado);
+			valido = Validador.validarDireccionEmpleado(dirEmpleado);
+		} while (!valido);
 
+		valido = false;
 		String niEmpleado = "";
-		boolean niEmpleadoValido = false;
 		do {
-			System.out.println("Introduzca el nif del empleado");
+			System.out.println("Introduzca el nif del nuevo empleado");
 			niEmpleado = teclado.nextLine();
-			niEmpleadoValido = Validador.validarnifEmpleado(niEmpleado);
-		} while (!niEmpleadoValido);
-		ret.setNif(niEmpleado);
+			valido = Validador.validarnifEmpleado(niEmpleado);
+		} while (!valido);
 
-//		teclado.close();
+		ret = new Empleado(nomEmpleado, apeEmpleado, telEmpleado, dirEmpleado, niEmpleado);
 		return ret;
 	}
 
-	
-	   public static void motrarEmpleado() {
-	        System.out.println("Lista de Empleados disponibles:");
-	        for (int i = 0; i < Datos.numEmpleadosd; i++) {
-	            Empleado e = Datos.EMPLEADOS[i];
-	                System.out.println(e.toString());
-	            }
-	        }
-	    
+	public static void motrarEmpleado() {
+		System.out.println("Lista de Empleados disponibles:");
+		for (int i = 0; i < Datos.numEmpleadosd; i++) {
+			Empleado e = Datos.EMPLEADOS[i];
+			System.out.println(e.toString());
+		}
+	}
+
 	// Getters y setters
 
 	public long getIdEmpleado() {
@@ -189,8 +183,8 @@ public class Empleado {
 		this.direccion = direccion;
 	}
 
-	public String getNif() {
-		return nif;
+	public String getNif() {    
+		return nif;  
 	}
 
 	public void setNif(String nif) {
