@@ -40,12 +40,12 @@ public class Menu2Miguel {
 			String claveintroducida="";
 			
 			while (claveacceso.equals(claveintroducida)==false) {
-				claveintroducida=JOptionPane.showInputDialog("Introduce la contraseña para acceder al programa de gestion clinica dental: ");
+				claveintroducida=JOptionPane.showInputDialog("Introduce la contraseï¿½a para acceder al programa de gestion clinica dental: ");
 				if (claveacceso.equals(claveintroducida)==false) {
-					System.out.println("Contraseña incorrecta");
+					System.out.println("Contraseï¿½a incorrecta");
 				}
 			}
-			System.out.println("Contraseña correcta. Pulse el 1 para continuar");
+			System.out.println("Contraseï¿½a correcta. Pulse el 1 para continuar");
 		}
 		
 		
@@ -70,7 +70,7 @@ public class Menu2Miguel {
 			System.out.println("   2. Nuevo paciente");
 			System.out.println("   3. Buscar paciente/s");
 			System.out.println("   4. Historial del paciente");
-			System.out.println("   5. Volver atrás");
+			System.out.println("   5. Volver atrï¿½s");
 			System.out.println("   ");
 			System.out.println("Pulse una de las opciones: ");
 		}
@@ -82,7 +82,7 @@ public class Menu2Miguel {
 			System.out.println("   1. Ver empleado/s");
 			System.out.println("   2. Nuevo empleado");
 			System.out.println("   3. Buscar empleado/s");
-			System.out.println("   4. Volver atrás");
+			System.out.println("   4. Volver atrï¿½s");
 			System.out.println("   ");
 			System.out.println("Pulse una de las opciones: ");
 		}
@@ -94,7 +94,7 @@ public class Menu2Miguel {
 			System.out.println("   1. Ver cita/s");
 			System.out.println("   2. Nueva cita");
 			System.out.println("   3. Buscar cita/s");
-			System.out.println("   4. Volver atrás");
+			System.out.println("   4. Volver atrï¿½s");
 			System.out.println("   ");
 			System.out.println("Pulse una de las opciones: ");
 		}

@@ -14,7 +14,7 @@ public class Paciente {
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50.
 	// no acepta numeros ni caracteres especiales .
 	private String nombre;
-	// idPaciente representa al identificador único del paciente.
+	// idPaciente representa al identificador ï¿½nico del paciente.
 	// es un valos entero >0 .
 	private long idPaciente;
 	// telefono representa al numero de telfono del paciente.
@@ -42,7 +42,7 @@ public class Paciente {
 		numeroPacientes++;
 		this.idPaciente = numeroPacientes;}
 	
-	public Paciente (String nombre, int edad, String telefono, String direccion, String nif) {
+	public Paciente (String nombre, String direccion, String telefono, int edad, String nif) {
 		this();
 		this.nombre = nombre;
 		this.edad = edad;
@@ -53,7 +53,6 @@ public class Paciente {
 
 	
 	 public Paciente(String nombre, long id, String telefono, String direccion, int edad, String nif) {
-			this();
 			this.nombre = nombre;
 			this.edad = edad;
 			this.telefono = telefono;
@@ -63,7 +62,7 @@ public class Paciente {
 
 	// Metodo nuevoPaciente encargado de registrar a un nuevo paciente
 	public static Paciente nuevoPaciente() {
-		Paciente ret = new Paciente();
+		Paciente ret = null;
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
@@ -75,7 +74,7 @@ public class Paciente {
 				nomPaciente = teclado.nextLine();
 				nombreValido= Validador.validarNombrePaciente(nomPaciente);
 			} while (!nombreValido);
-			ret.setNombre(nomPaciente);
+			//ret.setNombre(nomPaciente);
 	
 			// Telefono
 			String telPaciente = "";
@@ -85,17 +84,17 @@ public class Paciente {
 				telPaciente = teclado.next();
 				telefonoValido=Validador.validarTelefonoPaciente(telPaciente);
 			} while(!telefonoValido);
-			ret.setTelefono(telPaciente);
+		  //ret.setTelefono(telPaciente);
 	
 			// Direccion
 			String dirPaciente = "";
 			boolean direccionValida=false;
 			do {
-				System.out.println("Introduzca la dirección: ");
+				System.out.println("Introduzca la direcciï¿½n: ");
 				dirPaciente = teclado.next();
 				direccionValida= Validador.validarDireccionPaciente(dirPaciente);
 			} while (!direccionValida);
-			ret.setDireccion(dirPaciente);
+			//ret.setDireccion(dirPaciente);
 	
 			// Edad
 			int edadPaciente = 0 ;
@@ -105,7 +104,7 @@ public class Paciente {
 				edadPaciente = teclado.nextInt();
 				edadValida=Validador.validarEdadPaciente(edadPaciente);
 			} while(!edadValida);
-			ret.setEdad(edadPaciente);
+			//ret.setEdad(edadPaciente);
 				
 			// NIF
 			String nifPaciente = "";
@@ -115,7 +114,8 @@ public class Paciente {
 				nifPaciente = teclado.next();
 				nifValido=Validador.validarNifPaciente(nifPaciente);
 			}while(!nifValido);
-			ret.setNif(nifPaciente);
+			//ret.setNif(nifPaciente);
+			ret = new Paciente (nomPaciente, telPaciente, dirPaciente, edadPaciente, nifPaciente);
 			return ret;
 
 	}

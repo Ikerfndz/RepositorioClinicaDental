@@ -4,9 +4,9 @@ import java.sql.Date;
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 public class Utilidades {
 	/**
      * FunciÃ³n que pide al usuario que introduce un valor para una fecha a
@@ -16,7 +16,84 @@ public class Utilidades {
      *
      * @return una fecha de la clase java.sql.Date o null si hay error
      */
-    public static java.sql.Date leerFecha() {
+    
+	
+	
+	// EJERCICIO  1 EXAMEN 3
+	
+	  
+	    @SuppressWarnings("resource")
+		public static LocalDateTime leerFechaHora() {
+	        LocalDateTime ret = null;
+	        int segundos, minutos, horas, dia, mes, anio;
+	        boolean correcto = false;
+	        Scanner in;
+	        do {
+	        	System.out.println("Introduzca un valor para el dia (1...60)");
+	            in = new Scanner(System.in, "ISO-8859-1");
+	            segundos = in.nextInt();
+	           
+	            System.out.println("Introduzca un valor para el dia (1...60)");
+	            in = new Scanner(System.in, "ISO-8859-1");
+	            minutos = in.nextInt();
+	        	
+	            System.out.println("Introduzca un valor para el dia (1...60)");
+	            in = new Scanner(System.in, "ISO-8859-1");
+	            horas = in.nextInt();
+	          
+	            System.out.println("Introduzca un valor para el dia (1...31)");
+	            in = new Scanner(System.in, "ISO-8859-1");
+	            dia = in.nextInt();
+	          
+	            System.out.println("Introduzca un valor para el mes (1...12)");
+	            in = new Scanner(System.in, "ISO-8859-1");
+	            mes = in.nextInt();
+	           
+	            System.out.println("Introduzca un valor para el año");
+	            in = new Scanner(System.in, "ISO-8859-1");
+	            anio = in.nextInt();
+
+	            try {
+	                ret = LocalDateTime.of(segundos, minutos, horas, dia, mes, anio);
+	                correcto = true;
+	                if (segundos > 1 || segundos < 60) {
+	                 }
+	                
+	                if (minutos > 1 || minutos < 60) {
+	                 }
+	                if (horas > 1 || horas < 60) {
+	                 }
+	                if (dia > 1 || dia < 31) {
+	                 }
+	                if (mes > 1 || mes < 12) {
+	                 }
+	                
+	            } catch (Exception e) {
+	                System.out.println("Fecha introducida incorrecta.");
+	                correcto = false;
+	            }
+	            
+	            
+	        } while (!correcto);
+	        return ret;
+	    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static java.sql.Date leerFecha() {
         Date ret = null;
         int dia, mes, anio;
         boolean correcto = false;
