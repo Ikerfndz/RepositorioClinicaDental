@@ -7,11 +7,11 @@ import validacion.Validador;
 public class Historial {
 
 	private long idHistorial;
-	// idHistorial representa al identificador único del historial
+	// idHistorial representa al identificador ï¿½nico del historial
 	// es un valos entero >0
 
 	private String descripcion;
-	// descripción representa una explicación de detallad del tratamiento
+	// descripciï¿½n representa una explicaciï¿½n de detallad del tratamiento
 	// es una cadena de caracteres con un minimo de 10 caracteres
 
 	public static Historial nuevoHistorial() {
@@ -41,9 +41,10 @@ public class Historial {
 		numHistorial++;
 		this.idHistorial = numHistorial;}
 
-	public Historial (String descripcion) {
+	public Historial (String descripcion, long idHistorial) {
 		this ();
 		this.descripcion = descripcion;
+		this.idHistorial = idHistorial;
 	}
 
 	
