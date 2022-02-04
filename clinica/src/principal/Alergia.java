@@ -4,20 +4,22 @@ import java.util.Scanner;
 
 public class Alergia extends Historial {
 
-	// idAlergia es el identificador único de cada elemento Alergia
+	// idAlergia es el identificador ï¿½nico de cada elemento Alergia
 	protected long idAlergia;
 
 	// nombre representa el nombre de la alergia
-	// Es una cadena de caracteres de longitud mínimo 3 y máximo 50 caracteres
-	// No acepta dígitos ni caracteres especiales
+	// Es una cadena de caracteres de longitud mï¿½nimo 3 y mï¿½ximo 50 caracteres
+	// No acepta dï¿½gitos ni caracteres especiales
 	protected String nombreAlergia;
 
-	// Variable que utilizaremos para completar de forma automática el identificador
+	// Variable que utilizaremos para completar de forma automï¿½tica el identificador
 	// de la alergia.
 	private static int numeroAlergias = 0;
+	
+	public Medicamento medicamento;
 
-	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
-	// numero de alergias en 1 y se le asignará ese valor al identificador.
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentarï¿½ el
+	// numero de alergias en 1 y se le asignarï¿½ ese valor al identificador.
 	public Alergia() {
 		numeroAlergias = numeroAlergias + 1;
 		idAlergia = numeroAlergias;
@@ -31,11 +33,19 @@ public class Alergia extends Historial {
 		idAlergia = numeroAlergias;
 		this.nombreAlergia = nombreAlergia;
 	}
+	
+	
+	public Alergia (long idAlergia, String nombreAlergia, Medicamento medicamento) {
+		super();
+		this.idAlergia = idAlergia;
+		this.nombreAlergia = nombreAlergia;
+		this.medicamento = medicamento;
+	}
 
-	// Método encargado de guardar la nueva alergia de un paciente.
+	// Mï¿½todo encargado de guardar la nueva alergia de un paciente.
 	// Se le pide al usuario que escriba el nombre de la alergia y se guarda en
 	// una variable auxiliar.
-	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// Esta variable serï¿½ la que pasaremos por parametros haciendo llamada al
 	// constructor anterior para establecer el nombre de la alergia
 	// Finalmente devolvemos los datos introducidos.
 
@@ -46,7 +56,7 @@ public class Alergia extends Historial {
 		boolean nomValido = false;
 
 		do {
-			System.out.println("Introduce el nombre de la alergia (en el caso de que así sea): ");
+			System.out.println("Introduce el nombre de la alergia (en el caso de que asï¿½ sea): ");
 			nom = teclado.nextLine();
 			nomValido = validarNombreAlergia(nom);
 		} while (!nomValido);
