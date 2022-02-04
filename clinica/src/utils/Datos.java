@@ -26,18 +26,19 @@ public class Datos {
 
      
      public static final Empleado EMPLEADOS[] = {
-    	        new Empleado("Luis", "Fernandez", "684659819","luis@educantabria.es","5675543h"),
-    	        new Empleado("Maria", "Arias", "678234459","maria@educastur.es","36553543D"),
-    	        new Empleado("Juan", "Garcia", "624616819","juan@educastur.es","56523513N"),
-    	        new Empleado("Alberto", "Hummels", "666129812","alberto@educastur.es","12343543T"),
-    	        new Empleado("Julia", "Bermudez", "684659893","julia@educastur.es","54323543D"),
-    	        new Empleado("Barbara", "Leiva", "680250980","barbara@educastur.es","71783143B"),
-    	        new Empleado("Barbara", "Leiva", "680250980","barbara@educastur.es","71783143B"),
-    	        new Empleado("Barbara", "Leiva", "680250980","barbara@educastur.es","71783143B"),
+    	        new Empleado("Luis", 1, "Fernandez", "684659819","luis@educantabria.es","5675543h"),
+    	        new Empleado("Maria",2 , "Arias", "678234459","maria@educastur.es","36553543D"),
+    	        new Empleado("Juan", 3, "Garcia", "624616819","juan@educastur.es","56523513N"),
+    	        new Empleado("Alberto", 4, "Hummels", "666129812","alberto@educastur.es","12343543T"),
+    	        new Empleado("Julia", 5, "Bermudez", "684659893","julia@educastur.es","54323543D"),
+    	        new Empleado("Barbara", 6, "Leiva", "680250980","barbara@educastur.es","71783143B"),
+    	        new Empleado("Barbara", 7, "Leiva", "680250980","barbara@educastur.es","71783143B"),
+    	        new Empleado("Barbara", 8, "Leiva", "680250980","barbara@educastur.es","71783143B"),
     	        
     	    };
      public static final int numEmpleadosd = EMPLEADOS.length;
      
+   
      public static final Especialidad ESPECIALIDADES[]  = {
      		new Especialidad("Cirugia facial", 1),
      		new Especialidad("Cirugia facial", 2),
