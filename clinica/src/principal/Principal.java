@@ -44,22 +44,25 @@ public class Principal {
 
 					case 2:
 						System.out.println("Usted ha elegido la opcion: " + eleccion);
+						System.out.println(" ");
 						Paciente[] pacientes = utils.Datos.PACIENTES;
 
 						System.out.println("Hay " + utils.Datos.numPacientesd + " pacientes en el sistema.");
 					
 						for (Paciente i : pacientes)
-							System.out.println("Nombre: " + i.getNombre() + ". Identificador del paciente: " + i.getIdPaciente());
+							System.out.println("Nombre: " + i.getNombre() + (" | Nif: ") + i.getNif() + (" | Telefono: ") + i.getTelefono() + (" | Mail: ") + i.getDireccion() + " |  Id: " + i.getIdPaciente());
 						eleccionValida = false;
 						break;
 
 					case 3:
 						System.out.println("Usted ha elegido la opcion: " + eleccion);
+						System.out.println(" ");
 						eleccionValida = true;
 						break;
 
 					case 4:
 						System.out.println("Usted ha elegido la opcion: " + eleccion);
+						System.out.println(" ");
 						eleccionValida = true;
 						break;
 
@@ -84,17 +87,20 @@ public class Principal {
 
 					case 1:
 						System.out.println("Usted ha elegido la opcion: " + eleccion);
+						
 						Empleado.nuevoEmpleado();
 						eleccionValida = false;
 						break;
 					case 2:
 						System.out.println("Usted ha elegido la opcion: " + eleccion);
+						System.out.println(" ");
 						Empleado[] empleados = utils.Datos.EMPLEADOS;
 
 						System.out.println("Hay " + utils.Datos.numEmpleadosd + " empleados en el sistema.");
+						System.out.println(" ");
 					
 						for (Empleado i : empleados)
-							System.out.println("Nombre: " + i.getNombre() + ". Identificador del empleado: " + i.getIdEmpleado());
+							System.out.println("Nombre: " + i.getNombre() + (" ") + i.getApellidos() + (" | Nif: ") + i.nif + (" | Telefono: ") + i.telefono+ (" | Mail: ") + i.direccion + " |  Id: " + i.getIdEmpleado());
 						eleccionValida = false;
 						break;
 					case 3:
@@ -125,7 +131,8 @@ public class Principal {
 			}
 
 			if (eleccion == 4) {
-				
+				salir= true;
+				eleccionSalida();
 				
 			}
 
@@ -146,7 +153,7 @@ public class Principal {
 		System.out.println("Bienvenido/a al programa de gestion de los pacientes. ");
 		System.out.println("  ");
 		System.out.println("- Pulse 1 para registrar un nuevo Paciente.");
-		System.out.println("- Pulse 2 para ver un  Paciente.");
+		System.out.println("- Pulse 2 para ver los  Pacientes.");
 		System.out.println("- Pulse 3 para buscar un Paciente.");
 		System.out.println("- Pulse 4 para ver un historial de un paciente.");
 		System.out.println("- Pulse 5 para volver atras.");

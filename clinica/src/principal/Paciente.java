@@ -54,6 +54,7 @@ public class Paciente {
 	
 	 public Paciente(String nombre, long id, String telefono, String direccion, int edad, String nif) {
 			this.nombre = nombre;
+			this.idPaciente = id;
 			this.edad = edad;
 			this.telefono = telefono;
 			this.direccion = direccion;

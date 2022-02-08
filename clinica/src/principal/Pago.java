@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class Pago {
 
-	// idPago es el identificador único de cada elemento Pago
+	// idPago es el identificador ï¿½nico de cada elemento Pago
 	protected long idPago;
 
 	// fecha almacena la fecha en la que se realiza el pago
@@ -17,24 +17,28 @@ public class Pago {
 	protected double importe;
 
 	// metododePago representa la manera en la que el cliente realiza el pago
-	// Es una cadena de caracteres de longitud mínimo 3 y máximo 50 caracteres
-	// No acepta dígitos ni caracteres especiales
+	// Es una cadena de caracteres de longitud mï¿½nimo 3 y mï¿½ximo 50 caracteres
+	// No acepta dï¿½gitos ni caracteres especiales
 	protected String metododePago;
 
-	// Variable que utilizaremos para completar de forma automática el identificador
+	// Variable que utilizaremos para completar de forma automï¿½tica el identificador
 	// del cobro.
 	private static int numeroPagos = 0;
+	
+	//Array que guarda el numero de cobros que se le hacen a un paciente, como mÃ¡ximo 5.
+	private Cobro cobros[] = new Cobro[5];
 
-	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
-	// numero de cobros en 1 y se le asignará ese valor al identificador.
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentarï¿½ el
+	// numero de cobros en 1 y se le asignarï¿½ ese valor al identificador.
 	public Pago() {
 		numeroPagos = numeroPagos + 1;
 		idPago = numeroPagos;
 	}
 
-	// Constructor que se le pide por parametro el nombre de la especialidad.
-	// Hace una llamada al constructor por defecto.
-	// Guarda el valor del parametro introducido en la variable nombeesp.
+	/*
+	 * Constructor que se le pide el importe, la fecha y el metodo de pago
+	 * a la hora de realizar los pagos
+	 */
 	public Pago(double importe, LocalDateTime fecha, String metododePago) {
 		numeroPagos = numeroPagos + 1;
 		idPago = numeroPagos;
@@ -42,12 +46,25 @@ public class Pago {
 		this.fecha = fecha;
 		this.metododePago = metododePago;
 	}
+	
+	/*
+	 *  Constructor que se le pide el importe, la fecha, el metodo de pago y el array de
+	 *  cobros, donde se almacenan el numero de pagos distintos que realiza un paciente
+	 */
+		public Pago(double importe, LocalDateTime fecha, String metododePago, Cobro cobros) {
+			numeroPagos = numeroPagos + 1;
+			idPago = numeroPagos;
+			this.importe = importe;
+			this.fecha = fecha;
+			this.metododePago = metododePago;
+			this.cobros[0] = cobros;
+		}
 
-	// Método encargado de guardar los nuevos pagos de un Paciente.
-	// Se le pide al usuario que escriba la fecha, el importe y el método de pago y
+	// Mï¿½todo encargado de guardar los nuevos pagos de un Paciente.
+	// Se le pide al usuario que escriba la fecha, el importe y el mï¿½todo de pago y
 	// se guarda en
 	// una variable auxiliar.
-	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// Esta variable serï¿½ la que pasaremos por parametros haciendo llamada al
 	// constructor anterior.
 	// Finalmente devolvemos los datos introducidos.
 	public static Pago nuevoPago() {
@@ -86,7 +103,7 @@ public class Pago {
 		boolean metododePagoValido = false;
 
 		do {
-			System.out.println("Introduce el método de pago: ");
+			System.out.println("Introduce el mï¿½todo de pago: ");
 			metododePago = teclado.nextLine();
 			metododePagoValido = validarMetodoPago(metododePago);
 		} while (!metododePagoValido);
