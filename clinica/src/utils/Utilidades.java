@@ -18,7 +18,7 @@ public class Utilidades {
 	 * @return una fecha de la clase java.sql.Date o null si hay error
 	 */
 
-	// EJERCICIO 1 EXAMEN 3
+	
 
 	public static java.time.LocalDateTime leerFechaHora() {
 		LocalDateTime ret = null;
