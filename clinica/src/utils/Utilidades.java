@@ -20,58 +20,39 @@ public class Utilidades {
 
 	// EJERCICIO 1 EXAMEN 3
 
-	@SuppressWarnings("resource")
-	public static LocalDateTime leerFechaHora() {
+	public static java.time.LocalDateTime leerFechaHora() {
 		LocalDateTime ret = null;
-		int dia, mes, anio, horas, minutos, segundos;
+		int dia, mes, anio;
+		int hora, min, seg;
 		boolean correcto = false;
 		Scanner in;
 		do {
-			System.out.println("Introduzca un valor para el dia (1...31)");
+			System.out.println("Introduzca un valor para el día (1...31)");
 			in = new Scanner(System.in, "ISO-8859-1");
 			dia = in.nextInt();
-
 			System.out.println("Introduzca un valor para el mes (1...12)");
 			in = new Scanner(System.in, "ISO-8859-1");
 			mes = in.nextInt();
-
-			System.out.println("Introduzca un valor para el año (2022...2999)");
+			System.out.println("Introduzca un valor para el año");
 			in = new Scanner(System.in, "ISO-8859-1");
 			anio = in.nextInt();
-
-			System.out.println("Introduzca un valor para la hora (1...24)");
+			System.out.println("Introduzca un valor para la hora del día (0...23)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			horas = in.nextInt();
-
-			System.out.println("Introduzca un valor para los minutos (1...60)");
+			hora = in.nextInt();
+			System.out.println("Introduzca un valor para los minutos (0...59)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			minutos = in.nextInt();
-
-			System.out.println("Introduzca un valor para los segundos (1...60)");
+			min = in.nextInt();
+			System.out.println("Introduzca un valor para los segundos (0...59)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			segundos = in.nextInt();
+			seg = in.nextInt();
 
 			try {
-				ret = LocalDateTime.of(dia, mes, anio, horas, minutos, segundos);
+				ret = LocalDateTime.of(anio, mes, dia, hora, min, seg);
 				correcto = true;
-				if (dia > 1 || dia < 31) {
-				}
-				if (mes > 1 || mes < 12) {
-				}
-				if (anio > 2022 || anio < 2999) {
-				}
-				if (horas > 1 || horas < 24) {
-				}
-				if (minutos > 1 || minutos < 60) {
-				}
-				if (segundos > 1 || segundos < 60) {
-				}
-
 			} catch (Exception e) {
-				System.out.println("Fecha introducida incorrecta.");
+				System.out.println("Fecha-hora introducida incorrecta.");
 				correcto = false;
 			}
-
 		} while (!correcto);
 		return ret;
 	}
