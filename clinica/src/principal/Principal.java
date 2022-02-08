@@ -50,7 +50,7 @@ public class Principal {
 						System.out.println("Hay " + utils.Datos.numPacientesd + " pacientes en el sistema.");
 					
 						for (Paciente i : pacientes)
-							System.out.println("Nombre: " + i.getNombre() + (" | Nif: ") + i.getNif() + (" | Telefono: ") + i.getTelefono() + (" | Mail: ") + i.getDireccion() + " |  Id: " + i.getIdPaciente());
+							System.out.println("Nombre: " + i.getNombre() + (" | Edad: ")+ i.getEdad() + (" | Nif: ") + i.getNif() + (" | Telefono: ") + i.getTelefono() + (" | Mail: ") + i.getDireccion() + " |  Id: " + i.getIdPaciente());
 						eleccionValida = false;
 						break;
 

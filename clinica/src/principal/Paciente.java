@@ -75,7 +75,7 @@ public class Paciente {
 				nomPaciente = teclado.nextLine();
 				nombreValido= Validador.validarNombrePaciente(nomPaciente);
 			} while (!nombreValido);
-			//ret.setNombre(nomPaciente);
+			
 	
 			// Telefono
 			String telPaciente = "";
@@ -85,7 +85,7 @@ public class Paciente {
 				telPaciente = teclado.next();
 				telefonoValido=Validador.validarTelefonoPaciente(telPaciente);
 			} while(!telefonoValido);
-		  //ret.setTelefono(telPaciente);
+		  
 	
 			// Direccion
 			String dirPaciente = "";
@@ -95,7 +95,7 @@ public class Paciente {
 				dirPaciente = teclado.next();
 				direccionValida= Validador.validarDireccionPaciente(dirPaciente);
 			} while (!direccionValida);
-			//ret.setDireccion(dirPaciente);
+			
 	
 			// Edad
 			int edadPaciente = 0 ;
@@ -105,7 +105,7 @@ public class Paciente {
 				edadPaciente = teclado.nextInt();
 				edadValida=Validador.validarEdadPaciente(edadPaciente);
 			} while(!edadValida);
-			//ret.setEdad(edadPaciente);
+		
 				
 			// NIF
 			String nifPaciente = "";
@@ -115,7 +115,7 @@ public class Paciente {
 				nifPaciente = teclado.next();
 				nifValido=Validador.validarNifPaciente(nifPaciente);
 			}while(!nifValido);
-			//ret.setNif(nifPaciente);
+			
 			ret = new Paciente (nomPaciente, telPaciente, dirPaciente, edadPaciente, nifPaciente);
 			return ret;
 
