@@ -29,27 +29,27 @@ public class Utilidades {
 		do {
 			System.out.println("Introduzca un valor para el dia (1...31)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			segundos = in.nextInt();
+			dia = in.nextInt();
 
 			System.out.println("Introduzca un valor para el mes (1...12)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			minutos = in.nextInt();
+			mes = in.nextInt();
 
 			System.out.println("Introduzca un valor para el año (2022...2999)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			horas = in.nextInt();
+			anio = in.nextInt();
 
 			System.out.println("Introduzca un valor para la hora (1...24)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			dia = in.nextInt();
+			horas = in.nextInt();
 
 			System.out.println("Introduzca un valor para los minutos (1...60)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			mes = in.nextInt();
+			minutos = in.nextInt();
 
 			System.out.println("Introduzca un valor para los segundos (1...60)");
 			in = new Scanner(System.in, "ISO-8859-1");
-			anio = in.nextInt();
+			segundos = in.nextInt();
 
 			try {
 				ret = LocalDateTime.of(dia, mes, anio, horas, minutos, segundos);
