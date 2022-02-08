@@ -1,9 +1,9 @@
 package principal;
 
-
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+import utils.Utilidades;
 import validacion.Validador;
 
 public class Cita {
@@ -14,7 +14,7 @@ public class Cita {
 	// hora representa la hora a la que se realizara la cita.
 	// Seran para ambos la funcion LocalDate.
 
-	protected LocalDateTime fecha, hora;
+	protected LocalDateTime fechahora;
 	// rango representa el horario preferido por el cliente siendo de mañana o de
 	// tarde.
 	// Es un char que representara una "M" para las mañanas y una "T" para las
@@ -22,16 +22,17 @@ public class Cita {
 	// No se aceptara mas de un caracter.
 	protected char rango;
 
-	private static long numeroPacientes = 0;
+	private static long numeroCitas = 0;
 
 	public Cita() {
+		numeroCitas++;
+		this.idCita = numeroCitas;
 	}
 
-	public Cita(long idCita, LocalDateTime fecha, LocalDateTime hora, char rango) {
-		numeroPacientes++;
-		this.idCita = numeroPacientes;
-		this.fecha = fecha;
-		this.hora = hora;
+	public Cita(long idCita, LocalDateTime fechahora, char rango) {
+		numeroCitas++;
+		this.idCita = numeroCitas;
+		this.fechahora = fechahora;
 		this.rango = rango;
 	}
 
@@ -43,59 +44,28 @@ public class Cita {
 	public static Cita nuevaCita() {
 		Cita ret = new Cita();
 		Scanner teclado = new Scanner(System.in);
-		
+		boolean valido=false;
 		char rango;
 		System.out.print("Introduce mañana o tarde: ");
 		rango = teclado.next().charAt(0); // se obtiene el primer carácter del String introducido por teclado
+		do {
+			System.out.print("Introduce mañana o tarde: ");
+			teclado = new Scanner(System.in);
+			 
+			if (rango =='m'|| rango=='t')
+				valido = true;
+		} while (!valido);
+		valido = false;
 		System.out.println("Carácter introducido -> " + rango);
 
+		System.out.println(
+				" <<<Por favor, siga el siguente formato como se muestra en el ejemplo a continuación: 02/12/2022>>> ");
 
-		String fechaCita = "";
-		boolean fechaCitaValida = false;
-		System.out.println(" <<<Por favor, siga el siguente formato como se muestra en el ejemplo a continuación: 02/12/2022>>> ");
-		do {
-			System.out.println("Introduce la nueva fecha: ");
-			fechaCita = teclado.next();
-			fechaCitaValida = Validador.validarFechaCita(fechaCita);
-		} while (!fechaCitaValida);
+		LocalDateTime fechaCita = Utilidades.leerFechaHora();
 
-		LocalDateTime fecha = LocalDateTime.now();
-		fecha = LocalDateTime.parse(fechaCita);
-		ret.setFecha(fechaCita);
-//		teclado.close();
+		ret.setFechahora(fechaCita);
 
-		
-
-		String horaCita = "";
-		boolean horaCitaValida = false;
-
-		do {
-			System.out.println("Introduce la hora: ");
-			horaCita = teclado.nextLine();
-			horaCitaValida = validarhoraCita(horaCita);
-		} while (!horaCitaValida);
-
-		LocalDateTime hora = LocalDateTime.now();
-		hora = LocalDateTime.parse(horaCita);
-		ret.setHora(horaCita);
-//		teclado.close();
 		return ret;
-
-	}
-
-	private static boolean validarhoraCita(String horaCita) {
-		return false;
-	}
-
-	private void setFecha(String fechaCita) {
-
-	}
-
-	private static boolean validarFechaCita(String fechaCita) {
-		return false;
-	}
-
-	public void setHora(String horaCita) {
 
 	}
 
@@ -107,20 +77,12 @@ public class Cita {
 		this.idCita = idCita;
 	}
 
-	public LocalDateTime getFecha() {
-		return fecha;
+	public LocalDateTime getFechahora() {
+		return fechahora;
 	}
 
-	public void setFecha(LocalDateTime fecha) {
-		this.fecha = fecha;
-	}
-
-	public LocalDateTime getHora() {
-		return hora;
-	}
-
-	public void setHora(LocalDateTime hora) {
-		this.hora = hora;
+	public void setFechahora(LocalDateTime fechahora) {
+		this.fechahora = fechahora;
 	}
 
 	public char getRango() {
@@ -131,9 +93,17 @@ public class Cita {
 		this.rango = rango;
 	}
 
+	public static long getNumeroCitas() {
+		return numeroCitas;
+	}
+
+	public static void setNumeroCitas(long numeroCitas) {
+		Cita.numeroCitas = numeroCitas;
+	}
+
 	@Override
 	public String toString() {
-		return "Cita [idCita=" + idCita + ", fecha=" + fecha + ", hora=" + hora + ", rango=" + rango + "]";
+		return "Cita [idCita=" + idCita + ", fechahora=" + fechahora + ", rango=" + rango + "]";
 	}
 
 }
