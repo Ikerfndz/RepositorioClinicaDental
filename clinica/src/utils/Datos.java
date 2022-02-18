@@ -2,6 +2,8 @@ package utils;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 
 import principal.*;
@@ -79,6 +81,17 @@ public class Datos {
     
     public static final int numSecretarios = ESPECIALIDADES.length;
 
+    public static final Cita CITAS[] = {
+	  //      new Cita (123556, 2022, LocalDateTime.parse("2020/07/01"), 'M'),
+	   //     new Cita (123556, 2022, MARCH, 13, 10, 15, 10, 'M'),
+	     //   new Cita (123556, 2022, MARCH, 13, 10, 15, 10, 'M'),
+	       // new Cita (123556, 2022, MARCH, 13, 10, 15, 10, 'M'),
+	       // new Cita (123556, 2022, MARCH, 13, 10, 15, 10, 'M'),
+	       // new Cita (123556, 2022, MARCH, 13, 10, 15, 10, 'M'),
+	    };
+    
+    //long idCita, LocalDateTime fechahora, char rango
+ public static final int numeroCitas = CITAS.length;
  
     public static final Alergia ALERGIAS[] = {
   
