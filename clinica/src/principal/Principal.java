@@ -235,16 +235,4 @@ public class Principal {
 */
 	
 
-	/*
-	 * public static void accesoPrograma() { String claveacceso="1"; String
-	 * claveintroducida="";
-	 * 
-	 * while (claveacceso.equals(claveintroducida)==false) {
-	 * claveintroducida=JOptionPane.
-	 * showInputDialog("Introduce la contrase�a para acceder al programa de gestion clinica dental: "
-	 * ); if (claveacceso.equals(claveintroducida)==false) {
-	 * System.out.println("Contrase�a incorrecta"); } }
-	 * System.out.println("Contrase�a correcta. Pulse el 1 para continuar"); }
-	 */
-
 }
