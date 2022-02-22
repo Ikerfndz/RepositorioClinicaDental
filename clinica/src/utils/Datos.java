@@ -2,6 +2,8 @@ package utils;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 
 import principal.*;
@@ -79,6 +81,25 @@ public class Datos {
     
     public static final int numSecretarios = ESPECIALIDADES.length;
 
+    public static final Cita CITAS[] = {
+    		new Cita (123550, LocalDateTime.parse("12/04/2022 10:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'M'),
+    		new Cita (123551, LocalDateTime.parse("12/04/2022 11:00:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'M'),
+    		new Cita (123552, LocalDateTime.parse("14/04/2022 10:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'M'),
+    		new Cita (123553, LocalDateTime.parse("15/07/2022 11:00:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'M'),
+    		new Cita (123554, LocalDateTime.parse("06/07/2022 10:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'M'),
+    		new Cita (123555, LocalDateTime.parse("09/07/2022 12:00:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'M'),
+    		new Cita (123556, LocalDateTime.parse("22/10/2022 12:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'M'),
+    		new Cita (123557, LocalDateTime.parse("12/06/2022 16:00:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'T'),
+    		new Cita (123558, LocalDateTime.parse("12/06/2022 16:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'T'),
+    		new Cita (123510, LocalDateTime.parse("20/06/2022 16:00:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'T'),
+    		new Cita (123511, LocalDateTime.parse("20/06/2022 17:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'T'),
+    		new Cita (123512, LocalDateTime.parse("29/06/2022 17:00:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'T'),
+    		new Cita (123513, LocalDateTime.parse("11/10/2022 18:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'T'),
+    		new Cita (123514, LocalDateTime.parse("02/12/2022 18:00:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")), 'T'),
+	    };
+    
+    
+ public static final int numeroCitas = CITAS.length;
  
     public static final Alergia ALERGIAS[] = {
   

@@ -44,22 +44,15 @@ public class Cita {
 	public static Cita nuevaCita() {
 		Cita ret = new Cita();
 		Scanner teclado = new Scanner(System.in);
-		boolean valido=false;
+		boolean valido = false;
 		char rango;
 		System.out.print("Introduce mañana o tarde: ");
-		rango = teclado.next().charAt(0); // se obtiene el primer carácter del String introducido por teclado
-		do {
-			System.out.print("Introduce mañana o tarde: ");
-			teclado = new Scanner(System.in);
-			 
-			if (rango =='m'|| rango=='t')
-				valido = true;
-		} while (!valido);
-		valido = false;
-		System.out.println("Carácter introducido -> " + rango);
+		boolean rangoValido = false;
+		;
+		rangoValido = Utilidades.leerChar();
 
 		System.out.println(
-				" <<<Por favor, siga el siguente formato como se muestra en el ejemplo a continuación: 02/12/2022>>> ");
+				" <<<Seleccione a continuación la fecha que desea reservar>>> ");
 
 		LocalDateTime fechaCita = Utilidades.leerFechaHora();
 

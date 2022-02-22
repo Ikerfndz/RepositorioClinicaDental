@@ -5,6 +5,7 @@ import java.text.Normalizer;
 import java.text.Normalizer.Form;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -142,4 +143,67 @@ public class Utilidades {
 		// Form.NFC acepta ñ y distingue las tildes en español
 		return Normalizer.normalize(string, Form.NFC).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
 	}
+	/**
+	 * Método para leer char correcto para rango de Cita (mañana o tarde)
+	 * @return
+	 */
+	public static boolean leerChar() {
+		boolean ret;
+		Scanner in;
+		char resp;
+		do {
+			System.out.println("Pulse 'm' para Mañana  o 't' para Tarde");
+			in = new Scanner(System.in, "ISO-8859-1");
+			resp = in.nextLine().charAt(0);
+			if (resp != 'm' && resp != 'M' && resp != 't' && resp != 'T') {
+				System.out.println("Valor introducido incorrecto.");
+			}
+		} while (resp != 'm' && resp != 'm' && resp != 't' && resp != 'T');
+		if (resp == 'm' || resp != 'M') {
+			ret = true;
+		} else {
+			ret = false;
+		}
+		return ret;
+	}
+	/**
+	 * Genérico, nos permite convertir arrays en colección ====> ArrayList (conjunto o colección de Arrays)
+	 * @author usut25 (Daniel)
+	 *
+	 * @param <T>
+	 */
+	public class Gen<T> {
+
+	    public T obj;
+
+	    public Gen() {
+	    }
+
+	    public Gen(T o) {
+	        obj = o;
+	    }
+
+	    public T get() {
+	        return obj;
+	    }
+
+	    public void set(T t) {
+	        this.obj = t;
+	    }
+
+	    public void classType() {
+	        System.out.println("El tipo de clase es " + obj.getClass().getName());
+	    }
+
+	    public final ArrayList<T> convertir(T[] array) {
+	        ArrayList<T> ret = new ArrayList<T>();
+	        for (T t : array) {
+	            ret.add((T) t);
+	        }
+	        return ret;
+	    }
+
+	}
+	
+	
 }

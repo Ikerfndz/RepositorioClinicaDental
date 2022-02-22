@@ -1,6 +1,10 @@
 package principal;
 
+
 import java.util.Arrays;
+
+import java.time.format.DateTimeFormatter;
+
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -49,9 +53,11 @@ public class Principal {
 						Paciente[] pacientes = utils.Datos.PACIENTES;
 
 						System.out.println("Hay " + utils.Datos.numPacientesd + " pacientes en el sistema.");
-					
+
 						for (Paciente i : pacientes)
-							System.out.println("Nombre: " + i.getNombre() + (" | Edad: ")+ i.getEdad() + (" | Nif: ") + i.getNif() + (" | Telefono: ") + i.getTelefono() + (" | Mail: ") + i.getDireccion() + " |  Id: " + i.getIdPaciente());
+							System.out.println("Nombre: " + i.getNombre() + (" | Edad: ") + i.getEdad() + (" | Nif: ")
+									+ i.getNif() + (" | Telefono: ") + i.getTelefono() + (" | Mail: ")
+									+ i.getDireccion() + " |  Id: " + i.getIdPaciente());
 						eleccionValida = false;
 						break;
 
@@ -89,7 +95,7 @@ public class Principal {
 
 					case 1:
 						System.out.println("Usted ha elegido la opcion: " + eleccion);
-						
+
 						Empleado.nuevoEmpleado();
 						eleccionValida = false;
 						break;
@@ -100,9 +106,12 @@ public class Principal {
 
 						System.out.println("Hay " + utils.Datos.numEmpleadosd + " empleados en el sistema.");
 						System.out.println(" ");
-					
+
 						for (Empleado i : empleados)
-							System.out.println("Nombre: " + i.getNombre() + (" ") + i.getApellidos() + (" | Nif: ") + i.nif + (" | Telefono: ") + i.telefono+ (" | Mail: ") + i.direccion + " |  Id: " + i.getIdEmpleado());
+							System.out.println("Nombre: " + i.getNombre() + (" ") + i.getApellidos() + (" | Nif: ")
+									+ i.nif + (" | Telefono: ") + i.telefono + (" | Mail: ") + i.direccion + " |  Id: "
+									+ i.getIdEmpleado());
+						System.out.println(" ");
 						eleccionValida = false;
 						break;
 					case 3:
@@ -115,9 +124,9 @@ public class Principal {
 				} while (!eleccionValida);
 			}
 			if (eleccion == 3) {
-				menuCitas();
 				do {
 					eleccionValida = false;
+					menuCitas();
 					eleccion = in.nextInt();
 					eleccionValida = (eleccion < 1 || eleccion > 4 ? false : true);
 
@@ -127,15 +136,37 @@ public class Principal {
 						Cita.nuevaCita();
 						eleccionValida = false;
 						break;
+					case 2:
+						System.out.println("Usted ha elegido la opcion: " + eleccion);
+						System.out.println(" ");
+						Cita[] citas = utils.Datos.CITAS;
+
+						System.out.println("<< Hay " + utils.Datos.numeroCitas + " citas en el sistema. >>");
+						System.out.println(" ");
+
+						for (Cita c : citas)
+							System.out.println(" ID de la cita: " + c.idCita + ("  | Franja horaria: ") + c.getRango()
+									+ (" | Fecha y hora: ")
+									+ c.fechahora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy 'a las' HH:mm:ss")));
+
+						eleccionValida = false;
+						break;
+					case 3:
+						eleccionValida = true;
+						break;
+					case 4:
+						eleccionValida = true;
+						break;
+
 					}
 
 				} while (!eleccionValida);
 			}
 
 			if (eleccion == 4) {
-				salir= true;
+				salir = true;
 				eleccionSalida();
-				
+
 			}
 
 		} while (!salir);
@@ -188,6 +219,7 @@ public class Principal {
 
 	}
 	// CONTRASEÑA DE ACCESO AL PROGRAMA
+
 	/* public static void accesoPrograma() {
 		String claveacceso="1";
 		String claveintroducida="";
@@ -202,4 +234,17 @@ public class Principal {
 	}
 */
 	
+
+	/*
+	 * public static void accesoPrograma() { String claveacceso="1"; String
+	 * claveintroducida="";
+	 * 
+	 * while (claveacceso.equals(claveintroducida)==false) {
+	 * claveintroducida=JOptionPane.
+	 * showInputDialog("Introduce la contrase�a para acceder al programa de gestion clinica dental: "
+	 * ); if (claveacceso.equals(claveintroducida)==false) {
+	 * System.out.println("Contrase�a incorrecta"); } }
+	 * System.out.println("Contrase�a correcta. Pulse el 1 para continuar"); }
+	 */
+
 }
