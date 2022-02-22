@@ -142,4 +142,31 @@ public class Utilidades {
 		// Form.NFC acepta ñ y distingue las tildes en español
 		return Normalizer.normalize(string, Form.NFC).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
 	}
+	/**
+	 * Método para leer char correcto para rango de Cita (mañana o tarde)
+	 * @return
+	 */
+	public static boolean leerChar() {
+		boolean ret;
+		Scanner in;
+		char resp;
+		do {
+			System.out.println("Pulse 'm' para Mañana  o 't' para Tarde");
+			in = new Scanner(System.in, "ISO-8859-1");
+			resp = in.nextLine().charAt(0);
+			if (resp != 'm' && resp != 'M' && resp != 't' && resp != 'T') {
+				System.out.println("Valor introducido incorrecto.");
+			}
+		} while (resp != 'm' && resp != 'm' && resp != 't' && resp != 'T');
+		if (resp == 'm' || resp != 'M') {
+			ret = true;
+		} else {
+			ret = false;
+		}
+		return ret;
+	}
+	
+	
+	
+	
 }

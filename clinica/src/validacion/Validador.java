@@ -220,14 +220,14 @@ public class Validador {
 		}
 		
 			
-		/*public static boolean validarRango(char rango) {
+		public static boolean validarRango(char rango) {
 		
-			if (rango == M || rango == T)
+			if (rango == 'M' || rango == 'm'|| rango == 'T' || rango == 't')
 				return true;
 			else
 				return false;
 		} 
-		*/
+		
 	//Intervencion
 		
 		public static boolean validarDuracion(int minutos) {
