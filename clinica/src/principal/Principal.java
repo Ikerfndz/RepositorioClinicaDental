@@ -1,5 +1,6 @@
 package principal;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -63,7 +64,8 @@ public class Principal {
 					case 4:
 						System.out.println("Usted ha elegido la opcion: " + eleccion);
 						System.out.println(" ");
-						eleccionValida = true;
+												
+						eleccionValida = false;
 						break;
 
 					case 5:
@@ -199,4 +201,5 @@ public class Principal {
 		System.out.println("Contrase�a correcta. Pulse el 1 para continuar");
 	}
 */
+	
 }

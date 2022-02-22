@@ -54,10 +54,10 @@ public class Datos {
      };
      public static final  Historial HISTORIALES[] = {
     		 new Historial("Tiene dos operaciones en la encia superior, la retirada de las muelas del juicio y tiene medicacion hasta el 2023", 1),
-    		 new Historial (),
-    		 new Historial (),
-    		 new Historial (),
-    		 new Historial (),
+    		 new Historial ("Le quedan 2 dias de vida", 2),
+    		 new Historial ("Sin muelas del juicio", 3),
+    		 new Historial ("Reconstruccion de dientes", 4),
+    		 new Historial ("Murio ayer", 5),
      };
     
    public static final Cirujano CIRUJANOS[] = {
