@@ -19,8 +19,6 @@ public class Utilidades {
 	 * @return una fecha de la clase java.sql.Date o null si hay error
 	 */
 
-	
-
 	public static java.time.LocalDateTime leerFechaHora() {
 		LocalDateTime ret = null;
 		int dia, mes, anio;
@@ -28,26 +26,26 @@ public class Utilidades {
 		boolean correcto = false;
 		Scanner in;
 		do {
-			System.out.println("Introduzca un valor para el día (1...31)");
-			in = new Scanner(System.in, "ISO-8859-1");
-			dia = in.nextInt();
-			System.out.println("Introduzca un valor para el mes (1...12)");
-			in = new Scanner(System.in, "ISO-8859-1");
-			mes = in.nextInt();
-			System.out.println("Introduzca un valor para el año");
-			in = new Scanner(System.in, "ISO-8859-1");
-			anio = in.nextInt();
-			System.out.println("Introduzca un valor para la hora del día (0...23)");
-			in = new Scanner(System.in, "ISO-8859-1");
-			hora = in.nextInt();
-			System.out.println("Introduzca un valor para los minutos (0...59)");
-			in = new Scanner(System.in, "ISO-8859-1");
-			min = in.nextInt();
-			System.out.println("Introduzca un valor para los segundos (0...59)");
-			in = new Scanner(System.in, "ISO-8859-1");
-			seg = in.nextInt();
-
 			try {
+				System.out.println("Introduzca un valor para el día (1...31)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				dia = in.nextInt();
+				System.out.println("Introduzca un valor para el mes (1...12)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				mes = in.nextInt();
+				System.out.println("Introduzca un valor para el año");
+				in = new Scanner(System.in, "ISO-8859-1");
+				anio = in.nextInt();
+				System.out.println("Introduzca un valor para la hora del día (0...23)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				hora = in.nextInt();
+				System.out.println("Introduzca un valor para los minutos (0...59)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				min = in.nextInt();
+				System.out.println("Introduzca un valor para los segundos (0...59)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				seg = in.nextInt();
+
 				ret = LocalDateTime.of(anio, mes, dia, hora, min, seg);
 				correcto = true;
 			} catch (Exception e) {
@@ -64,19 +62,22 @@ public class Utilidades {
 		boolean correcto = false;
 		Scanner in;
 		do {
-			System.out.println("Introduzca un valor para el día (1...31)");
-			in = new Scanner(System.in, "ISO-8859-1");
-			dia = in.nextInt();
-			System.out.println("Introduzca un valor para el mes (1...12)");
-			in = new Scanner(System.in, "ISO-8859-1");
-			mes = in.nextInt();
-			System.out.println("Introduzca un valor para el año");
-			in = new Scanner(System.in, "ISO-8859-1");
-			anio = in.nextInt();
-
 			try {
+				System.out.println("Introduzca un valor para el día (1...31)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				dia = in.nextInt();
+				System.out.println("Introduzca un valor para el mes (1...12)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				mes = in.nextInt();
+				System.out.println("Introduzca un valor para el año");
+				in = new Scanner(System.in, "ISO-8859-1");
+				anio = in.nextInt();
+
 				ret = Date.valueOf(LocalDate.of(anio, mes, dia));
 				correcto = true;
+			} catch (InputMismatchException e) {
+				System.out.println("dato para la fecha introducida incorrecta.");
+				correcto = false;
 			} catch (Exception e) {
 				System.out.println("Fecha introducida incorrecta.");
 				correcto = false;
@@ -143,8 +144,10 @@ public class Utilidades {
 		// Form.NFC acepta ñ y distingue las tildes en español
 		return Normalizer.normalize(string, Form.NFC).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
 	}
+
 	/**
 	 * Método para leer char correcto para rango de Cita (mañana o tarde)
+	 * 
 	 * @return
 	 */
 	public static boolean leerChar() {
@@ -166,44 +169,46 @@ public class Utilidades {
 		}
 		return ret;
 	}
+
 	/**
-	 * Genérico, nos permite convertir arrays en colección ====> ArrayList (conjunto o colección de Arrays)
+	 * Genérico, nos permite convertir arrays en colección ====> ArrayList (conjunto
+	 * o colección de Arrays)
+	 * 
 	 * @author usut25 (Daniel)
 	 *
 	 * @param <T>
 	 */
 	public class Gen<T> {
 
-	    public T obj;
+		public T obj;
 
-	    public Gen() {
-	    }
+		public Gen() {
+		}
 
-	    public Gen(T o) {
-	        obj = o;
-	    }
+		public Gen(T o) {
+			obj = o;
+		}
 
-	    public T get() {
-	        return obj;
-	    }
+		public T get() {
+			return obj;
+		}
 
-	    public void set(T t) {
-	        this.obj = t;
-	    }
+		public void set(T t) {
+			this.obj = t;
+		}
 
-	    public void classType() {
-	        System.out.println("El tipo de clase es " + obj.getClass().getName());
-	    }
+		public void classType() {
+			System.out.println("El tipo de clase es " + obj.getClass().getName());
+		}
 
-	    public final ArrayList<T> convertir(T[] array) {
-	        ArrayList<T> ret = new ArrayList<T>();
-	        for (T t : array) {
-	            ret.add((T) t);
-	        }
-	        return ret;
-	    }
+		public final ArrayList<T> convertir(T[] array) {
+			ArrayList<T> ret = new ArrayList<T>();
+			for (T t : array) {
+				ret.add((T) t);
+			}
+			return ret;
+		}
 
 	}
-	
-	
+
 }
