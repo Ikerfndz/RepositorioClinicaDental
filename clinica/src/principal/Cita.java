@@ -1,6 +1,7 @@
 package principal;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import utils.Utilidades;
@@ -46,7 +47,7 @@ public class Cita {
 		Scanner teclado = new Scanner(System.in);
 		boolean valido = false;
 		char rango;
-		System.out.print("Introduce mañana o tarde: ");
+		System.out.print(">>Introduce mañana o tarde: ");
 		boolean rangoValido = false;
 		;
 		rangoValido = Utilidades.leerChar();
@@ -97,6 +98,19 @@ public class Cita {
 	@Override
 	public String toString() {
 		return "Cita [idCita=" + idCita + ", fechahora=" + fechahora + ", rango=" + rango + "]";
+	}
+	
+	/**
+	 * Función que devuelve una cadena de caracteres con la siguiente estructura
+	 * <DatosCita.id>|<DatosCita.fechaHora>|<DatosCita.rango>|<DatosCita.fechahora|
+	 * Cada campo se separa mediante el caracter '|'
+	 * 
+	 * @return
+	 */
+	public String data() {
+		String cita="";
+		cita= " | " + this.idCita +  " | " + this.rango  + " | " + this.fechahora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+		return cita;
 	}
 
 }
