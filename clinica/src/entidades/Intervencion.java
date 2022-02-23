@@ -29,7 +29,7 @@ public class Intervencion extends Cita {
 		do {
 			System.out.println("Introduzca la duracion de la Intervencion");
 			minutos = teclado.nextInt();
-			minutos = validarDuracion(minutos);
+			duracionValido = validarDuracion(minutos);
 		} while (!duracionValido);
 		ret.setDuracion(minutos);
 
@@ -39,9 +39,9 @@ public class Intervencion extends Cita {
 
 	}
 
-	private static int validarDuracion(int minutos) {
-		// TODO Auto-generated method stub
-		return 0;
+	private static boolean validarDuracion(int minutos) {
+		
+		return minutos >0;
 	}
 
 	public int getDuracion() {

@@ -191,8 +191,8 @@ public class Principal {
 						System.out.println(" ");
 
 						for (Empleado i : empleados)
-							System.out.println("Nombre: " + i.getNombre() + (" ") + i.getApellidos() + (" | Nif: ") + i.nif
-									+ (" | Telefono: ") + i.telefono + (" | Mail: ") + i.direccion + " |  Id: "
+							System.out.println("Nombre: " + i.getNombre() + (" ") + i.getApellidos() + (" | Nif: ") + i.getNif()
+									+ (" | Telefono: ") + i.getTelefono() + (" | Mail: ") + i.getDireccion() + " |  Id: "
 									+ i.getIdEmpleado());
 						System.out.println(" ");
 						eleccionValida = false;
@@ -233,9 +233,9 @@ public class Principal {
 						System.out.println(" ");
 
 						for (Cita c : citas)
-							System.out.println(" ID de la cita: " + c.idCita + ("  | Franja horaria: ") + c.getRango()
+							System.out.println(" ID de la cita: " + c.getIdCita() + ("  | Franja horaria: ") + c.getRango()
 									+ (" | Fecha y hora: ")
-									+ c.fechahora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy 'a las' HH:mm:ss")));
+									+ c.getFechahora().format(DateTimeFormatter.ofPattern("dd/MM/yyyy 'a las' HH:mm:ss")));
 
 						eleccionValida = false;
 						break;

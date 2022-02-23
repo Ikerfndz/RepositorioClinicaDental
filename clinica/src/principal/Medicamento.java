@@ -1,6 +1,8 @@
-package entidades;
+package principal;
 
 import java.util.Scanner;
+
+import entidades.Alergia;
 
 public class Medicamento extends Alergia {
 
@@ -92,6 +94,18 @@ public class Medicamento extends Alergia {
 
 		return new Medicamento();
 	}
+	
+	/*
+	 * Metodo encargado de mostrar los datos del Medicamento a través de un String
+	 * de manera que todos queden separados por el carácter "|".
+	 * El primer campo corresponde con la clave primaria de la clase Medicamento
+	 */
+	public String data() {
+		String medicamento = "";
+		medicamento = this.idMedicamento + "|" +  this.nombreMedicamento + "|" + this.principioActivo + "|" + this.dosisMaxDiaria;
+		return medicamento;
+	}
+
 
 	// Validadores
 

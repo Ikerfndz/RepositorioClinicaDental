@@ -1,6 +1,7 @@
 package entidades;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import utils.Utilidades;
@@ -9,12 +10,12 @@ import validacion.Validador;
 public class Cita {
 	// idCita representa al identificador unico de la cita.
 	// es un valos entero >0.
-	public long idCita;
+	protected long idCita;
 	// fecha representa el dia indicado para la cita.
 	// hora representa la hora a la que se realizara la cita.
 	// Seran para ambos la funcion LocalDate.
 
-	public LocalDateTime fechahora;
+	protected LocalDateTime fechahora;
 	// rango representa el horario preferido por el cliente siendo de mañana o de
 	// tarde.
 	// Es un char que representara una "M" para las mañanas y una "T" para las
@@ -42,12 +43,13 @@ public class Cita {
 	 * @return una nueva Cita
 	 */
 	public static Cita nuevaCita() {
-		Cita ret = null;
+		Cita ret = new Cita();
 		Scanner teclado = new Scanner(System.in);
 		boolean valido = false;
 		char rango;
-		System.out.print("Introduce mañana o tarde: ");
+		System.out.print(">>Introduce mañana o tarde: ");
 		boolean rangoValido = false;
+		;
 		rangoValido = Utilidades.leerChar();
 
 		System.out.println(
@@ -56,7 +58,7 @@ public class Cita {
 		LocalDateTime fechaCita = Utilidades.leerFechaHora();
 
 		ret.setFechahora(fechaCita);
-		System.out.print(ret);
+
 		return ret;
 
 	}
@@ -96,6 +98,19 @@ public class Cita {
 	@Override
 	public String toString() {
 		return "Cita [idCita=" + idCita + ", fechahora=" + fechahora + ", rango=" + rango + "]";
+	}
+	
+	/**
+	 * Función que devuelve una cadena de caracteres con la siguiente estructura
+	 * <DatosCita.id>|<DatosCita.fechaHora>|<DatosCita.rango>|<DatosCita.fechahora|
+	 * Cada campo se separa mediante el caracter '|'
+	 * 
+	 * @return
+	 */
+	public String data() {
+		String cita="";
+		cita= " | " + this.idCita +  " | " + this.rango  + " | " + this.fechahora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+		return cita;
 	}
 
 }

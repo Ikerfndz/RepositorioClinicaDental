@@ -2,6 +2,9 @@ package entidades;
 
 import java.util.Scanner;
 
+import principal.Medicamento;
+
+
 public class Alergia extends Historial {
 
 	// idAlergia es el identificador �nico de cada elemento Alergia
@@ -61,6 +64,17 @@ public class Alergia extends Historial {
 			nomValido = validarNombreAlergia(nom);
 		} while (!nomValido);
 		return new Alergia();
+	}
+	
+	/*
+	 * Metodo encargado de mostrar los datos de la Alergia a través de un String
+	 * de manera que todos queden separados por el carácter "|".
+	 * El primer campo corresponde con la clave primaria de la clase Alergia
+	 */
+	public String data() {
+		String alergia = "";
+		alergia = this.idAlergia + "|" + this.nombreAlergia;
+		return alergia;
 	}
 
 	// Validadores

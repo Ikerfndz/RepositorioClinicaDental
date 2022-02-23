@@ -76,6 +76,18 @@ public class Cobro {
 		return ret;
 
 	}
+	
+	/*
+	 * Metodo encargado de mostrar los datos del Cobro a través de un String
+	 * de manera que todos queden separados por el carácter "|".
+	 * El primer campo corresponde con la clave primaria de la clase Cobro
+	 */
+	public String data() {
+		String cobro = "";
+		cobro = this.idCobro + "|" + this.importe + "|" + this.fecha;
+		return cobro;
+	}
+
 
 	// Validadores
 	public static boolean validarImporteCobro(double importe2) {

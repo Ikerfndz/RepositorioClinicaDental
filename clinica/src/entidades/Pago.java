@@ -60,13 +60,15 @@ public class Pago {
 			this.cobros[0] = cobros;
 		}
 
-	// M�todo encargado de guardar los nuevos pagos de un Paciente.
-	// Se le pide al usuario que escriba la fecha, el importe y el m�todo de pago y
-	// se guarda en
-	// una variable auxiliar.
-	// Esta variable ser� la que pasaremos por parametros haciendo llamada al
-	// constructor anterior.
-	// Finalmente devolvemos los datos introducidos.
+	/*
+	 * M�todo encargado de guardar los nuevos pagos de un Paciente.
+	 * Se le pide al usuario que escriba la fecha, el importe y el m�todo de pago y
+	 * se guarda en
+	 * una variable auxiliar.
+	 * Esta variable ser� la que pasaremos por parametros haciendo llamada al
+	 * constructor anterior.
+	 * Finalmente devolvemos los datos introducidos.
+	 */
 	public static Pago nuevoPago() {
 
 		Pago ret = new Pago();
@@ -112,6 +114,19 @@ public class Pago {
 
 		return ret;
 	}
+	
+	/*
+	 * Metodo encargado de mostrar los datos del Pago a través de un String
+	 * de manera que todos queden separados por el carácter "|".
+	 * El primer campo corresponde con la clave primaria de la clase Pago
+	 *
+	 */
+	public String data() {
+		String pago = "";
+		pago = this.idPago + "|" + this.fecha + "|" + this.importe + "|" + this.metododePago;
+		return pago;
+	}
+
 
 	// Validadores
 	public static boolean validarImportePago(double importe2) {
