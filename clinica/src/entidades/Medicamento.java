@@ -1,8 +1,6 @@
-package principal;
+package entidades;
 
 import java.util.Scanner;
-
-import entidades.Alergia;
 
 public class Medicamento extends Alergia {
 

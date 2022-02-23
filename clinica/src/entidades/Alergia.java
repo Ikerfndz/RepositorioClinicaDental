@@ -2,8 +2,6 @@ package entidades;
 
 import java.util.Scanner;
 
-import principal.Medicamento;
-
 
 public class Alergia extends Historial {
 
