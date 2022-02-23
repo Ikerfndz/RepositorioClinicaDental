@@ -1,5 +1,10 @@
 package principal;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import utils.Datos;
@@ -7,38 +12,40 @@ import validacion.Validador;
 
 public class Empleado {
 
+	// id del empleado, es un didentificador unico, un valor entero>0
 	protected long idEmpleado;
-	// id es el identificador unico de cada elemento Empleado
-	// es un valor entero > 0
-	// el valor de idEmpleado se va rellenando automaticamente cada vez que se hace
-	// llamada a uno de sus constructores
+
+	// Nombre del empleado, es una cadena de caracteres, con un minimo de 3 y un
 	protected String nombre;
+
 	// nombre representa el nombre de la empleado
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50
 	// no acepta numeros ni caracteres especiales
 	protected String apellidos;
-	// nombre representa el nombre de la empleado
-	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50
-	// no acepta numeros ni caracteres especiales
-	protected String telefono;
+
 	// telefono representa al numero de telefono del empleado
 	// esta formado por 9 digitos
 	// es un valor entero
-	protected String direccion;
+	protected String telefono;
+
 	// direccion representa la direccion del empleado
 	// esta formado por una cadena de caracteres de minimo 5 caracteres y un maximo
 	// de 50
-	protected String nif;
+	protected String direccion;
+
 	// indica el nif de cada empleado
 	// es una cadena de caracteres de minimo 3 caracteres y maximo 50
 	// no acepta caracteres especiales
-	private static int numeroEmpleados = Datos.numEmpleadosd;
+	protected String nif;
+
 	// numeroEmpleados es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idEmpleado
+	private static int numeroEmpleados = Datos.numEmpleadosd;
 
-	// Constructor por defecto -> cada vez que le hagamos una llamada aumentara el
-	// valor de numeroEmpleados en 1 y se le asignara ese valor al idEmpleado
-
+	/**
+	 * Constructor por defecto de la clase empleado, da un estado inicial al numero
+	 * de los empleados, aumentando el numero en 1.
+	 */
 	public Empleado() {
 		numeroEmpleados++;
 		this.idEmpleado = numeroEmpleados;
@@ -76,14 +83,73 @@ public class Empleado {
 		this.nif = e.getNif();
 	}
 
-	// Metodo nuevoEmpleado -> encargado de registrar a un nuevo empleado
-	// Se le pide al usuario que ingrese los siguentes datos sobre el nuevo
-	// empleado: nombre, apellidos, telefono, direccion y nif
-	// Todos estos datos son guardados en variables auxiliares distintas
-	// Estas variables serï¿½n las que pasaremos por parametros haciendo llamada al
-	// constructor anterior para establecer un nuevo empleado con todos sus
-	// atributos
-	// Finalmente se devuelven los datos introducidos
+	// Getters y setters
+
+	public long getIdEmpleado() {
+		return idEmpleado;
+	}
+
+	public void setIdEmpleado(long idEmpleado) {
+		this.idEmpleado = idEmpleado;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getNif() {
+		return nif;
+	}
+
+	public void setNif(String nif) {
+		this.nif = nif;
+	}
+
+	public static int getNumeroEmpleados() {
+		return numeroEmpleados;
+	}
+
+	public static void setNumeroEmpleados(int numeroEmpleados) {
+		Empleado.numeroEmpleados = numeroEmpleados;
+	}
+
+	/***
+	 * Función que pregunta al usuario por cada uno de los campos para un nuevo
+	 * Empleado, los valida y si son correctos devuelve un objeto Empleado completo
+	 * Se preguntara al usuario por los siguentes datos: nombre, apellidos,
+	 * telefono, direccion y nif Estos datos se guardan en variables auxialiares
+	 * distintas
+	 * 
+	 * @return un objeto Manager completo válido o null si hubo algún error
+	 */
 	public static Empleado nuevoEmpleado() {
 		Empleado ret = null;
 		Scanner teclado;
@@ -131,8 +197,14 @@ public class Empleado {
 
 		ret = new Empleado(nomEmpleado, apeEmpleado, telEmpleado, dirEmpleado, niEmpleado);
 		return ret;
+
 	}
 
+	/**
+	 * Función que devuelve una cadena de caracteres con la siguiente estructura
+	 * <Empleado.id>|<Empleado.nombre>|<Empleado.apellidos>|<Empleado.nif>|<Empleado.direccion>|<Empleado.telefono>
+	 * Cada campo se separa mediante el caracter '|'*
+	 */
 	public static void motrarEmpleado() {
 		System.out.println("Lista de Empleados disponibles:");
 		for (int i = 0; i < Datos.numEmpleadosd; i++) {
@@ -141,70 +213,106 @@ public class Empleado {
 		}
 	}
 
-	// Getters y setters
-
-	public long getIdEmpleado() {
-		return idEmpleado;
+	/**
+	 * Función que devuelve una cadena de caracteres con la siguiente estructura
+	 * <Empleado.id>|<Empleado.nombre>|<Empleado.apellidos>|<Empleado.nif>|<Empleado.direccion>|<Empleado.telefono>
+	 * Cada campo se separa mediante el caracter '|'
+	 * 
+	 * @return
+	 */
+	public String data() {
+		return "" + this.getIdEmpleado() + "|" + this.getNombre() + "|" + this.getApellidos() + "|" + this.getNif()
+				+ "|" + this.getDireccion() + "|" + this.getTelefono();
 	}
 
-	public void setIdEmpleado(long idEmpleado) {
-		this.idEmpleado = idEmpleado;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getNif() {    
-		return nif;  
-	}
-
-	public void setNif(String nif) {
-		this.nif = nif;
-	}
-
-	public static int getNumeroEmpleados() {
-		return numeroEmpleados;
-	}
-
-	public static void setNumeroEmpleados(int numeroEmpleados) {
-		Empleado.numeroEmpleados = numeroEmpleados;
-	}
-
-	// To String
-
+	/***
+	 * Función que devuelve una cadena de caracteres con los datos del empleado en
+	 * el siguiente formato: "Empleado [idEmpleado=" <idEmpleado> ", nombre="
+	 * <nombre> ", apellidos=" <apellidos> ", telefono=" <telefono> ", direccion="
+	 * <direccion> ", nif=" <nif>"]"
+	 */
 	@Override
 	public String toString() {
 		return "Empleado [idEmpleado=" + idEmpleado + ", nombre=" + nombre + ", apellidos=" + apellidos + ", telefono="
 				+ telefono + ", direccion=" + direccion + ", nif=" + nif + "]";
 	}
 
+	/***
+	 * Metodo que permite exportar un objeto Empleados hacia un fichero de texto
+	 * llamado empleadosObjeto.txt
+	 * 
+	 */
+	public static void exportarObjeto(Empleado empleado) {
+		String path = "empleadosObjeto.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				buffer.println(empleado.data());
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+	}
+
+	/***
+	 * Metodo que permite exportar una coleccion del objeto Empleados hacia un
+	 * fichero de texto llamado empleadosColeccion.txt
+	 * 
+	 */
+	public static void exportarColeccion(Empleado[] empleados) {
+		String path = "empleadosColeccion.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				for (Empleado e : empleados) {
+					buffer.println(e.data());
+				}
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+	}
+
+	/***
+	 * Metodo que perimite exportar un objeto Empleado hacia un fichero binario
+	 * 
+	 */
+	
+	
+	
+	
+	
 }
