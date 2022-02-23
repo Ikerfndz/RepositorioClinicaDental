@@ -1,11 +1,11 @@
-package principal;
+package entidades;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Enfermeria extends Empleado {
 	private char categoria;
-	// Categoría de el/la enfemero/a codificada con una letra
+	// Categorï¿½a de el/la enfemero/a codificada con una letra
 	private Intervencion intervenciones[] = new Intervencion[10];
 	// Array donde se guarda el numero de intervenciones que puede tener un/a
 	// enfermero/a.
@@ -14,12 +14,12 @@ public class Enfermeria extends Empleado {
 		// Contructor por defecto
 	}
 
-	// Constructor que recibe como parámetros atributos de tipo char, Empleado, e
-	// Intervención
+	// Constructor que recibe como parï¿½metros atributos de tipo char, Empleado, e
+	// Intervenciï¿½n
 	// Hace una llamada a su clase super para sacar sus atributos
-	// Guarda la categoría con el set ( Lo hago llamado al set pero también podría
+	// Guarda la categorï¿½a con el set ( Lo hago llamado al set pero tambiï¿½n podrï¿½a
 	// ser con this.categoria=categoria)
-	// Guarda la intervención en el array intervenciones.
+	// Guarda la intervenciï¿½n en el array intervenciones.
 
 	public Enfermeria(Empleado empleado,char categoria, Intervencion intervencion) {
 		super(empleado);
@@ -34,21 +34,21 @@ public class Enfermeria extends Empleado {
 		intervenciones[0] = intervencion;
 	}
 
-	// Método nuevoEnfermero encargado de registrar a un nuevo enfermero.
-	// Se declara una variable de tipo Empleado donde se guarda la información del
-	// empleado haciendo llamada al método nuevoEmpleado.
-	// Se declara una variable de tipo Intervencion donde se guarda la información
-	// de la intervencion haciendo llamada al método nuevaIntervencion.
-	// Se pide por pantalla que introduzca la categoría del enfermero con el teclado
+	// Mï¿½todo nuevoEnfermero encargado de registrar a un nuevo enfermero.
+	// Se declara una variable de tipo Empleado donde se guarda la informaciï¿½n del
+	// empleado haciendo llamada al mï¿½todo nuevoEmpleado.
+	// Se declara una variable de tipo Intervencion donde se guarda la informaciï¿½n
+	// de la intervencion haciendo llamada al mï¿½todo nuevaIntervencion.
+	// Se pide por pantalla que introduzca la categorï¿½a del enfermero con el teclado
 	// y se guarda en una variable auxiliar llamada cat.
-	// Finalmente se declara y se inicializa una variable de tipo Enfermería
-	// (llamando al constructor anterior) que será la que utilizaremos para devolver
+	// Finalmente se declara y se inicializa una variable de tipo Enfermerï¿½a
+	// (llamando al constructor anterior) que serï¿½ la que utilizaremos para devolver
 	// todos los datos introducidos en este metodo .
 	public static Enfermeria nuevoEnfermero() {
 		Empleado empleado = Empleado.nuevoEmpleado();
 		Intervencion intervencion = Intervencion.nuevaIntervencion();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce la categoría del enfermero/a");
+		System.out.println("Introduce la categorï¿½a del enfermero/a");
 		char cat;
 		cat = teclado.next().charAt(0);
 		Enfermeria ret = new Enfermeria(cat, empleado, intervencion);

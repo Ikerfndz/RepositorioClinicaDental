@@ -1,15 +1,13 @@
-package principal;
+package entidades;
+
 
 import java.util.Arrays;
 import java.util.Scanner;
 import utils.Datos;
 import validacion.Validador;
 
-
-
 public class Paciente {
 
-	
 	// nombre representa el nombre del paciente.
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50.
 	// no acepta numeros ni caracteres especiales .
@@ -32,18 +30,18 @@ public class Paciente {
 	// numeroPacientes es de tipo entero
 	// esta variable nos permitira completar de forma automatica el idPaciente
 	private static long numeroPacientes = Datos.numPacientesd;
-	
+
 	private Historial historial = new Historial();
 	private Tratamiento tratamientos[] = new Tratamiento[10];
 
 	// Constructor por defecto que cada vez que le hagamos una llamada aumentara el
 	// valor de numeroPacientes en 1 y se le asignara ese valor al idPaciente
-	public Paciente () {
+	public Paciente() {
 		numeroPacientes++;
-		this.idPaciente = numeroPacientes;}
-	
-	public Paciente (String nombre, String direccion, String telefono, int edad, String nif) {
-		this();
+		this.idPaciente = numeroPacientes;
+	}
+
+	public Paciente(String nombre, String direccion, String telefono, int edad, String nif) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.telefono = telefono;
@@ -51,79 +49,85 @@ public class Paciente {
 		this.nif = nif;
 	}
 
-	
-	 public Paciente(String nombre, long id, String telefono, String direccion, int edad, String nif) {
-			this.nombre = nombre;
-			this.idPaciente = id;
-			this.edad = edad;
-			this.telefono = telefono;
-			this.direccion = direccion;
-			this.nif = nif;
+	public Paciente(String nombre, long id, String telefono, String direccion, int edad, String nif) {
+		this.nombre = nombre;
+		this.idPaciente = id;
+		this.edad = edad;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.nif = nif;
 	}
 
 	// Metodo nuevoPaciente encargado de registrar a un nuevo paciente
 	public static Paciente nuevoPaciente() {
-		Paciente ret = null;
+		Paciente paciente = null;
+
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-			// Nombre
-			String nomPaciente = "";
-			boolean nombreValido=false;
-			do {
-				System.out.println("Introduzca el nombre del nuevo paciente: ");
-				nomPaciente = teclado.nextLine();
-				nombreValido= Validador.validarNombrePaciente(nomPaciente);
-			} while (!nombreValido);
-			
-	
-			// Telefono
-			String telPaciente = "";
-			boolean telefonoValido=false;
-			do {
-				System.out.println("Introduzca el telefono: ");
-				telPaciente = teclado.next();
-				telefonoValido=Validador.validarTelefonoPaciente(telPaciente);
-			} while(!telefonoValido);
-		  
-	
-			// Direccion
-			String dirPaciente = "";
-			boolean direccionValida=false;
-			do {
-				System.out.println("Introduzca la direcci�n: ");
-				dirPaciente = teclado.next();
-				direccionValida= Validador.validarDireccionPaciente(dirPaciente);
-			} while (!direccionValida);
-			
-	
-			// Edad
-			int edadPaciente = 0 ;
-			boolean edadValida=false;
-			do {
-				System.out.println("Introduzca la edad: ");
-				edadPaciente = teclado.nextInt();
-				edadValida=Validador.validarEdadPaciente(edadPaciente);
-			} while(!edadValida);
-		
-				
-			// NIF
-			String nifPaciente = "";
-			boolean nifValido=false;
-			do {
-				System.out.println("Introduzca el NIF: ");
-				nifPaciente = teclado.next();
-				nifValido=Validador.validarNifPaciente(nifPaciente);
-			}while(!nifValido);
-			
-			ret = new Paciente (nomPaciente, telPaciente, dirPaciente, edadPaciente, nifPaciente);
-			return ret;
+		// Nombre
+		String nomPaciente = "";
+		boolean nombreValido = false;
+		do {
+			System.out.println("Introduzca el nombre del nuevo paciente: ");
+			nomPaciente = teclado.nextLine();
+			nombreValido = Validador.validarNombrePaciente(nomPaciente);
+		} while (!nombreValido);
+
+		// Telefono
+		String telPaciente = "";
+		boolean telefonoValido = false;
+		do {
+			System.out.println("Introduzca el telefono: ");
+			telPaciente = teclado.next();
+			telefonoValido = Validador.validarTelefonoPaciente(telPaciente);
+		} while (!telefonoValido);
+
+		// Direccion
+		String dirPaciente = "";
+		boolean direccionValida = false;
+		do {
+			System.out.println("Introduzca la direcci�n: ");
+			dirPaciente = teclado.next();
+			direccionValida = Validador.validarDireccionPaciente(dirPaciente);
+		} while (!direccionValida);
+
+		// Edad
+		int edadPaciente = 0;
+		boolean edadValida = false;
+		do {
+			System.out.println("Introduzca la edad: ");
+			edadPaciente = teclado.nextInt();
+			edadValida = Validador.validarEdadPaciente(edadPaciente);
+		} while (!edadValida);
+
+		// NIF
+		String nifPaciente = "";
+		boolean nifValido = false;
+		do {
+			System.out.println("Introduzca el NIF: ");
+			nifPaciente = teclado.next();
+			nifValido = Validador.validarNifPaciente(nifPaciente);
+		} while (!nifValido);
+
+		paciente = new Paciente(nomPaciente, telPaciente, dirPaciente, edadPaciente, nifPaciente);
+		System.out.println(paciente);
+		return paciente;
 
 	}
 
-	
-	
-	
+	/*
+	 * Metodo encargado de mostrar los datos del Paciente a través de un String de
+	 * manera que todos queden separados por el carácter "|". El primer campo
+	 * corresponde con la clave primaria de la clase Paciente
+	 */
+	public String data() {
+		String paciente = "";
+		paciente = this.idPaciente + " | " + this.nif + " | " + this.nombre + " | " + this.telefono + " | "
+				+ this.direccion + " | " + this.edad;
+		return paciente;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

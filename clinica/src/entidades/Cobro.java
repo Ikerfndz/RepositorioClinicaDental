@@ -1,11 +1,11 @@
-package principal;
+package entidades;
 
 import java.util.Scanner;
 import java.time.LocalDateTime;
 
 public class Cobro {
 
-	// idCobro es el identificador único de cada elemento Cobro
+	// idCobro es el identificador ï¿½nico de cada elemento Cobro
 	protected long idCobro;
 
 	// importe representa el importe del cobro
@@ -16,12 +16,12 @@ public class Cobro {
 	// es de tipo Localdate porque almacena una fecha
 	protected LocalDateTime fecha;
 
-	// Variable que utilizaremos para completar de forma automática el identificador
+	// Variable que utilizaremos para completar de forma automï¿½tica el identificador
 	// del cobro.
 	private static int numeroCobros = 0;
 
-	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
-	// numero de cobros en 1 y se le asignará ese valor al identificador.
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentarï¿½ el
+	// numero de cobros en 1 y se le asignarï¿½ ese valor al identificador.
 	public Cobro() {
 		numeroCobros = numeroCobros + 1;
 		idCobro = numeroCobros;
@@ -37,11 +37,11 @@ public class Cobro {
 		this.fecha = fecha;
 	}
 
-	// Método encargado de guardar el nuevo cobro.
+	// Mï¿½todo encargado de guardar el nuevo cobro.
 	// Se le pide al usuario que escriba el importe y la fecha del cobro y se guarda
 	// en
 	// una variable auxiliar.
-	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// Esta variable serï¿½ la que pasaremos por parametros haciendo llamada al
 	// constructor anterior.
 	// Finalmente devolvemos los datos introducidos.
 	public static Cobro nuevoCobro() {

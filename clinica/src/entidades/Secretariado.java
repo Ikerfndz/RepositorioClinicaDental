@@ -1,4 +1,4 @@
-package principal;
+package entidades;
 
 import java.util.Scanner;
 

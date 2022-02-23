@@ -1,4 +1,4 @@
-package principal;
+package entidades;
 
 import java.util.Scanner;
 
@@ -63,8 +63,15 @@ public class Tratamiento {
 		this.consentimiento = consentimiento;
 		this.nombreDescriptivo = nombreDescriptivo;
 	}
-
 	
+	/*Metodo encargado de mostrar los datos del Tratamiento a través de un String
+  	de manera que todos queden separados por el carácter "|".
+ 	El primer campo corresponde con la clave primaria de la clase Tratamiento */
+	public String data() {
+		String tratamiento= "";
+		tratamiento= this.idTratamiento + " | " + this.nombreDescriptivo + " | " + this.consentimiento;
+		return tratamiento;
+	}
 
 	public long getIdTratamiento() {
 		return idTratamiento;

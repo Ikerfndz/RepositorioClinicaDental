@@ -1,4 +1,4 @@
-package principal;
+package entidades;
 
 import java.util.Scanner;
 
@@ -6,19 +6,19 @@ import utils.Datos;
 
 public class Especialidad {
 	private long idEsp;
-	// Identificador de la especialidad que se va rellenando automáticamente cada
+	// Identificador de la especialidad que se va rellenando automï¿½ticamente cada
 	// vez que se hace una llamada a sus constructores
 	private String nombreEsp;
 	// Nombre de la especialidad de tipo String
 	private static int numeroEspecialiades = Datos.numEspecialidades;
-	// Variable que utilizaremos para completar de forma automática el identificador
+	// Variable que utilizaremos para completar de forma automï¿½tica el identificador
 	// de la especialidad.
 	private Cirujano cirujano;
 	// Variable de tipo Cirujano donde guardaremos a que cirujano pertenece la
 	// especialidad.
 
-	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
-	// numero de especialidades en 1 y se le asignará ese valor al identificador.
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentarï¿½ el
+	// numero de especialidades en 1 y se le asignarï¿½ ese valor al identificador.
 	public Especialidad() {
 		numeroEspecialiades = numeroEspecialiades + 1;
 		idEsp = numeroEspecialiades;
@@ -39,10 +39,10 @@ public class Especialidad {
 	}
 
 
-	// Método encargado de guardar la nueva especialidad de un cirujano.
+	// Mï¿½todo encargado de guardar la nueva especialidad de un cirujano.
 	// Se le pide al usuario que escriba el nombre de la especialidad y se guarda en
 	// una variable auxiliar.
-	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// Esta variable serï¿½ la que pasaremos por parametros haciendo llamada al
 	// constructor anterior para establecer el nombre de la especialidad
 	// Finalmente devolvemos los datos introducidos.
 	public static Especialidad nuevaEspecialidad() {

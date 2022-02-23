@@ -1,32 +1,32 @@
-package principal;
+package entidades;
 
 import java.util.Scanner;
 
 public class Medicamento extends Alergia {
 
-	// idMedicamento es el identificador único de cada elemento Medicamento
+	// idMedicamento es el identificador ï¿½nico de cada elemento Medicamento
 	protected long idMedicamento;
 
 	// nombre representa el nombre del medicamento
-	// Es una cadena de caracteres de longiyud mínimo 3 y máximo 50 caracteres
-	// No acepta dígitos ni caracteres especiales
+	// Es una cadena de caracteres de longiyud mï¿½nimo 3 y mï¿½ximo 50 caracteres
+	// No acepta dï¿½gitos ni caracteres especiales
 	protected String nombreMedicamento;
 
-	// Variable que utilizaremos para completar de forma automática el identificador
+	// Variable que utilizaremos para completar de forma automï¿½tica el identificador
 	// del medicamento.
 	private static int numeroMedicamentos = 0;
 
 	// principioActivo representa el nombre del principio activo
-	// Es una cadena de caracteres de longitud mínimo 3 y máximo 50 caracteres
-	// No acepta dígitos ni caracteres especiales
+	// Es una cadena de caracteres de longitud mï¿½nimo 3 y mï¿½ximo 50 caracteres
+	// No acepta dï¿½gitos ni caracteres especiales
 	protected String principioActivo;
 
-	// dosisMaxDiaria representa la dosis máxima diaria
+	// dosisMaxDiaria representa la dosis mï¿½xima diaria
 	// es un valor >0
 	protected double dosisMaxDiaria;
 
-	// Constructor por defecto, cada vez que le hagamos una llamada aumentará el
-	// numero de medicamentos en 1 y se le asignará ese valor al identificador.
+	// Constructor por defecto, cada vez que le hagamos una llamada aumentarï¿½ el
+	// numero de medicamentos en 1 y se le asignarï¿½ ese valor al identificador.
 	public Medicamento() {
 		numeroMedicamentos = numeroMedicamentos + 1;
 		idMedicamento = numeroMedicamentos;
@@ -42,10 +42,10 @@ public class Medicamento extends Alergia {
 		this.nombreMedicamento = nombreMedicamento;
 	}
 
-	// Método encargado de guardar el nuevo medicamento.
+	// Mï¿½todo encargado de guardar el nuevo medicamento.
 	// Se le pide al usuario que escriba el nombre del medicamento y se guarda en
 	// una variable auxiliar.
-	// Esta variable será la que pasaremos por parametros haciendo llamada al
+	// Esta variable serï¿½ la que pasaremos por parametros haciendo llamada al
 	// constructor anterior para establecer el nombre del medicamento.
 	// Finalmente devolvemos los datos introducidos.
 
@@ -78,12 +78,12 @@ public class Medicamento extends Alergia {
 
 		ret.setPrincipioActivo(principioActivo);
 
-		// dosisMáxima
+		// dosisMï¿½xima
 		double dosisMaximaDiaria = 0;
 		boolean dosisValida = false;
 
 		do {
-			System.out.print("Introduce la dosis máxima diaria: ");
+			System.out.print("Introduce la dosis mï¿½xima diaria: ");
 			dosisMaximaDiaria = teclado.nextDouble();
 			dosisValida = validarDosisMaxima(dosisMaximaDiaria);
 		} while (!dosisValida);

@@ -1,4 +1,4 @@
-package principal;
+package entidades;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -9,12 +9,12 @@ import validacion.Validador;
 public class Cita {
 	// idCita representa al identificador unico de la cita.
 	// es un valos entero >0.
-	protected long idCita;
+	public long idCita;
 	// fecha representa el dia indicado para la cita.
 	// hora representa la hora a la que se realizara la cita.
 	// Seran para ambos la funcion LocalDate.
 
-	protected LocalDateTime fechahora;
+	public LocalDateTime fechahora;
 	// rango representa el horario preferido por el cliente siendo de mañana o de
 	// tarde.
 	// Es un char que representara una "M" para las mañanas y una "T" para las
@@ -42,13 +42,12 @@ public class Cita {
 	 * @return una nueva Cita
 	 */
 	public static Cita nuevaCita() {
-		Cita ret = new Cita();
+		Cita ret = null;
 		Scanner teclado = new Scanner(System.in);
 		boolean valido = false;
 		char rango;
 		System.out.print("Introduce mañana o tarde: ");
 		boolean rangoValido = false;
-		;
 		rangoValido = Utilidades.leerChar();
 
 		System.out.println(
@@ -57,7 +56,7 @@ public class Cita {
 		LocalDateTime fechaCita = Utilidades.leerFechaHora();
 
 		ret.setFechahora(fechaCita);
-
+		System.out.print(ret);
 		return ret;
 
 	}

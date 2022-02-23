@@ -1,4 +1,4 @@
-package principal;
+package entidades;
 
 public class Usuario {
 

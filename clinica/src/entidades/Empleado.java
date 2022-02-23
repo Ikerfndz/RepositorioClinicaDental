@@ -1,4 +1,4 @@
-package principal;
+package entidades;
 
 import java.util.Scanner;
 
@@ -20,15 +20,15 @@ public class Empleado {
 	// nombre representa el nombre de la empleado
 	// es una cadena de caracteres con un minimo de 3 caracteres y maximo de 50
 	// no acepta numeros ni caracteres especiales
-	protected String telefono;
+	public String telefono;
 	// telefono representa al numero de telefono del empleado
 	// esta formado por 9 digitos
 	// es un valor entero
-	protected String direccion;
+	public String direccion;
 	// direccion representa la direccion del empleado
 	// esta formado por una cadena de caracteres de minimo 5 caracteres y un maximo
 	// de 50
-	protected String nif;
+	public String nif;
 	// indica el nif de cada empleado
 	// es una cadena de caracteres de minimo 3 caracteres y maximo 50
 	// no acepta caracteres especiales
@@ -130,6 +130,7 @@ public class Empleado {
 		} while (!valido);
 
 		ret = new Empleado(nomEmpleado, apeEmpleado, telEmpleado, dirEmpleado, niEmpleado);
+		System.out.println(ret);
 		return ret;
 	}
 

@@ -1,4 +1,4 @@
-package principal;
+package entidades;
 
 import java.util.Scanner;
 
@@ -18,37 +18,42 @@ public class Historial {
 		Historial ret = new Historial();
 		Scanner teclado;
 		teclado = new Scanner(System.in);
-		
+
 		String desHistorial = ("");
 		boolean historialValido = false;
 		do {
 			System.out.println("Introduzca la descripcion: ");
 			desHistorial = teclado.next();
-			historialValido= Validador.validarHistorialPaciente(desHistorial);
+			historialValido = Validador.validarHistorialPaciente(desHistorial);
 		} while (!historialValido);
-		
-	ret.setDescripcion(desHistorial);
+
+		ret.setDescripcion(desHistorial);
 		return ret;
-		
-		
-		
+
 	}
-	
-	
 
 	private static int numHistorial = 0;
+
 	public Historial() {
 		numHistorial++;
-		this.idHistorial = numHistorial;}
+		this.idHistorial = numHistorial;
+	}
 
-	public Historial (String descripcion, long idHistorial) {
-		this ();
+	public Historial(String descripcion, long idHistorial) {
+		this();
 		this.descripcion = descripcion;
 		this.idHistorial = idHistorial;
 	}
 
-	
-	
+	/*Metodo encargado de mostrar los datos del Historial a través de un String
+  	de manera que todos queden separados por el carácter "|".
+ 	El primer campo corresponde con la clave primaria de la clase Historial */
+	public String data() {
+		String historial= "";
+		historial= this.idHistorial + " | " + this.descripcion;
+		return historial;
+
+	}
 
 	public long getIdHistorial() {
 		return idHistorial;
