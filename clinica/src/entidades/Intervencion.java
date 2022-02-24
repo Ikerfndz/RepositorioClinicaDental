@@ -1,8 +1,10 @@
 package entidades;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import validacion.Validador;
+import utils.Datos;
 
 public class Intervencion extends Cita {
 
@@ -15,8 +17,18 @@ public class Intervencion extends Cita {
 
 	}
 
+	public Intervencion(Cita c) {
+		super(c);
+
+	}
+
 	public Intervencion(int duracion) {
 		this.duracion = duracion;
+	}
+
+	public Intervencion(long idCita, LocalDateTime fechahora, char rango) {
+		super(idCita, fechahora, rango);
+
 	}
 
 	public static Intervencion nuevaIntervencion() {
@@ -24,7 +36,7 @@ public class Intervencion extends Cita {
 		Scanner teclado;
 		teclado = new Scanner(System.in);
 
-		int minutos;
+		int minutos = 0;
 		boolean duracionValido = false;
 		do {
 			System.out.println("Introduzca la duracion de la Intervencion");
@@ -40,8 +52,8 @@ public class Intervencion extends Cita {
 	}
 
 	private static boolean validarDuracion(int minutos) {
-		
-		return minutos >0;
+
+		return minutos > 0;
 	}
 
 	public int getDuracion() {
@@ -52,9 +64,36 @@ public class Intervencion extends Cita {
 		this.duracion = duracion;
 	}
 
+	/**
+	 * Metodo que recorre el array de las intervenciones, de la clase Datos, los
+	 * almacena en la variable inte y a continuacion se muestran a traves del metodo
+	 * toString de la clase Intervencion
+	 */
+	public static void motrarIntervencion() {
+		System.out.println("Lista de Empleados disponibles:");
+		for (int i = 0; i < Datos.numeroIntervenciones; i++) {
+			Intervencion inte = Datos.INTERVENCIONES[i];
+			System.out.println(inte.toString());
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "Intervencion [duracion=" + duracion + "]";
 	}
 
+	/**
+	 * Función que devuelve una cadena de caracteres con la siguiente estructura
+	 * <DatosIntervencion.id>|<DatosIntervencion.fechaHora>|<DatosIntervencion.rango>|<DatosIntervencion.fechahora>|<DatosIntervencion.duracion>
+	 * Cada campo se separa mediante el caracter '|'
+	 * 
+	 * @return
+	 */
+	public String data() {
+		String intervencion = "";
+		intervencion = " | " + this.getIdCita() + " | " + this.getRango() + " | "
+				+ this.getFechahora().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + " | " + this.duracion
+				+ " | ";
+		return intervencion;
+	}
 }
