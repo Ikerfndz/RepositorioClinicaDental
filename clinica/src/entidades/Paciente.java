@@ -1,6 +1,16 @@
 package entidades;
 
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import java.util.Scanner;
 import utils.Datos;
@@ -128,7 +138,168 @@ public class Paciente {
 		return paciente;
 	}
 
-	public String getNombre() {
+	public static void exportarObjetoPacientesFicheroTexto() {
+		System.out.println("Guardando en pacientes.txt");
+
+		File fOut = new File("pacientes.txt");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+
+		try {
+			fw = new FileWriter(fOut);
+			bw = new BufferedWriter(fw);
+			for (int i = 0; i < Datos.numPacientesd; i++) {
+				Paciente p = new Paciente();
+				p = Datos.PACIENTES[i];
+				bw.write(p.data() + "\n");
+			}
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+				if (fw != null)
+					fw.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void exportarObjetoPacienteFicheroBinario() {
+		System.out.println("Guardando en pacientes.dat");
+		File f;
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+
+		try {
+
+			f = new File("pacientes.dat");
+			fos = new FileOutputStream(f);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(Datos.PACIENTES[1]);
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (oos != null)
+					oos.close();
+				if (fos != null)
+					fos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void exportarColeccionPacientesFicheroBinario() {
+		System.out.println("Guardando en pacientes.dat");
+		File f;
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+	
+		try {
+	
+			f = new File("clienteByte.dat"); 
+			fos = new FileOutputStream(f); 
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(new Paciente("Iker", "698745123", "iker@educastur.es", 20, "58430328n"));
+			for (int i = 0; i < Datos.numPacientesd; i++) {
+				Paciente p = new Paciente();
+				p = Datos.PACIENTES[i];
+				oos.writeObject(p);
+			}
+			
+			oos.writeObject(new Paciente("Iker", "698745123", "iker@educastur.es", 20, "58430328n"));
+	
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (oos != null)
+					oos.close();
+				if (fos != null)
+					fos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void importarColeccionPacientesFicheroTexto() {
+		
+		System.out.println("Cargando de pacientes.txt...");
+		File f = new File("pacientes.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			String s;
+
+			for (int i = 0; i < 6; i++) {
+				s = (String) br.readLine();
+				System.out.println(s);
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)
+					br.close();
+				if (fr != null)
+					fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void importarColeccionPacientesFicheroBinario() {
+		System.out.println("Cargando de pacientes.dat...");
+		File f;
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			f = new File("pacientes.dat");
+			fis = new FileInputStream(f);
+			ois = new ObjectInputStream(fis);
+
+			for (int i = 0; i < 6; i++) {
+				Paciente p = (Paciente) ois.readObject();
+				System.out.println(p.data());
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ois != null)
+					ois.close();
+				if (fis != null)
+					fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+		public String getNombre() {
 		return nombre;
 	}
 
