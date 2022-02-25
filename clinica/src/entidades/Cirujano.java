@@ -1,5 +1,10 @@
 package entidades;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -91,6 +96,89 @@ public class Cirujano extends Empleado {
 		this.intervenciones = intervenciones;
 	}
 
+	
+	/***
+	 * Metodo que permite exportar un objeto cirujanos hacia un fichero de texto
+	 * llamado cirujanosObjeto.txt
+	 * 
+	 */
+	public static void exportarObjeto(Cirujano	cirujano) {
+		String path = "cirujanoObjeto.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				buffer.println(cirujano.data());
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+	}
+	 
+	
+	/***
+	 * Metodo que permite exportar una coleccion del objeto Cirujanos hacia un
+	 * fichero de texto llamado cirujanosColeccion.txt
+	 * 
+	 */
+	public static void exportarColeccion(Cirujano[] cirujano) {
+		String path = "cirujanjoColeccion.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				for (Cirujano c : cirujano) {
+					buffer.println(c.data());
+				}
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+	}
+	/**
+	 * Funci�n que devuelve una cadena de caracteres con la siguiente estructura
+	 * <Empleado.id>|<Empleado.nombre>|<Empleado.apellidos>|<Empleado.nif>|<Empleado.direccion>|<Empleado.telefono>|<Cirujano.especialidad>|<Cirujano.intervenciones>
+	 * Cada campo se separa mediante el caracter '|'
+	 * 
+	 * @return
+	 */
+	public String data() {
+		return "" + this.getIdEmpleado() + "|" + this.getNombre() + "|" + this.getApellidos() + "|" + this.getNif()
+				+ "|" + this.getDireccion() + "|" + this.getTelefono() + "|" + this.especialidades + "|" + this.intervenciones;
+	}
+	
+	
 	// To string
 	@Override
 	public String toString() {
