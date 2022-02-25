@@ -6,6 +6,10 @@ import java.util.Scanner;
 import utils.Datos;
 import validacion.Validador;
 
+/**
+ * @author MiguelH
+ */
+
 public class Informe {
 
 	// id es el identificador unico de cada elemento Informe
@@ -30,10 +34,8 @@ public class Informe {
 	// numero de informes en 1 y se le asignar� ese valor al identificador.
 	private Informe informes[] = new Informe[10000];
 
-	
 	private Secretariado[] secretarios = new Secretariado[1000];
-	
-	
+
 	public Informe() {
 		numeroInformes++;
 		this.idInforme = numeroInformes;
@@ -61,28 +63,24 @@ public class Informe {
 
 		numeroInformes++;
 		ret.idInforme = numeroInformes;
-		
+
 		Secretariado.motrarSecretario();
 		System.out.println("Selecciona un secretario.");
-		int eleccion=0;
+		int eleccion = 0;
 		eleccion = teclado.nextInt();
-		boolean eleccionValidaS= false;
-		do{
+		boolean eleccionValidaS = false;
+		do {
 			if (eleccion >= 0 && eleccion < Datos.numSecretarios) {
-				ret.secretarios[0]=Datos.SECRETARIOS[eleccion];
+				ret.secretarios[0] = Datos.SECRETARIOS[eleccion];
 			}
-		}while(!eleccionValidaS);
-		
-		
+		} while (!eleccionValidaS);
+
 		/*
-		 * 1) Mostrar todos los secretarios del sistema
-			2) El usuario selecciona uno de ellos
-			3) comprobar que el secretario seleccionado es valido
-			4a) si es valido , entonces ret.secretarios[0]= el_elegido
-			4b) volver al paso 1
-			5)
-		
-		*/
+		 * 1) Mostrar todos los secretarios del sistema 2) El usuario selecciona uno de
+		 * ellos 3) comprobar que el secretario seleccionado es valido 4a) si es valido
+		 * , entonces ret.secretarios[0]= el_elegido 4b) volver al paso 1 5)
+		 * 
+		 */
 		return ret;
 
 	}
@@ -94,8 +92,8 @@ public class Informe {
 	// Despues hace una llamada a super para sacar los datos de las clases padre:
 	// empleado y secretariado.
 	// Luego guarda los datos recibidos en la variables descripcion y informes.
-	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, 
-			int numAniosExp, long idInforme, String descripcion, Informe[] informes) {
+	public Informe(String nombre, String apellidos, String telefono, String direccion, String nif, int numAniosExp,
+			long idInforme, String descripcion, Informe[] informes) {
 		this.idInforme = idInforme;
 		this.descripcion = descripcion;
 		this.informes = informes;
@@ -136,13 +134,22 @@ public class Informe {
 
 	@Override
 	public String toString() {
-		String ret="";
-		ret +="Informe [id=" + idInforme + ", descripcion=" + descripcion + ", secretarios que scribieron en el informe:";
-		for(Secretariado s: secretarios) {
-			ret += "\n"+s.getNombre() + " " + s.getApellidos() + "("+s.getNif()+")";
-		}		
+		String ret = "";
+		ret += "Informe [id=" + idInforme + ", descripcion=" + descripcion
+				+ ", secretarios que scribieron en el informe:";
+		for (Secretariado s : secretarios) {
+			ret += "\n" + s.getNombre() + " " + s.getApellidos() + "(" + s.getNif() + ")";
+		}
 		return ret;
 	}
 
+	/***
+	 * Metodo data de la clase informe
+	 * 
+	 */
+	public String informeData() {
+		String ret = "";
+		return ret;
 
+	}
 }

@@ -5,6 +5,9 @@ import java.util.Scanner;
 import utils.Datos;
 import validacion.Validador;
 
+/**
+ * @author MiguelH
+ */
 public class Secretariado extends Empleado {
 
 	// almacena los a�os de experiencia de un secretario
@@ -43,8 +46,9 @@ public class Secretariado extends Empleado {
 	/***
 	 * Funci�n que pregunta al usuario por cada uno de los campos para un nuevo
 	 * Secretariado, los valida y si son correctos devuelve un objeto Secretariado
-	 * completo Se preguntara al usuario por los a�os de experiencia del secretario,
-	 * y a continuacion se preguntaran los datos del metodo nuevoEmpleado
+	 * completo Se preguntara al usuario por los a�os de experiencia del
+	 * secretario, y a continuacion se preguntaran los datos del metodo
+	 * nuevoEmpleado
 	 * 
 	 * @return un objeto Secretariado completo v�lido o null si hubo alg�n error
 	 */
@@ -61,14 +65,12 @@ public class Secretariado extends Empleado {
 			aniosExpvalidoSecretario = Validador.validarAniosExpSecretario(anios);
 		} while (!aniosExpvalidoSecretario);
 
-		
 		System.out.println("Ahora introduzca los datos del empleado: ");
 		Secretariado s = (Secretariado) Empleado.nuevoEmpleado();
-		
+
 		ret = new Secretariado(s, anios);
 		return ret;
-		
-		
+
 	}
 
 	/***
@@ -83,7 +85,7 @@ public class Secretariado extends Empleado {
 			System.out.println(s.toString());
 		}
 	}
-	
+
 	/**
 	 * Funci�n que devuelve una cadena de caracteres con la siguiente estructura
 	 * <Empleado.id>|<Empleado.nombre>|<Empleado.apellidos>|<Empleado.nif>|<Empleado.direccion>|<Empleado.telefono>|<numAniosExp>
@@ -97,10 +99,11 @@ public class Secretariado extends Empleado {
 	}
 
 	/***
-	 * Funci�n que devuelve una cadena de caracteres con los datos del Secretariado
-	 * en el siguiente formato: "Secretariado [numAniosExp=" <numAniosExp> ",
-	 * idEmpleado=" <idEmpleado> ", nombre=" <nombre> ", apellidos=" <apellidos> ",
-	 * telefono=" <telefono> ", direccion=" <direccion> ", nif=" <nif>"]"
+	 * Funci�n que devuelve una cadena de caracteres con los datos del
+	 * Secretariado en el siguiente formato: "Secretariado [numAniosExp="
+	 * <numAniosExp> ", idEmpleado=" <idEmpleado> ", nombre=" <nombre> ",
+	 * apellidos=" <apellidos> ", telefono=" <telefono> ", direccion=" <direccion>
+	 * ", nif=" <nif>"]"
 	 */
 	@Override
 	public String toString() {

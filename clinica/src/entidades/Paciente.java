@@ -131,7 +131,7 @@ public class Paciente {
 	 * manera que todos queden separados por el car√°cter "|". El primer campo
 	 * corresponde con la clave primaria de la clase Paciente
 	 */
-	public String data() {
+	public String pacienteData() {
 		String paciente = "";
 		paciente = this.idPaciente + " | " + this.nif + " | " + this.nombre + " | " + this.telefono + " | "
 				+ this.direccion + " | " + this.edad;
@@ -151,7 +151,7 @@ public class Paciente {
 			for (int i = 0; i < Datos.numPacientesd; i++) {
 				Paciente p = new Paciente();
 				p = Datos.PACIENTES[i];
-				bw.write(p.data() + "\n");
+				bw.write(p.pacienteData() + "\n");
 			}
 
 		} catch (IOException e1) {
@@ -203,11 +203,11 @@ public class Paciente {
 		File f;
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
-	
+
 		try {
-	
-			f = new File("clienteByte.dat"); 
-			fos = new FileOutputStream(f); 
+
+			f = new File("clienteByte.dat");
+			fos = new FileOutputStream(f);
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(new Paciente("Iker", "698745123", "iker@educastur.es", 20, "58430328n"));
 			for (int i = 0; i < Datos.numPacientesd; i++) {
@@ -215,9 +215,9 @@ public class Paciente {
 				p = Datos.PACIENTES[i];
 				oos.writeObject(p);
 			}
-			
+
 			oos.writeObject(new Paciente("Iker", "698745123", "iker@educastur.es", 20, "58430328n"));
-	
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -233,9 +233,9 @@ public class Paciente {
 			}
 		}
 	}
-	
+
 	public static void importarColeccionPacientesFicheroTexto() {
-		
+
 		System.out.println("Cargando de pacientes.txt...");
 		File f = new File("pacientes.txt");
 		FileReader fr = null;
@@ -266,7 +266,7 @@ public class Paciente {
 			}
 		}
 	}
-	
+
 	public static void importarColeccionPacientesFicheroBinario() {
 		System.out.println("Cargando de pacientes.dat...");
 		File f;
@@ -279,7 +279,7 @@ public class Paciente {
 
 			for (int i = 0; i < 6; i++) {
 				Paciente p = (Paciente) ois.readObject();
-				System.out.println(p.data());
+				System.out.println(p.pacienteData());
 			}
 
 		} catch (FileNotFoundException e) {
@@ -299,7 +299,8 @@ public class Paciente {
 			}
 		}
 	}
-		public String getNombre() {
+
+	public String getNombre() {
 		return nombre;
 	}
 
@@ -370,4 +371,51 @@ public class Paciente {
 				+ Arrays.toString(tratamientos) + "]";
 	}
 
+	public static void buscarPaciente() {
+		System.out.print("Menu de busqueda de Paciente: ");
+		System.out.println("øDesea buscar el paciente por el Id o por el nombre? (Seleccione id/nombre");
+		Scanner teclado;
+		boolean valido = false;
+
+		String respuestaCliente = "";
+		do {
+			teclado = new Scanner(System.in);
+			respuestaCliente = teclado.nextLine();
+			valido = Validador.validarRespuestaCliente(respuestaCliente);
+		} while (!valido);
+
+		valido = false;
+		if (respuestaCliente.equals("id")) {
+			long buscaId = 0;
+			do {
+				System.out.println("Intrduce el id del Paciente que quiere buscar (id>0): ");
+				buscaId = teclado.nextLong();
+				if (buscaId > 0) {
+					valido = true;
+				}
+			} while (!valido);
+			for (Paciente p : Datos.PACIENTES) {
+				if (p.getIdPaciente() == buscaId) {
+					System.out.println("Paciente encontrado: " + p.pacienteData());
+				}
+			}
+		}
+		if (respuestaCliente.equals("nombre")) {
+			String buscaNombre = "";
+			do {
+				System.out.println("Introduce el nombre del Paciente que quiere buscar: ");
+				buscaNombre = teclado.nextLine();
+				if (buscaNombre.length() < 30 && buscaNombre.length() > 0) {
+					valido = true;
+				}
+			} while (!valido);
+			for (Paciente p : Datos.PACIENTES) {
+				if (p.getNombre().equalsIgnoreCase(buscaNombre)) {
+					System.out.print("Paciente encontrado : " + p.pacienteData());
+				}
+			}
+		}
+	}
+
 }
+

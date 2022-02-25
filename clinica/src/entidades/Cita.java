@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 import utils.Datos;
 import utils.Utilidades;
+import validacion.Validador;
 
 public class Cita {
 	// idCita representa al identificador unico de la cita.
@@ -210,4 +211,26 @@ public class Cita {
 	private boolean isAfter(LocalDateTime of) {
 		return false;
 	}
+
+	public static void buscarCita() {
+		System.out.print("Menu de busqueda de Cita: ");
+		Scanner teclado;
+		boolean valido = false;
+
+		long buscaId = 0;
+		do {
+			teclado = new Scanner(System.in);
+			System.out.println("Introduce la cita que quiere buscar (id>0): ");
+			buscaId = teclado.nextLong();
+			if (buscaId > 0) {
+				valido = true;
+			}
+		} while (!valido);
+		for (Cita c : Datos.CITAS) {
+			if (c.getIdCita() == buscaId) {
+				System.out.println("Cita encontrada: " + c.data());
+			}
+		}
+	}
+
 }

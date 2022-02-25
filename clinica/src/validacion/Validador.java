@@ -6,7 +6,7 @@ public class Validador {
 	public static boolean validarNombreMedicamento(String nombre2) {
 		// con este if else conseguimos que el programa de error si el
 		// nombre del medicamento tiene menos de 2 y mas de 30 caracteres
-		if (nombre2.length() < 2) 
+		if (nombre2.length() < 2)
 			return false;
 		else if (nombre2.length() > 30)
 			return false;
@@ -100,8 +100,8 @@ public class Validador {
 
 	public static boolean validarEdadPaciente(int edadPaciente) {
 		if (edadPaciente > 1 || edadPaciente < 130)
-		return true;
-	return false;
+			return true;
+		return false;
 	}
 
 	public static boolean validarDireccionPaciente(String dirPaciente) {
@@ -111,10 +111,10 @@ public class Validador {
 	}
 
 	public static boolean validarTelefonoPaciente(String telPaciente) {
-		char caracterinicial1=telPaciente.charAt(0);
-		int enteroinicial1=Character.getNumericValue(caracterinicial1);
-		if (telPaciente.length() == 8 && (enteroinicial1 == 9 || enteroinicial1 == 8
-				|| enteroinicial1 == 6 || enteroinicial1 == 7))
+		char caracterinicial1 = telPaciente.charAt(0);
+		int enteroinicial1 = Character.getNumericValue(caracterinicial1);
+		if (telPaciente.length() == 8
+				&& (enteroinicial1 == 9 || enteroinicial1 == 8 || enteroinicial1 == 6 || enteroinicial1 == 7))
 			return false;
 		return true;
 	}
@@ -157,13 +157,13 @@ public class Validador {
 	// si las condiciones mencionadas anteriormente no se cumplen, el telefono
 	// introducido sera invalido
 	public static boolean validarTelefonoValido(String telEmpleado) {
-		char caracterinicial=telEmpleado.charAt(0);
-		int enteroinicial=Character.getNumericValue(caracterinicial);
-		if (telEmpleado.length() == 8 && (enteroinicial == 9 || enteroinicial == 8
-				|| enteroinicial == 6 || enteroinicial == 7)) 
+		char caracterinicial = telEmpleado.charAt(0);
+		int enteroinicial = Character.getNumericValue(caracterinicial);
+		if (telEmpleado.length() == 8
+				&& (enteroinicial == 9 || enteroinicial == 8 || enteroinicial == 6 || enteroinicial == 7))
 			return false;
 		return true;
-		
+
 	}
 
 	// validarDireccionEmpleado es un metodo que recibe como arugumento la variable
@@ -185,11 +185,11 @@ public class Validador {
 	// es igual a 8, el numero de caracteres del Dni
 	// en caso contrario sera invalido
 	public static boolean validarnifEmpleado(String niEmpleado) {
-		if (niEmpleado.length() != 9) 
+		if (niEmpleado.length() != 9)
 			return false;
-		
+
 		return true;
-		
+
 	}
 
 	// VALIDADORES SECRETARIADO
@@ -210,36 +210,33 @@ public class Validador {
 	}
 	// Cita
 
-		public static boolean validarFechaCita(String fechaCita) {
-			
-			return false;
-		}
-		
-		public static boolean validarHoraCita(String horaCita) {
-			return false;
-		}
-		
-			
-		public static boolean validarRango(char rango) {
-		
-			if (rango == 'M' || rango == 'm'|| rango == 'T' || rango == 't')
-				return true;
-			else
-				return false;
-		} 
-		
-	//Intervencion
-		
-		public static boolean validarDuracion(int minutos) {
-			return false;
-		}
-	//Revision
-		
-		public static boolean validarAnotacion(String comt) {
-			return false;
-		}
-	
+	public static boolean validarFechaCita(String fechaCita) {
 
+		return false;
+	}
+
+	public static boolean validarHoraCita(String horaCita) {
+		return false;
+	}
+
+	public static boolean validarRango(char rango) {
+
+		if (rango == 'M' || rango == 'm' || rango == 'T' || rango == 't')
+			return true;
+		else
+			return false;
+	}
+
+	// Intervencion
+
+	public static boolean validarDuracion(int minutos) {
+		return false;
+	}
+	// Revision
+
+	public static boolean validarAnotacion(String comt) {
+		return false;
+	}
 
 	public static boolean validarEdadEmpleado(int edadPersona) {
 		if (edadPersona > 1 || edadPersona < 130)
@@ -286,4 +283,12 @@ public class Validador {
 
 		return false;
 	}
+
+	// VALIDADOR RESPUESTACLIENTE
+	public static boolean validarRespuestaCliente(String respuestaCliente) {
+		if (respuestaCliente.equals("id") || respuestaCliente.equals("nombre"))
+			return true;
+		return false;
+	}
+
 }
