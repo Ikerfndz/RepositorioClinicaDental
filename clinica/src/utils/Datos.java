@@ -71,7 +71,7 @@ public class Datos {
 					LocalDateTime.parse("15/04/2021 10:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")),
 					'M'),
 			new Cita(000004,
-					LocalDateTime.parse("10/054/2021 10:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")),
+					LocalDateTime.parse("10/05/2021 10:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")),
 					'M'),
 			new Cita(000005,
 					LocalDateTime.parse("11/06/2021 10:30:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")),
