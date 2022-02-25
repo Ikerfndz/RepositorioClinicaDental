@@ -140,8 +140,30 @@ public class Datos {
 	public static final int numeroRevisiones = REVISIONES.length;
 
 	public static final Alergia ALERGIAS[] = {
+			new Alergia("Alergia a la amoxicilina"),
+			new Alergia("Alergia al látex"),
+			new Alergia("Alergia al cloro"),
+			new Alergia("Alergia al suero"),
+			new Alergia("Alergia al Antiinflamatorio"),
+			new Alergia("Alergia alimentaria")
 
 	};
 	public static final int numAlergias = ALERGIAS.length;
+	
+	public static final Medicamento MEDICAMENTOS[] = {
+			new Medicamento("Gelocatil"),
+			new Medicamento("Amoxicilina"),
+			new Medicamento("Paracetamol"),
+			new Medicamento("Ibuprofeno"),
+			new Medicamento("Penicilina"),
+			new Medicamento("Termalgin"),
+			new Medicamento("Nurofen"),
+			new Medicamento("DentiSpray")
+			
+
+	};
+	public static final int numMedicamentos = MEDICAMENTOS.length;
 
 }
+
+

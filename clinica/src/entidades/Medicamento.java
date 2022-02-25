@@ -1,6 +1,19 @@
 package entidades;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
+
+import utils.Datos;
 
 public class Medicamento extends Alergia {
 
@@ -104,6 +117,187 @@ public class Medicamento extends Alergia {
 		return medicamento;
 	}
 
+	/*
+	 * Método encargado de exportar un objeto de tipo Medicamento en un fichero de Texto
+	 */
+	public static void exportarObjetoAlergiaFicheroTexto() {
+		System.out.println("Guardando en medicamentos.txt");
+
+		File fOut = new File("medicamentos.txt");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+
+		try {
+			fw = new FileWriter(fOut);
+			bw = new BufferedWriter(fw);
+			for (int i = 0; i < Datos.numMedicamentos; i++) {
+				Medicamento m = new Medicamento();
+				m = Datos.MEDICAMENTOS[i];
+				bw.write(m.data() + "\n");
+			}
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+				if (fw != null)
+					fw.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Método encargado de la exportación de un Objeto Medicamento en un fichero binario
+	 */
+
+	public static void exportarObjetoMedicamentoFicheroBinario() {
+		System.out.println("Guardando en medicamentos.dat");
+		File f;
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+
+		try {
+
+			f = new File("mediacmentos.dat");
+			fos = new FileOutputStream(f);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(Datos.MEDICAMENTOS[1]);
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (oos != null)
+					oos.close();
+				if (fos != null)
+					fos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Método encargado de la exportación de una colección de Medicamentos en un fichero
+	 * binario
+	 */
+
+	public static void exportarColeccionMedicamentosFicheroBinario() {
+		System.out.println("Guardando en medicamentos.dat");
+		File f;
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+
+		try {
+
+			f = new File("medicamentoByte.dat");
+			fos = new FileOutputStream(f);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(new Medicamento("Gelocatil"));
+			for (int i = 0; i < Datos.numMedicamentos; i++) {
+				Medicamento m = new Medicamento();
+				m = Datos.MEDICAMENTOS[i];
+				oos.writeObject(m);
+			}
+
+			oos.writeObject(new Medicamento("Gelocatil"));
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (oos != null)
+					oos.close();
+				if (fos != null)
+					fos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Método encargado de importar una colección de Medicamentos en un fichero de texto
+	 */
+
+	public static void importarColeccionMedicamentosFicheroTexto() {
+
+		System.out.println("Cargando de medicamentos.txt...");
+		File f = new File("medicamentos.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			String s;
+
+			for (int i = 0; i < 6; i++) {
+				s = (String) br.readLine();
+				System.out.println(s);
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)
+					br.close();
+				if (fr != null)
+					fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Método encargado de importar una colección de Medicamentos en un fichero binario
+	 */
+
+	public static void importarColeccionMedicamentosFicheroBinario() {
+		System.out.println("Cargando de medicamentos.dat...");
+		File f;
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			f = new File("medicamentos.dat");
+			fis = new FileInputStream(f);
+			ois = new ObjectInputStream(fis);
+
+			for (int i = 0; i < 6; i++) {
+				Medicamento m = (Medicamento) ois.readObject();
+				System.out.println(m.data());
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ois != null)
+					ois.close();
+				if (fis != null)
+					fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	// Validadores
 

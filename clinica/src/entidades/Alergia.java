@@ -1,6 +1,19 @@
 package entidades;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
+
+import utils.Datos;
 
 
 public class Alergia extends Historial {
@@ -75,6 +88,190 @@ public class Alergia extends Historial {
 		return alergia;
 	}
 
+	
+	/*
+	 * Método encargado de exportar un objeto de tipo Alergia en un fichero de Texto
+	 */
+	public static void exportarObjetoAlergiaFicheroTexto() {
+		System.out.println("Guardando en alergias.txt");
+
+		File fOut = new File("alergias.txt");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+
+		try {
+			fw = new FileWriter(fOut);
+			bw = new BufferedWriter(fw);
+			for (int i = 0; i < Datos.numAlergias; i++) {
+				Alergia a = new Alergia();
+				a = Datos.ALERGIAS[i];
+				bw.write(a.data() + "\n");
+			}
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+				if (fw != null)
+					fw.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Método encargado de la exportación de un Objeto Alergia en un fichero binario
+	 */
+
+	public static void exportarObjetoAlergiaFicheroBinario() {
+		System.out.println("Guardando en alergias.dat");
+		File f;
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+
+		try {
+
+			f = new File("alergias.dat");
+			fos = new FileOutputStream(f);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(Datos.ALERGIAS[1]);
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (oos != null)
+					oos.close();
+				if (fos != null)
+					fos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Método encargado de la exportación de una colección de Alergias en un fichero
+	 * binario
+	 */
+
+	public static void exportarColeccionAlergiasFicheroBinario() {
+		System.out.println("Guardando en alergias.dat");
+		File f;
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+
+		try {
+
+			f = new File("alergiaByte.dat");
+			fos = new FileOutputStream(f);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(new Alergia("Alergia a la amoxicilina"));
+			for (int i = 0; i < Datos.numAlergias; i++) {
+				Alergia a = new Alergia();
+				a = Datos.ALERGIAS[i];
+				oos.writeObject(a);
+			}
+
+			oos.writeObject(new Alergia("Alergia a la amoxicilina"));
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (oos != null)
+					oos.close();
+				if (fos != null)
+					fos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Método encargado de importar una colección de alergias en un fichero de texto
+	 */
+
+	public static void importarColeccionAlergiasFicheroTexto() {
+
+		System.out.println("Cargando de alergias.txt...");
+		File f = new File("alergias.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			String s;
+
+			for (int i = 0; i < 6; i++) {
+				s = (String) br.readLine();
+				System.out.println(s);
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)
+					br.close();
+				if (fr != null)
+					fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Método encargado de importar una colección de alergias en un fichero binario
+	 */
+
+	public static void importarColeccionAlergiasFicheroBinario() {
+		System.out.println("Cargando de alergias.dat...");
+		File f;
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			f = new File("alergias.dat");
+			fis = new FileInputStream(f);
+			ois = new ObjectInputStream(fis);
+
+			for (int i = 0; i < 6; i++) {
+				Alergia a = (Alergia) ois.readObject();
+				System.out.println(a.data());
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ois != null)
+					ois.close();
+				if (fis != null)
+					fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	// Validadores
 
 	private static boolean validarNombreAlergia(String nom) {
