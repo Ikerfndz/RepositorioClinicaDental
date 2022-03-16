@@ -243,7 +243,7 @@ public class Principal {
 				break;
 			case 3:
 				System.out.println("Usted ha elegido la opcion: " + eleccion);
-				Cita.buscarCita();
+				Cita.buscarCitas();
 				eleccionValida = false;
 				break;
 			case 4:
