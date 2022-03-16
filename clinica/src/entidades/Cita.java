@@ -294,7 +294,7 @@ public class Cita {
 
 	public static void buscarCitas() {
 		System.out.print("Menu de busqueda de Citas: ");
-		System.out.println("¿Desea buscar el paciente por el Id o por el nombre? (Seleccione id/nombre");
+		System.out.println("¿Desea buscar la cita por el Id? (Seleccione id");
 		Scanner teclado;
 		boolean valido = false;
 

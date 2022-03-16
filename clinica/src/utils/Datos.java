@@ -141,7 +141,7 @@ public class Datos {
 
 	public static final Alergia ALERGIAS[] = {
 			new Alergia("Alergia a la amoxicilina"),
-			new Alergia("Alergia al látex"),
+			new Alergia("Alergia al lï¿½tex"),
 			new Alergia("Alergia al cloro"),
 			new Alergia("Alergia al suero"),
 			new Alergia("Alergia al Antiinflamatorio"),
