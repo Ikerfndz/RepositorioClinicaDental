@@ -183,11 +183,10 @@ public class Cita {
 			System.out.println("Se ha producido una Exception" + ext.getMessage());
 		}
 	}
-	
 
 	/***
-	 * Metodo que permite importar una coleccion de objetos del tipo cita desde
-	 * un fichero de texto (con extension .txt)
+	 * Metodo que permite importar una coleccion de objetos del tipo cita desde un
+	 * fichero de texto (con extension .txt)
 	 * 
 	 */
 	public static void importarColeccionCitasTXT() {
@@ -222,8 +221,7 @@ public class Cita {
 			}
 		}
 	}
-	
-	
+
 	/***
 	 * Función para recorrer todos los elementos del array CITAS de la clase
 	 * Datos.java, y exportar a un fichero binario de nombre citasPasadas.dat sólo
@@ -252,10 +250,9 @@ public class Cita {
 		}
 	}
 
-	
 	/***
-	 * Metodo que permite importar una coleccion de objetos del tipo cita desde
-	 * un fichero binario (con extension .dat)
+	 * Metodo que permite importar una coleccion de objetos del tipo cita desde un
+	 * fichero binario (con extension .dat)
 	 * 
 	 */
 	public static void importarColeccionCitas() {
@@ -295,25 +292,35 @@ public class Cita {
 		return false;
 	}
 
-	public static void buscarCita() {
-		System.out.print("Menu de busqueda de Cita: ");
+	public static void buscarCitas() {
+		System.out.print("Menu de busqueda de Citas: ");
+		System.out.println("¿Desea buscar el paciente por el Id o por el nombre? (Seleccione id/nombre");
 		Scanner teclado;
 		boolean valido = false;
 
-		long buscaId = 0;
+		String respuestaCliente = "";
 		do {
 			teclado = new Scanner(System.in);
-			System.out.println("Introduce la cita que quiere buscar (id>0): ");
-			buscaId = teclado.nextLong();
-			if (buscaId > 0) {
-				valido = true;
-			}
+			respuestaCliente = teclado.nextLine();
+			valido = Validador.validarRespuestaCliente(respuestaCliente);
 		} while (!valido);
-		for (Cita c : Datos.CITAS) {
-			if (c.getIdCita() == buscaId) {
-				System.out.println("Cita encontrada: " + c.citaData());
+
+		valido = false;
+		if (respuestaCliente.equals("id")) {
+			long buscaId = 0;
+			do {
+				System.out.println("Intrduce el id de la Cita que quiere buscar (id>0): ");
+				buscaId = teclado.nextLong();
+				if (buscaId > 0) {
+					valido = true;
+				}
+			} while (!valido);
+			for (Cita c : Datos.CITAS) {
+				if (c.getIdCita() == buscaId) {
+					System.out.println("Paciente encontrado: " + c.citaData());
+				}
 			}
 		}
-	}
 
+	}
 }
