@@ -1,10 +1,14 @@
 package entidades;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
@@ -139,7 +143,7 @@ public class Cita {
 	 * 
 	 * @return
 	 */
-	public String data() {
+	public String citaData() {
 		String cita = "";
 		cita = " | " + this.idCita + " | " + this.rango + " | "
 				+ this.fechahora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + " | ";
@@ -151,7 +155,7 @@ public class Cita {
 	 * citasListado.txt
 	 * 
 	 */
-	public static void exportarCitasListado(Cita cita) {
+	public static void exportarCitasListado(Cita citas) {
 		String path = "citasListado.txt";
 		File fichero = new File(path);
 		FileWriter escritor = null;
@@ -160,7 +164,7 @@ public class Cita {
 			try {
 				escritor = new FileWriter(fichero, false);
 				buffer = new PrintWriter(escritor);
-				buffer.println(cita.data());
+				buffer.println(citas.citaData());
 
 			} finally {
 				if (buffer != null) {
@@ -179,7 +183,47 @@ public class Cita {
 			System.out.println("Se ha producido una Exception" + ext.getMessage());
 		}
 	}
+	
 
+	/***
+	 * Metodo que permite importar una coleccion de objetos del tipo cita desde
+	 * un fichero de texto (con extension .txt)
+	 * 
+	 */
+	public static void importarColeccionCitasTXT() {
+
+		System.out.println("Importando fichero de Citas.txt...");
+		File f = new File("citas.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			String s;
+
+			for (int i = 0; i < 3; i++) {
+				s = (String) br.readLine();
+				System.out.println(s);
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)
+					br.close();
+				if (fr != null)
+					fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	/***
 	 * Función para recorrer todos los elementos del array CITAS de la clase
 	 * Datos.java, y exportar a un fichero binario de nombre citasPasadas.dat sólo
@@ -208,6 +252,45 @@ public class Cita {
 		}
 	}
 
+	
+	/***
+	 * Metodo que permite importar una coleccion de objetos del tipo cita desde
+	 * un fichero binario (con extension .dat)
+	 * 
+	 */
+	public static void importarColeccionCitas() {
+		System.out.println("Importando fichero de Citas.dat...");
+		File f;
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			f = new File("citas.dat");
+			fis = new FileInputStream(f);
+			ois = new ObjectInputStream(fis);
+
+			for (int i = 0; i < 3; i++) {
+				Cita c = (Cita) ois.readObject();
+				System.out.println(c.citaData());
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ois != null)
+					ois.close();
+				if (fis != null)
+					fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	private boolean isAfter(LocalDateTime of) {
 		return false;
 	}
@@ -228,7 +311,7 @@ public class Cita {
 		} while (!valido);
 		for (Cita c : Datos.CITAS) {
 			if (c.getIdCita() == buscaId) {
-				System.out.println("Cita encontrada: " + c.data());
+				System.out.println("Cita encontrada: " + c.citaData());
 			}
 		}
 	}
