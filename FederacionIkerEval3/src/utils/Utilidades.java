@@ -4,6 +4,7 @@ import java.text.Normalizer;
 import java.text.Normalizer.Form;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -215,4 +216,38 @@ public class Utilidades extends Validaciones {
 		} while (!correcto);
 		return Float.parseFloat("" + ret);
 	}
+	
+	//Ejercicio 1-Examen 10
+		/*
+		 * Metodo encargador de registrar una hora con los parametros, horas, minutos y segundos.
+		 */
+		public static LocalTime leerhora(){
+			LocalTime ret = null;
+			int hora, min, seg;
+			boolean correcto = false;
+			Scanner in;
+			do {
+				System.out.println("Introduzca un valor para la hora del día (00...23)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				hora = in.nextInt();
+				System.out.println("Introduzca un valor para los minutos (00...59)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				min = in.nextInt();
+				System.out.println("Introduzca un valor para los segundos (00...59)");
+				in = new Scanner(System.in, "ISO-8859-1");
+				seg = in.nextInt();
+
+				try {
+					ret = LocalTime.of(hora, min, seg);
+					correcto = true;
+				} catch (Exception e) {
+					System.out.println("Fecha-hora introducida incorrecta.");
+					correcto = false;
+				}
+			} while (!correcto);
+			return ret;
+		}
+	
+	
 }
+

@@ -18,11 +18,16 @@ import entidades.NIE;
 import entidades.NIF;
 import entidades.Oro;
 import entidades.Participante;
+import entidades.Patrocinador;
 import entidades.Plata;
 import entidades.Prueba;
 import entidades.Resultado;
 
 public class Datos {  
+
+	public static final Patrocinador[] PATROCINADORES = null;
+
+	public static final int Patrocinadores = 0;
 
 	public static Oro[] OROS= {
 			new Oro(1,87.8F), new Oro(2,90.8F), new Oro(3,91.7F), new Oro(4,88.5F), new Oro(5,79.9F), new Oro(6,89.9F), new Oro(7,90.1F), new Oro(8,90.1F), new Oro(9,89.2F), new Oro(10,82.1F),

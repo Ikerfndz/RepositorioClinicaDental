@@ -1,6 +1,7 @@
 package validaciones;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,40 +14,40 @@ import entidades.NIF;
 public class Validaciones {
 
 	/**
-	 * Valida que una cadena de caracteres contiene dígitos únicamente
+	 * Valida que una cadena de caracteres contiene dÃ­gitos Ãºnicamente
 	 * 
 	 * @param tfn cadena con el telefono a validar
-	 * @return true si es un telefono válido o false en caso contrario
+	 * @return true si es un telefono vÃ¡lido o false en caso contrario
 	 */
 	public static boolean validarTelefono(String tfn) {
 		return tfn.trim().chars().allMatch(Character::isDigit);
 	}
 
 	/**
-	 * Valida que una cadena de caracteres contiene letras o espacios únicamente,
+	 * Valida que una cadena de caracteres contiene letras o espacios Ãºnicamente,
 	 * longitud entre 3 y 50 caractreres
 	 * 
 	 * @param nombre cadena con el nombre a validar
-	 * @return true si es un nombre válido o false en caso contrario
+	 * @return true si es un nombre vÃ¡lido o false en caso contrario
 	 */
 	public static boolean validarNombre(String nombre) {
 		// regEx general para cadena de caracteres con longitud entre 1 y 50 caracteres,
-		// aceptando dígitos, letras MAYUS y minúsculas, con tildes, diréresis y
-		// diferentes símbolos especiales
+		// aceptando dÃ­gitos, letras MAYUS y minÃºsculas, con tildes, dirÃ©resis y
+		// diferentes sÃ­mbolos especiales
 		// Pattern patron = Pattern.compile("[
-		// 0-9A-Za-zñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ¡!¿?@#$%()=+-€/.,]{1,50}");
-		Pattern patron = Pattern.compile("[ A-Za-zñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ-]{3,50}");
+		// 0-9A-Za-zÃ±Ã‘Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“ÃšÃ¤Ã«Ã¯Ã¶Ã¼Ã„Ã‹Ã�Ã–ÃœÂ¡!Â¿?@#$%()=+-â‚¬/.,]{1,50}");
+		Pattern patron = Pattern.compile("[ A-Za-zÃ±Ã‘Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“ÃšÃ¤Ã«Ã¯Ã¶Ã¼Ã„Ã‹Ã�Ã–Ãœ-]{3,50}");
 		Matcher comprobacion = patron.matcher(nombre);
 		return comprobacion.matches();//
 	}
 
 	/**
 	 * 
-	 * Funcion que valida si una cadena de caracteres que se pasa como parámetro
-	 * tiene un NIF válido.
+	 * Funcion que valida si una cadena de caracteres que se pasa como parÃ¡metro
+	 * tiene un NIF vÃ¡lido.
 	 * 
 	 * @param nif cadena con el NIF a validar
-	 * @return true si la cadena nif es un NIF válido o false en caso contrario
+	 * @return true si la cadena nif es un NIF vÃ¡lido o false en caso contrario
 	 */
 	public static boolean validarNIF(String nif) {
 		boolean ret = false;
@@ -61,10 +62,10 @@ public class Validaciones {
 	}
 
 	/**
-	 * Función que valida un objeto NIF
+	 * FunciÃ³n que valida un objeto NIF
 	 * 
 	 * @param nif objeto NIF que se va a validar
-	 * @return true si el NIF pasado como parámetro es válido o false en caso
+	 * @return true si el NIF pasado como parÃ¡metro es vÃ¡lido o false en caso
 	 *         contrario
 	 */
 	public static boolean validarNIF(NIF nif) {
@@ -80,11 +81,11 @@ public class Validaciones {
 	}
 
 	/**
-	 * Funcion que valida si una cadena de caracteres que se pasa como parámetro
-	 * tiene un NIE válido.
+	 * Funcion que valida si una cadena de caracteres que se pasa como parÃ¡metro
+	 * tiene un NIE vÃ¡lido.
 	 * 
 	 * @param nie cadena con el NIE a validar
-	 * @return true si la cadena nie es un NIE válido o false en caso contrario
+	 * @return true si la cadena nie es un NIE vÃ¡lido o false en caso contrario
 	 */
 	public static boolean validarNIE(String nie) {
 		boolean esValido = false;
@@ -125,10 +126,10 @@ public class Validaciones {
 	}
 
 	/**
-	 * Función que valida un objeto NIE
+	 * FunciÃ³n que valida un objeto NIE
 	 * 
 	 * @param nie objeto NIE que se va a validar
-	 * @return true si el NIE pasado como parámetro es válido o false en caso
+	 * @return true si el NIE pasado como parÃ¡metro es vÃ¡lido o false en caso
 	 *         contrario
 	 */
 	public static boolean validarNIE(NIE nie) {
@@ -148,17 +149,17 @@ public class Validaciones {
 	}
 
 	/**
-	 * Función que valida un valor flotante para la pureza (en %)
+	 * FunciÃ³n que valida un valor flotante para la pureza (en %)
 	 * 
 	 * @param pureza valor flotante de la pureza para validar
-	 * @return true si es valor válido (entre 0,0 y 100,0) o false en caso contrario
+	 * @return true si es valor vÃ¡lido (entre 0,0 y 100,0) o false en caso contrario
 	 */
 	public static boolean validarPureza(float pureza) {
 		return (pureza >= 0.0F && pureza <= 100.0F);
 	}
 
 	public static boolean validarFecha(LocalDate fechaMin) {
-		// TODO Esbozo de método generado automáticamente
+		// TODO Esbozo de mÃ©todo generado automÃ¡ticamente
 		return true;
 	}
 
@@ -173,4 +174,38 @@ public class Validaciones {
 	public static boolean validarNombreEquipo(String nombre) {
 		return false; //TO-DO
 	}
+
+	
+	//EXAMEN 10
+	public static boolean validarIdResponsable(long id) {
+		return (id>0);
+	}
+
+	public static boolean validartelefonoProfResponsable(String telefonoProf) {
+		char caracterinicial = telefonoProf.charAt(0);
+		int enteroinicial = Character.getNumericValue(caracterinicial);
+		if (telefonoProf.length() == 8
+				&& (enteroinicial == 9 || enteroinicial == 8 || enteroinicial == 6 || enteroinicial == 7))
+			return false;
+		return true;
+		
+	}
+
+
+
+	public static boolean validarNombrePatrocinador(String nombre) {
+		Pattern patron = Pattern.compile("[ A-Za-zÃ±Ã‘Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“ÃšÃ¤Ã«Ã¯Ã¶Ã¼Ã„Ã‹Ã�Ã–Ãœ-]{3,150}");
+		Matcher comprobacion = patron.matcher(nombre);
+		return comprobacion.matches();//
+	
+	}
+
+	
+
+	public static boolean validarwebPatrocinador(String web) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 }

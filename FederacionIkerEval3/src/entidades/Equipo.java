@@ -14,6 +14,7 @@ public class Equipo extends Participante {
 	private Manager manager;
 	private Atleta[] atletas;
 	private String nombre;
+	
 
 	public Equipo() {
 		super();
