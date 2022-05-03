@@ -45,7 +45,13 @@ public class Cirujano extends Empleado {
 		this.tieneEsp = tieneEsp;
 
 	}
-	
+	public Cirujano(Especialidad especialidad, Empleado empleado, boolean tieneEsp ) {
+		super(empleado);
+		especialidades[0] = especialidad;
+		this.tieneEsp = tieneEsp;
+
+	}
+
 	public Cirujano( Especialidad especialidad, Empleado empleado, Intervencion intervencion, boolean tieneEsp) {
 		super(empleado);
 		especialidades[0] = especialidad;
@@ -69,12 +75,11 @@ public class Cirujano extends Empleado {
 	// Especialidad pertenece a un cirujano.
 	public static Cirujano nuevoCirujano() {
 		Empleado empleado = Empleado.nuevoEmpleado();
-		Intervencion intervencion = Intervencion.nuevaIntervencion();
 		Especialidad especialidad = Especialidad.nuevaEspecialidad();
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("¿Tiene el cirujano especialidad?");
 		boolean aux = teclado.nextBoolean();
-		Cirujano ret = new Cirujano(especialidad, empleado, intervencion, aux);
+		Cirujano ret = new Cirujano(especialidad, empleado, aux);
 		especialidad.setCirujano(ret);
 		return ret;
 	}
