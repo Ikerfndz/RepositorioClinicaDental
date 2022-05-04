@@ -207,5 +207,21 @@ public class Validaciones {
 		return false;
 	}
 
+	public static boolean validarDorsalParticipante(int dorsal) {
+		if (dorsal > 001 || dorsal < 150)
+			return true;
+		return false;
+	}
+
+	public static boolean validarCalleParticipante(char calle) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public static boolean validarotroParticipante(String otro) {
+		return (otro.length() < 500);
+	}
+
+	
 	
 }

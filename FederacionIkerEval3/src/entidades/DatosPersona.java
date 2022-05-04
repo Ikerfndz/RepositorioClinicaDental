@@ -170,34 +170,34 @@ public class DatosPersona implements Comparable<DatosPersona> {
 		PrintWriter b = null;
 		ComparadorAlfabetico compare = null;
 		try {
-		try {
-		fw = new FileWriter(f, false);
-		b = new PrintWriter(fw);
-		for (DatosPersona dp : Datos.PERSONAS) {
-		compare.personasOrdenadas();
-		b.println(dp.data());
-		}
+			try {
+				fw = new FileWriter(f, false);
+				b = new PrintWriter(fw);
+				for (DatosPersona dp : Datos.PERSONAS) {
+					compare.personasOrdenadas();
+					b.println(dp.data());
+					}
 
 
 
-		} finally {
-		if (b != null) {
-		b.close();
-		}
-		if (fw != null) {
-		fw.close();
-		}
-		}
+				} finally {
+					if (b != null) {
+						b.close();
+					}
+					if (fw != null) {
+						fw.close();
+					}
+				}
 
 
 
-		} catch (FileNotFoundException ex) {
-		System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
-		} catch (IOException ex) {
-		System.out.println("Se ha producido una IOException" + ex.getMessage());
-		} catch (Exception ex) {
-		System.out.println("Se ha producido una Exception" + ex.getMessage());
-		}
+			} catch (FileNotFoundException ex) {
+				System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+			} catch (IOException ex) {
+				System.out.println("Se ha producido una IOException" + ex.getMessage());
+			} catch (Exception ex) {
+				System.out.println("Se ha producido una Exception" + ex.getMessage());
+			}
 		}
 }
 
