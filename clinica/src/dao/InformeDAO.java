@@ -2,18 +2,18 @@ package dao;
 
 import java.util.Collection;
 
-import entidades.Especialidad;
+import entidades.Informe;
 
-public class EspecialidadDAO implements OperacionesCRUD<Especialidad> {
+public class InformeDAO implements OperacionesCRUD<Informe> {
 
 	@Override
-	public boolean insertarConID(Especialidad elemento) {
+	public boolean insertarConID(Informe elemento) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean insertarSinID(Especialidad elemento) {
+	public boolean insertarSinID(Informe elemento) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -25,25 +25,25 @@ public class EspecialidadDAO implements OperacionesCRUD<Especialidad> {
 	}
 
 	@Override
-	public Collection<Especialidad> buscarTodos() {
+	public Collection<Informe> buscarTodos() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean modificar(Especialidad elemento) {
+	public boolean modificar(Informe elemento) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean eliminar(Especialidad elemento) {
+	public boolean eliminar(Informe elemento) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Collection<Especialidad> eliminarTodos() {
+	public Collection<Informe> eliminarTodos() {
 		// TODO Auto-generated method stub
 		return null;
 	}
