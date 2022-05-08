@@ -13,15 +13,15 @@ public class SecretarioDAO implements OperacionesCRUD<Secretariado> {
 	}
 
 	@Override
-	public boolean insertarSinID(Secretariado elemento) {
+	public long insertarSinID(Secretariado elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Secretariado buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

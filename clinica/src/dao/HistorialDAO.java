@@ -13,15 +13,15 @@ public class HistorialDAO implements OperacionesCRUD<Historial> {
 	}
 
 	@Override
-	public boolean insertarSinID(Historial elemento) {
+	public long insertarSinID(Historial elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Historial buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

@@ -13,15 +13,15 @@ public class IntervencionDAO implements OperacionesCRUD<Intervencion> {
 	}
 
 	@Override
-	public boolean insertarSinID(Intervencion elemento) {
+	public long insertarSinID(Intervencion elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Intervencion buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

@@ -13,15 +13,15 @@ public class PagoDAO implements OperacionesCRUD<Pago> {
 	}
 
 	@Override
-	public boolean insertarSinID(Pago elemento) {
+	public long insertarSinID(Pago elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Pago buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

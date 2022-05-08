@@ -14,15 +14,15 @@ public class CirujanoDAO implements OperacionesCRUD<Cirujano> {
 	}
 
 	@Override
-	public boolean insertarSinID(Cirujano elemento) {
+	public long insertarSinID(Cirujano elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Cirujano buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

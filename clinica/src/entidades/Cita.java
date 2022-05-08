@@ -36,6 +36,8 @@ public class Cita {
 	protected char rango;
 
 	private static long numeroCitas = 0;
+	
+	private int tipo;
 
 	public Cita() {
 		numeroCitas++;
@@ -116,6 +118,15 @@ public class Cita {
 
 	public static void setNumeroCitas(long numeroCitas) {
 		Cita.numeroCitas = numeroCitas;
+	}
+	
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
 	}
 
 	/**

@@ -15,7 +15,7 @@ public class EmpleadoDAO implements OperacionesCRUD<Empleado> {
 		if (this.conex == null)
 			this.conex = conex;
 	}
-	
+
 	@Override
 	public boolean insertarConID(Empleado elemento) {
 		boolean ret = false;
@@ -25,7 +25,7 @@ public class EmpleadoDAO implements OperacionesCRUD<Empleado> {
 		try {
 			if (this.conex == null || this.conex.isClosed()) 
 				this.conex = ConexBD.establecerConexion();
-			PreparedStatement psmt = conex.prepareStatement(consultaInsertStr1);
+			PreparedStatement psmt = conex.prepareStatement(consultaInsertStr1);}
 		
 		catch (SQLException e) {
 			System.out.println("Se ha producido una SQLException:" + e.getMessage());
@@ -38,15 +38,15 @@ public class EmpleadoDAO implements OperacionesCRUD<Empleado> {
 	}
 
 	@Override
-	public boolean insertarSinID(Empleado elemento) {
+	public long insertarSinID(Empleado elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Empleado buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

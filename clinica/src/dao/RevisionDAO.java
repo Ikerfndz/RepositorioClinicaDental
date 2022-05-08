@@ -13,15 +13,15 @@ public class RevisionDAO implements OperacionesCRUD<Revision> {
 	}
 
 	@Override
-	public boolean insertarSinID(Revision elemento) {
+	public long insertarSinID(Revision elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Revision buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

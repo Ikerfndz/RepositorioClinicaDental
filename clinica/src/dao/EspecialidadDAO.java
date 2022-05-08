@@ -13,15 +13,15 @@ public class EspecialidadDAO implements OperacionesCRUD<Especialidad> {
 	}
 
 	@Override
-	public boolean insertarSinID(Especialidad elemento) {
+	public long insertarSinID(Especialidad elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Especialidad buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

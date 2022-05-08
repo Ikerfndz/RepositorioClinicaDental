@@ -14,15 +14,15 @@ public class EnferemeriaDAO implements OperacionesCRUD<Enfermeria> {
 	}
 
 	@Override
-	public boolean insertarSinID(Enfermeria elemento) {
+	public long insertarSinID(Enfermeria elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Enfermeria buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

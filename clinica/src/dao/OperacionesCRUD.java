@@ -5,19 +5,19 @@ import java.util.Collection;
 public interface OperacionesCRUD<T> {
 
 	/***
-	 * Este método inserta en la tabla correspondiente de la BD bdclinica un nuevo
+	 * Este mï¿½todo inserta en la tabla correspondiente de la BD bdclinica un nuevo
 	 * registro
 	 *
 	 * 
 	 * @param elemento del tipo que se quiere insertar como nuevo elemento completo
 	 *                 (con ID)
 	 *
-	 * @return true si la inserción fue exitosa, false en caso contrario
+	 * @return true si la inserciï¿½n fue exitosa, false en caso contrario
 	 */
 	public boolean insertarConID(T elemento);
 
 	/***
-	 * Este método inserta en la tabla correspondiente de la BD bdclinica un nuevo
+	 * Este mï¿½todo inserta en la tabla correspondiente de la BD bdclinica un nuevo
 	 * registro
 	 * 
 	 * @param elemento del tipo que se quiere insertar como nuevo elemento completo
@@ -25,21 +25,21 @@ public interface OperacionesCRUD<T> {
 	 *
 	 * @return id del nuevo elemento insertado si tuvo exito, o -1 en caso contrario
 	 */
-	public boolean insertarSinID(T elemento);
+	public long insertarSinID(T elemento);
 
 	/**
-	 * Función que busca en la tabla correspondiente si hay un elemento cuyo id
-	 * coincide con el que se pasa por parámetro
+	 * Funciï¿½n que busca en la tabla correspondiente si hay un elemento cuyo id
+	 * coincide con el que se pasa por parï¿½metro
 	 *
 	 * @param id identificador del elemento a buscar
 	 * @return el elemento si existe o null si no
 	 */
-	public boolean buscarPorID(long id);
+	public T buscarPorID(long id);
 
 	/**
 	 * Funcion que devuelva la coleccion de todos los elementos de un tipo
 	 * 
-	 * @return la coleccion de elementos que puede ser vacía
+	 * @return la coleccion de elementos que puede ser vacï¿½a
 	 */
 	public Collection<T> buscarTodos();
 

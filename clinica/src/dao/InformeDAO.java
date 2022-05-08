@@ -13,15 +13,15 @@ public class InformeDAO implements OperacionesCRUD<Informe> {
 	}
 
 	@Override
-	public boolean insertarSinID(Informe elemento) {
+	public long insertarSinID(Informe elemento) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public boolean buscarPorID(long id) {
+	public Informe buscarPorID(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override
