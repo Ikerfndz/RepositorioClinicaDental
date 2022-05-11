@@ -2,6 +2,7 @@ package validaciones;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -222,6 +223,12 @@ public class Validaciones {
 		return (otro.length() < 500);
 	}
 
+	public static boolean validarFechaNuevaAtleta(Date fecha) {
+		LocalDate hoyMas1MesLD = LocalDate.now().plusMonths(1);
+		java.util.Date hoyMas1Mes = new Date(hoyMas1MesLD.getYear() - 1900, hoyMas1MesLD.getMonthValue() - 1, hoyMas1MesLD.getDayOfMonth());
+		return fecha.after(hoyMas1Mes);
+
+	
 	
 	
 }

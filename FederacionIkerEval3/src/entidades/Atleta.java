@@ -1,5 +1,7 @@
 package entidades;
 
+import java.sql.Connection;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import utils.Datos;
@@ -10,6 +12,7 @@ public class Atleta extends Participante {
 	private long idAtleta;
 	private float altura;
 	private float peso;
+	
 
 	private DatosPersona persona;
 
@@ -45,6 +48,10 @@ public class Atleta extends Participante {
 		this.persona = Datos.buscarPersonaPorId(a.idAtleta);
 	}
 
+	public Atleta(Connection con) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public long getId() {
 		return idAtleta;
@@ -75,12 +82,14 @@ public class Atleta extends Participante {
 		return this.persona;
 	}
 
+
+
 	// Examen 5 Ejercicio 5
 	/***
-	 * Función que pregunta al usuario por cada uno de los campos para un nuevo
+	 * FunciÃ³n que pregunta al usuario por cada uno de los campos para un nuevo
 	 * Atleta, los valida y si son correctos devuelve un objeto Atleta completo
 	 * 
-	 * @return un objeto Atleta completo válido o null si hubo algún error
+	 * @return un objeto Atleta completo vÃ¡lido o null si hubo algÃºn error
 	 */
 	public static Atleta nuevoAtleta() {
 		Atleta ret = null;
@@ -107,7 +116,7 @@ public class Atleta extends Participante {
 			peso = Utilidades.leerFloat();
 			valido = Validaciones.validarPeso(peso);
 			if (!valido)
-				System.out.println("ERROR: El valor introducido para el peso no es válido.");
+				System.out.println("ERROR: El valor introducido para el peso no es vÃ¡lido.");
 		} while (!valido);
 
 		valido = false;
@@ -116,7 +125,7 @@ public class Atleta extends Participante {
 			altura = Utilidades.leerFloat();
 			valido = Validaciones.validarAltura(altura);
 			if (!valido)
-				System.out.println("ERROR: El valor introducido para la altura no es válido.");
+				System.out.println("ERROR: El valor introducido para la altura no es vÃ¡lido.");
 		} while (!valido);
 
 		System.out.println("Introduzca ahora los datos personales:");
@@ -128,14 +137,20 @@ public class Atleta extends Participante {
 	}
 
 	/***
-	 * Función que devuelve una cadena de caracteres con los datos del atleta con el
-	 * siguiente formato: <nombre> “ (” <documentacion> ”) del año
-	 * ”<fechaNac.año>’\t’<peso>”Kgs. ”<altura>”m.“
+	 * FunciÃ³n que devuelve una cadena de caracteres con los datos del atleta con el
+	 * siguiente formato: <nombre> â€œ (â€� <documentacion> â€�) del aÃ±o
+	 * â€�<fechaNac.aÃ±o>â€™\tâ€™<peso>â€�Kgs. â€�<altura>â€�m.â€œ
 	 */
 	@Override
 	public String toString() {
-		return "" + persona.getNombre() + " (" + persona.getNifnie().mostrar() + ") del año "
+		return "" + persona.getNombre() + " (" + persona.getNifnie().mostrar() + ") del aÃ±o "
 				+ persona.getFechaNac().getYear() + "\t" + peso + "Kgs. " + altura + "m.";
 	}
+
+	public void setPersona(DatosPersona persona) {
+		this.persona = persona;
+	}
+
+
 
 }
