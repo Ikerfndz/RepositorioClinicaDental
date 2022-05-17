@@ -19,6 +19,7 @@ public class Tratamiento {
 	
 	private Informe informe;
 
+	private Cobro cobro;
 	
 	public Informe getInforme() {
 		return informe;
@@ -30,15 +31,15 @@ public class Tratamiento {
 
 	public static Tratamiento nuevotratamiento() {
 		Tratamiento ret = new Tratamiento();
-		Scanner teclado;
-		teclado = new Scanner(System.in);
+		Scanner teclado = new Scanner(System.in);
+		
 
 		// nombreDescriptivo
 		String nomDescriptivo = ("");
 		boolean nombreDescriptivolValido = false;
 		do {
 			System.out.println("Introduzca el nombre descriptivo: ");
-			nomDescriptivo = teclado.next();
+			nomDescriptivo = teclado.nextLine();
 			nombreDescriptivolValido = Validador.validarnombreDescriptivoTratamiento(nomDescriptivo);
 		} while (!nombreDescriptivolValido);
 		ret.setNombreDescriptivo(nomDescriptivo);
@@ -101,6 +102,14 @@ public class Tratamiento {
 	public String toString() {
 		return "Tratamiento [idTratamiento=" + idTratamiento + ", nombreDescriptivo=" + nombreDescriptivo
 				+ ", consentimiento=" + consentimiento + "]";
+	}
+
+	public Cobro getCobro() {
+		return cobro;
+	}
+
+	public void setCobro(Cobro cobro) {
+		this.cobro = cobro;
 	}
 
 }
