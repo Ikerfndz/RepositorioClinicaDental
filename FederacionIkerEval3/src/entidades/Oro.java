@@ -34,6 +34,10 @@ public class Oro extends Metal {
 		this.fecha = fecha;
 	}
 
+	public Oro() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public long getId() {
 		return id;
 	}

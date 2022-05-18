@@ -95,7 +95,7 @@ public class ManagerDAO implements operacionesCRUD<Manager>{
 					ret.setId(idBD);
 					ret.setTelefono(telefono);
 					ret.setDireccion(direccion);
-					ret.setPersona(Datos.buscarPersonaPorId(idPersona));
+					ret.getPersona().setId(idPersona);
 				}
 			} catch (SQLException e) {
 				System.out.println("Se ha producido una SQLException:" + e.getMessage());

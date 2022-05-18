@@ -52,6 +52,10 @@ public class Atleta extends Participante {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Atleta() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public long getId() {
 		return idAtleta;

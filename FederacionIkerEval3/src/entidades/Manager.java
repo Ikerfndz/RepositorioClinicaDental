@@ -33,6 +33,10 @@ public class Manager {
 		this.persona = dp;
 	}
 
+	public Manager() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -63,10 +67,10 @@ public class Manager {
 
 	// Examen 5 Ejercicio 4
 	/***
-	 * Función que pregunta al usuario por cada uno de los campos para un nuevo
+	 * FunciÃ³n que pregunta al usuario por cada uno de los campos para un nuevo
 	 * Manager, los valida y si son correctos devuelve un objeto Manager completo
 	 * 
-	 * @return un objeto Manager completo válido o null si hubo algún error
+	 * @return un objeto Manager completo vÃ¡lido o null si hubo algÃºn error
 	 */
 	public static Manager nuevoManager() {
 		Manager ret = null;
@@ -77,7 +81,7 @@ public class Manager {
 		Scanner in;
 		boolean valido = false;
 		do {
-			System.out.println("Introduzca el id del nuevo mánager:");
+			System.out.println("Introduzca el id del nuevo mÃ¡nager:");
 			in = new Scanner(System.in);
 			id = in.nextInt();
 			if (id > 0)
@@ -89,21 +93,21 @@ public class Manager {
 		valido = false;
 		do {
 			in = new Scanner(System.in);
-			System.out.println("Introduzca el telefono de empresa del nuevo mánager");
+			System.out.println("Introduzca el telefono de empresa del nuevo mÃ¡nager");
 			telefono = in.nextLine();
 			valido = Validaciones.validarTelefono(telefono);
 			if (!valido)
-				System.out.println("ERROR: El valor introducido para el teéfono no es válido.");
+				System.out.println("ERROR: El valor introducido para el teÃ©fono no es vÃ¡lido.");
 		} while (!valido);
 
 		valido = false;
 		do {
 			in = new Scanner(System.in);
-			System.out.println("Introduzca la dirección del nuevo mánager:");
+			System.out.println("Introduzca la direcciÃ³n del nuevo mÃ¡nager:");
 			direccion = in.next();
 			valido = Validaciones.validarDireccion(direccion);
 			if (!valido)
-				System.out.println("ERROR: El valor introducido para la dirección no es válido.");
+				System.out.println("ERROR: El valor introducido para la direcciÃ³n no es vÃ¡lido.");
 		} while (!valido);
 
 		System.out.println("Introduzca ahora los datos personales:");
@@ -115,19 +119,19 @@ public class Manager {
 	}
 
 	/***
-	 * Función que devuelve una cadena de caracteres con los datos del mánager en el
-	 * siguiente formato: <idManager> <nombre> ” (” <documentacion> ”) del año ”
-	 * <fechaNac.año> ” Tfno1: <Manager.telefono>” ,Tfno2: ” <DatosPersona.telefono>
+	 * FunciÃ³n que devuelve una cadena de caracteres con los datos del mÃ¡nager en el
+	 * siguiente formato: <idManager> <nombre> â€� (â€� <documentacion> â€�) del aÃ±o â€�
+	 * <fechaNac.aÃ±o> â€� Tfno1: <Manager.telefono>â€� ,Tfno2: â€� <DatosPersona.telefono>
 	 */
 	@Override
 	public String toString() {
-		return "" + id + ". " + persona.getNombre() + " (" + persona.getNifnie().mostrar() + ") del año "
+		return "" + id + ". " + persona.getNombre() + " (" + persona.getNifnie().mostrar() + ") del aÃ±o "
 				+ persona.getFechaNac().getYear() + " Tfno1: " + telefono + " , Tfno2:" + persona.getTelefono() + "]";
 	}
 
 	//// Examen 6 Ejercicio 3
 	/**
-	 * Función que devuelve una cadena de caracteres con la siguiente estructura
+	 * FunciÃ³n que devuelve una cadena de caracteres con la siguiente estructura
 	 * <DatosPersona.id>|<DatosPersona.nombre>|<DatosPersona.documentacion>|<DatosPersona.fec
 	 * haNac>|<DatosPersona.telefono>|<Manager.id>|<Manager.telefono>|<Manager.direccion>
 	 * Cada campo se separa mediante el caracter '|'
@@ -141,9 +145,9 @@ public class Manager {
 	}
 
 	/***
-	 * Función para exportar los datos de cada uno de los mánagers de una colección
-	 * que se le pasa como parámetro, a través del método data() anterior, separando
-	 * la información de cada mánager en una línea distinta.
+	 * FunciÃ³n para exportar los datos de cada uno de los mÃ¡nagers de una colecciÃ³n
+	 * que se le pasa como parÃ¡metro, a travÃ©s del mÃ©todo data() anterior, separando
+	 * la informaciÃ³n de cada mÃ¡nager en una lÃ­nea distinta.
 	 * 
 	 * @param managers la coleccion de managers a exportar
 	 */
@@ -175,4 +179,7 @@ public class Manager {
 			System.out.println("Se ha producido una Exception" + e.getMessage());
 		}
 	}
+
+	
+	
 }

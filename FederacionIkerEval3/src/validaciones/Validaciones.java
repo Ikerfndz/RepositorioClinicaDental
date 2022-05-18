@@ -232,3 +232,16 @@ public class Validaciones {
 	
 	
 }
+
+	public static boolean validarNombrePrueba(String nombre) {
+		Pattern patron = Pattern.compile("[ A-Za-zÃ±Ã‘Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“ÃšÃ¤Ã«Ã¯Ã¶Ã¼Ã„Ã‹Ã�Ã–Ãœ0123456789-]{5,150}");
+		Matcher comprobacion = patron.matcher(nombre);
+		return comprobacion.matches();
+	}
+
+	public static boolean validarFechaNuevaPrueba(Date fecha) {
+		LocalDate hoyMas1MesLD = LocalDate.now().plusMonths(1);
+		java.util.Date hoyMas1Mes = new Date(hoyMas1MesLD.getYear() - 1900, hoyMas1MesLD.getMonthValue() - 1, hoyMas1MesLD.getDayOfMonth());
+		return fecha.after(hoyMas1Mes);
+	}
+}

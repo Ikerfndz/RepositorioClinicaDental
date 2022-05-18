@@ -8,6 +8,7 @@ import java.util.Collection;
 
 import entidades.Metal;
 import entidades.Oro;
+import entidades.Patrocinador;
 import entidades.Plata;
 import entidades.Bronce;
 import utils.ConexBD;
@@ -88,11 +89,9 @@ public class MetalDAO implements operacionesCRUD<Metal> {
 		return ret;
 	}
 
-	@Override
-	public Metal buscarPorID(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+	
+		
 
 	@Override
 	public Collection<Metal> buscarTodos() {

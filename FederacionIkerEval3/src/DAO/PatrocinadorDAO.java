@@ -30,13 +30,13 @@ public class PatrocinadorDAO implements operacionesCRUD<Patrocinador> {
 		/// la tabla patrocinadores
 		Responsable aux = new Responsable();
 		ResponsableDAO rDAO = new ResponsableDAO(this.conex);
-		long idresp = p.getResponsable().getId();
+		long idresp = p.getResposable().getId();
 		if (idresp < 1)
-			idresp = rDAO.insertarSinID(p.getResponsable());
-		else if (rDAO.insertarConID(p.getResponsable()))
-			idresp = p.getResponsable().getId();
+			idresp = rDAO.insertarSinID(p.getResposable());
+		else if (rDAO.insertarConID(p.getResposable()))
+			idresp = p.getResposable().getId();
 		if (idresp != -1) {
-			p.getResponsable().setId(idresp);
+			p.getResposable().setId(idresp);
 		} else {
 			System.out.println("Hubo un error al insertar el responsable del patrocinador. Operación abortada.");
 			return false;
@@ -48,7 +48,7 @@ public class PatrocinadorDAO implements operacionesCRUD<Patrocinador> {
 			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
 
 			pstmt.setLong(1, p.getId());
-			pstmt.setLong(2, p.getResponsable().getId());
+			pstmt.setLong(2, p.getResposable().getId());
 			pstmt.setString(3, p.getNombre());
 			pstmt.setString(4, p.getWeb());
 			pstmt.setDouble(5, p.getDotacion());
@@ -68,13 +68,13 @@ public class PatrocinadorDAO implements operacionesCRUD<Patrocinador> {
 		/// la tabla patrocinadores
 		Responsable aux = new Responsable();
 		ResponsableDAO rDAO = new ResponsableDAO(this.conex);
-		long idresp = p.getResponsable().getId();
+		long idresp = p.getResposable().getId();
 		if (idresp < 1)
-			idresp = rDAO.insertarSinID(p.getResponsable());
-		else if (rDAO.insertarConID(p.getResponsable()))
-			idresp = p.getResponsable().getId();
+			idresp = rDAO.insertarSinID(p.getResposable());
+		else if (rDAO.insertarConID(p.getResposable()))
+			idresp = p.getResposable().getId();
 		if (idresp != -1) {
-			p.getResponsable().setId(idresp);
+			p.getResposable().setId(idresp);
 		} else {
 			System.out.println("Hubo un error al insertar el responsable del patrocinador. Operación abortada.");
 			return -1;
@@ -85,7 +85,7 @@ public class PatrocinadorDAO implements operacionesCRUD<Patrocinador> {
 		try {
 			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
 
-			pstmt.setLong(1, p.getResponsable().getId());
+			pstmt.setLong(1, p.getResposable().getId());
 			pstmt.setString(2, p.getNombre());
 			pstmt.setString(3, p.getWeb());
 			pstmt.setDouble(4, p.getDotacion());
@@ -95,7 +95,7 @@ public class PatrocinadorDAO implements operacionesCRUD<Patrocinador> {
 				String consultaSelect = "SELECT id FROM patrocinadores WHERE (idresponsable=? AND nombre=? "
 						+ "AND web=? AND dotacion=?)";
 				PreparedStatement pstmt2 = conex.prepareStatement(consultaSelect);
-				pstmt2.setLong(1, p.getResponsable().getId());
+				pstmt2.setLong(1, p.getResposable().getId());
 				pstmt2.setString(2, p.getNombre());
 				pstmt2.setString(3, p.getWeb());
 				pstmt2.setDouble(4, p.getDotacion());
@@ -144,7 +144,7 @@ public class PatrocinadorDAO implements operacionesCRUD<Patrocinador> {
 				ret.setWeb(web);
 				ret.setDotacion(dotacion);
 				ResponsableDAO rDAO = new ResponsableDAO(conex);
-				ret.setResponsable(rDAO.buscarPorID(idResponsable));
+				ret.setResposable(rDAO.buscarPorID(idResponsable));
 			}
 		} catch (SQLException e) {
 			System.out.println("Se ha producido una SQLException:" + e.getMessage());
@@ -176,7 +176,7 @@ public class PatrocinadorDAO implements operacionesCRUD<Patrocinador> {
 				p.setWeb(web);
 				p.setDotacion(dotacion);
 				ResponsableDAO rDAO = new ResponsableDAO(conex);
-				p.setResponsable(rDAO.buscarPorID(idResponsable));
+				p.setResposable(rDAO.buscarPorID(idResponsable));
 				ret.add(p);
 			}
 		} catch (SQLException e) {

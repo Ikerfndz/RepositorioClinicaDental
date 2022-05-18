@@ -149,7 +149,7 @@ public class AtletaDAO implements operacionesCRUD<Atleta> {
 				float altura = result.getFloat("altura");
 				float peso = result.getFloat("peso");
 				ret = new Atleta();
-				ret.setIdAtleta(idBD);
+				ret.setId(idBD);;
 				ret.setAltura(altura);
 				ret.setPeso(peso);
 				DatosPersona dp = Datos.buscarPersonaPorId(idPersona);
@@ -186,7 +186,7 @@ public class AtletaDAO implements operacionesCRUD<Atleta> {
 				float altura = result.getFloat("altura");
 				float peso = result.getFloat("peso");
 				atleta = new Atleta();
-				atleta.setIdAtleta(idBD);
+				atleta.setId(idBD);
 				atleta.setAltura(altura);
 				atleta.setPeso(peso);
 				DatosPersona dp = Datos.buscarPersonaPorId(idPersona);

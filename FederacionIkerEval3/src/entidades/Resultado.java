@@ -24,6 +24,10 @@ public class Resultado {
 		this.bronce = bronce;
 	}
 
+	public Resultado() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public long getId() {
 		return id;
 	}

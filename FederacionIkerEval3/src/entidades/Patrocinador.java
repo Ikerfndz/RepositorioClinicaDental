@@ -160,5 +160,11 @@ public class Patrocinador  implements Comparable <Patrocinador>{
 			return  this.id + ", " + responsable.data() +", " + this.nombre + ", "
 					+  ", " + this.web +  ", " + this.dotacion;
 		}
+
+		public String mostrarBasico() {
+			String ret = "";
+			ret += this.id + ". " + this.nombre + (!this.web.equals("") ? " " + web : " ");
+			return ret;
+		}
 		
 }

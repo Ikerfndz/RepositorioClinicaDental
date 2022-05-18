@@ -19,6 +19,7 @@ public class Prueba {
 	private Resultado resultado = null;
 	private Participante[] participantes;
 	private Patrocinador patrocinador;
+	private Atleta atleta;
 
 	public Prueba(long id, String nombre, LocalDate fecha, Lugar lugar, boolean ind, Patrocinador patrocinador) {
 		this.id = id;
@@ -81,6 +82,12 @@ public class Prueba {
 		this.arbitraje = arbitraje;
 		this.resultado = res;
 		this.patrocinador= patrocinador;
+	}
+	
+	
+
+	public Prueba() {
+		
 	}
 
 	public Resultado getResultado() {
@@ -317,6 +324,14 @@ public class Prueba {
 
 		ret = new Prueba(id, nombre, fecha, lugar, ind, patrocinador);
 		return ret;
+	}
+
+	public Atleta getAtleta() {
+		return atleta;
+	}
+
+	public void setAtleta(Atleta atleta) {
+		this.atleta = atleta;
 	}
 
 }
