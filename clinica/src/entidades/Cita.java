@@ -11,15 +11,28 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
+import utils.ConexBD;
 import utils.Datos;
 import utils.Utilidades;
 import validacion.Validador;
 
-public class Cita {
+public class Cita implements Serializable, Comparable<Cita> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6482338208329146684L;
 	// idCita representa al identificador unico de la cita.
 	// es un valos entero >0.
 	protected long idCita;
@@ -35,13 +48,21 @@ public class Cita {
 	// No se aceptara mas de un caracter.
 	protected char rango;
 
-	private static long numeroCitas = 0;
-	
 	private int tipo;
+
+	private static long numeroCitas = 0;
 
 	public Cita() {
 		numeroCitas++;
 		this.idCita = numeroCitas;
+	}
+
+	public Cita(long idCita, LocalDateTime fechahora, char rango, int tipo) {
+		super();
+		this.idCita = idCita;
+		this.fechahora = fechahora;
+		this.rango = rango;
+		this.tipo = tipo;
 	}
 
 	public Cita(long idCita, LocalDateTime fechahora, char rango) {
@@ -119,7 +140,6 @@ public class Cita {
 	public static void setNumeroCitas(long numeroCitas) {
 		Cita.numeroCitas = numeroCitas;
 	}
-	
 
 	public int getTipo() {
 		return tipo;
@@ -333,5 +353,45 @@ public class Cita {
 			}
 		}
 
+	}
+/**
+ * Inserción de una Cita 
+ * @return
+ */
+	public static boolean insertarCita() {
+		boolean ret = false;
+		String consultaInsertStr1 = "insert into citas(idCita, fechahora, rango, tipo) values (?,?,?,?)";
+		try {
+			Connection conex = ConexBD.establecerConexion();
+			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr1);
+
+			List<Cita> cita = new LinkedList<>();
+			for (Cita ct : Datos.CITAS) {
+				cita.add(ct);
+			}
+			Collections.sort(cita);
+			Iterator<Cita> it = cita.iterator();
+			while (it.hasNext()) {
+				Cita ct = (Cita) it.next();
+				pstmt.setLong(1, ct.getIdCita());
+				// java.sql.Date fechaSQL = java.sql.Date.valueOf(ct.getFechahora());
+				// pstmt.setDate(2, fechaSQL);
+				// pstmt.setCharrAt(3, ct.getRango());
+				pstmt.setInt(4, ct.getTipo());
+				int resultadoInsercion = pstmt.executeUpdate();
+				ret = (resultadoInsercion != 0);
+			}
+		} catch (SQLException e) {
+			System.out.println("Se ha producido una SQLException:" + e.getMessage());
+			e.printStackTrace();
+			ret = false;
+		}
+
+		return ret;
+	}
+
+	@Override
+	public int compareTo(Cita o) {
+		return Long.compare(this.idCita, o.idCita);
 	}
 }

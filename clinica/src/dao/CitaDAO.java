@@ -1,22 +1,21 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import entidades.Alergia;
+
 
 import entidades.Cita;
 
 import utils.ConexBD;
-import utils.Datos;
+
 
 public class CitaDAO implements OperacionesCRUD<Cita> {
 	Connection conex;
@@ -46,7 +45,8 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 			// pstmt.setLong(7, c.getEmpleado().getIdEmpleado());
 			// pstmt.setLong(8, c.getMedicamento().getIdMedicamento());
 			// pstmt.setChar(9, c.getRango());
-			// pstmt.setLocalDateTime(10, c.getFechahora());
+			java.sql.Date fechaSQL = java.sql.Date.valueOf(c.getFechahora().format(null));
+			pstmt.setDate(10, fechaSQL);
 			pstmt.setInt(11, c.getTipo());
 			// pstmt.setString(12, c.getRevision().getAnotacion());
 			// pstmt.setInt(13, c.getIntervencion().getDuracion());
@@ -77,7 +77,8 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 			// pstmt.setLong(7, c.getEmpleado().getIdEmpleado());
 			// pstmt.setLong(8, c.getMedicamento().getIdMedicamento());
 			// pstmt.setChar(9, c.getRango());
-			// pstmt.setLocalDateTime(10, c.getFechahora());
+			java.sql.Date fechaSQL = java.sql.Date.valueOf(c.getFechahora().format(null));
+			pstmt.setDate(10, fechaSQL);
 			pstmt.setInt(11, c.getTipo());
 			// pstmt.setString(12, c.getRevision().getAnotacion());
 			// pstmt.setInt(13, c.getIntervencion().getDuracion());
@@ -96,7 +97,8 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 				// pstmt2.setLong(7, c.getEmpleado().getIdEmpleado());
 				// pstmt2.setLong(8, c.getMedicamento().getIdMedicamento());
 				// pstmt2.setChar(9, c.getRango());
-				// pstmt2.setLocalDateTime(10, c.getFechahora());
+				java.sql.Date fechaSQL2 = java.sql.Date.valueOf(c.getFechahora().format(null));
+				pstmt.setDate(10, fechaSQL2);
 				pstmt2.setInt(11, c.getTipo());
 				// pstmt2.setString(12, c.getRevision().getAnotacion());
 				// pstmt2.setInt(13, c.getIntervencion().getDuracion());
@@ -171,9 +173,6 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 				// LocalDateTime fechahora = result.getTime("fechahora");
 				int tipo = result.getInt("tipo");
 
-				long idEquipo = result.getLong("idequipo");
-				float altura = result.getFloat("altura");
-				float peso = result.getFloat("peso");
 				cita = new Cita();
 				cita.setIdCita(idBD);
 				// cita.setRango(rango);
