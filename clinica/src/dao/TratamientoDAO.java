@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 
@@ -44,9 +45,47 @@ public class TratamientoDAO implements OperacionesCRUD<Tratamiento> {
 	}
 
 	@Override
-	public long insertarSinID(Tratamiento elemento) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long insertarSinID(Tratamiento t) {
+		long ret = -1;
+		Connection conex = ConexBD.establecerConexion();
+		String consultaInsertStr = "insert into tratamientos(nombre_descriptivo, consentimiento, id_cobro, id_informe) values (?,?,?,?)";
+		try {
+			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
+
+			pstmt.setString(1, t.getNombreDescriptivo());
+			pstmt.setBoolean(2, t.isConsentimiento());
+			pstmt.setLong(3, t.getCobro().getIdCobro());
+			pstmt.setLong(4, t.getInforme().getIdInforme());
+			int resultadoInsercion = pstmt.executeUpdate();
+
+			if (resultadoInsercion == 1) {
+				String consultaSelect = "SELECT id_tratamiento FROM tratamienos WHERE (nombre_descriptivo=? AND consentimiento=? AND id_cobro=? AND id_informe=?";
+				PreparedStatement pstmt2 = conex.prepareStatement(consultaSelect);
+				pstmt.setString(1, t.getNombreDescriptivo());
+				pstmt.setBoolean(2, t.isConsentimiento());
+				pstmt.setLong(3, t.getCobro().getIdCobro());
+				pstmt.setLong(4, t.getInforme().getIdInforme());
+				ResultSet result = pstmt2.executeQuery();
+				while (result.next()) {
+					long id = result.getLong("id");
+					if (id != -1)
+						ret = id;
+				}
+				result.close();
+				pstmt2.close();
+			}
+			pstmt.close();
+		} catch (SQLException e) {
+			System.out.println("Se ha producido una SQLException:" + e.getMessage());
+			e.printStackTrace();
+			return -1;
+		} catch (Exception e) {
+			System.out.println("Se ha producido una Exception:" + e.getMessage());
+			e.printStackTrace();
+			return -1;
+		}
+
+		return ret;
 	}
 
 	@Override
