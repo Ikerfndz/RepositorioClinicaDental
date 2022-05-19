@@ -61,7 +61,7 @@ public class PacienteDAO implements OperacionesCRUD<Paciente> {
 			int resultadoInsercion = pstmt.executeUpdate();
 
 			if (resultadoInsercion == 1) {
-				String consultaSelect = "SELECT id FROM empleados WHERE (nombre=? AND telefono=? AND nif=? AND direccion=?";
+				String consultaSelect = "SELECT id FROM pacientes WHERE (nombre=? AND telefono=? AND nif=? AND direccion=?";
 				PreparedStatement pstmt2 = conex.prepareStatement(consultaSelect);
 				pstmt2.setString(1, p.getNombre());
 				pstmt2.setString(2, p.getTelefono());
@@ -94,7 +94,7 @@ public class PacienteDAO implements OperacionesCRUD<Paciente> {
 	public Paciente buscarPorID(long id) {
 		Paciente ret = null;
 		Connection conex = ConexBD.establecerConexion();
-		String consultaInsertStr = "select * FROM pacintes WHERE id_paciente=?";
+		String consultaInsertStr = "select * FROM pacientes WHERE id_paciente=?";
 		try {
 			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
 			pstmt.setLong(1, id);

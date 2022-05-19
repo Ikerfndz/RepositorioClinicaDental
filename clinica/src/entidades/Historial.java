@@ -14,6 +14,8 @@ public class Historial {
 	// descripci�n representa una explicaci�n de detallad del tratamiento
 	// es una cadena de caracteres con un minimo de 10 caracteres
 
+	private Paciente paciente;
+	
 	public static Historial nuevoHistorial() {
 		Historial ret = new Historial();
 		Scanner teclado;
@@ -74,6 +76,14 @@ public class Historial {
 	@Override
 	public String toString() {
 		return "Historial [idHistorial=" + idHistorial + ", descripcion=" + descripcion + "]";
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 
 }
