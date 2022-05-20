@@ -49,7 +49,9 @@ public class Cita implements Serializable, Comparable<Cita> {
 	protected char rango;
 
 	private int tipo;
-
+	private Tratamiento tratamiento;
+	private Empleado empleado;
+	private Medicamento medicamento;
 	private static long numeroCitas = 0;
 
 	public Cita() {
@@ -393,5 +395,29 @@ public class Cita implements Serializable, Comparable<Cita> {
 	@Override
 	public int compareTo(Cita o) {
 		return Long.compare(this.idCita, o.idCita);
+	}
+
+	public Tratamiento getTratamiento() {
+		return tratamiento;
+	}
+
+	public void setTratamiento(Tratamiento tratamiento) {
+		this.tratamiento = tratamiento;
+	}
+
+	public Empleado getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
+
+	public Medicamento getMedicamento() {
+		return medicamento;
+	}
+
+	public void setMedicamento(Medicamento medicamento) {
+		this.medicamento = medicamento;
 	}
 }

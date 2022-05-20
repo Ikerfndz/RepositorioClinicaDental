@@ -37,14 +37,15 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
 
 			pstmt.setLong(1, c.getIdCita());
-			// pstmt.setLong(2, c.getTratamiento().getIdTratamiento());
-			// pstmt.setLong(3, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(4, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(5, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(6, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(7, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(8, c.getMedicamento().getIdMedicamento());
-			// pstmt.setChar(9, c.getRango());
+			 pstmt.setLong(2, c.getTratamiento().getIdTratamiento());
+			 pstmt.setLong(3, c.getEmpleado().getIdEmpleado());
+			 pstmt.setLong(4, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(5, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(6, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(7, c.getEmpleado().getIdEmpleado());
+			 pstmt.setLong(8, c.getMedicamento().getIdMedicamento());
+			 pstmt.setChar(9, c.getRango());
+			 
 			java.sql.Date fechaSQL = java.sql.Date.valueOf(c.getFechahora().format(null));
 			pstmt.setDate(10, fechaSQL);
 			pstmt.setInt(11, c.getTipo());
