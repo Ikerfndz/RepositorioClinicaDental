@@ -165,22 +165,30 @@ public class PacienteDAO implements OperacionesCRUD<Paciente> {
 
 	@Override
 	public boolean modificar(Paciente p) {
-		boolean ret = false;
-		Connection conex = ConexBD.establecerConexion();
-		String consultaInsertStr = "";
-	try {
-		
-		if (conex != null)
-			conex.close();
-	} catch (SQLException e) {
-		System.out.println("Se ha producido una SQLException:" + e.getMessage());
-		e.printStackTrace();
-	} catch (Exception e) {
-		System.out.println("Se ha producido una Exception:" + e.getMessage());
-		e.printStackTrace();
+		String consultaInsertStr = "update pruebas SET nombre=?, fecha=?, idlugar=?, individual=?, idpatrocinador=? WHERE id=?";
+		try {
+			if (this.conex == null || this.conex.isClosed())
+				conex = ConexBD.establecerConexion();
+			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
+			pstmt.setString(1, p.getNombre());
+			java.sql.Date fechaSQL = java.sql.Date.valueOf(p.getFecha());
+			pstmt.setDate(2, fechaSQL);
+			pstmt.setLong(3, p.getLugar().getId());
+			pstmt.setBoolean(4, p.isIndividual());
+			pstmt.setLong(5, p.getPatrocinador().getId());
+			pstmt.setLong(5, p.getId());
+			int resultadomodificacion = pstmt.executeUpdate();
+			if (resultadomodificacion == 1)
+				return true;
+			else
+				return false;
+		} catch (Exception exc) {
+			System.out.println("Se ha producido una SQLException:" + exc.getMessage());
+			exc.printStackTrace();
+		}
+		return false;
 	}
-	return ret;
-	}
+	
 
 	@Override
 	public boolean eliminar(Paciente elemento) {
