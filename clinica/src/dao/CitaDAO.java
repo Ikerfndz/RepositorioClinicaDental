@@ -5,17 +5,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
-
 import entidades.Cita;
 
 import utils.ConexBD;
-
 
 public class CitaDAO implements OperacionesCRUD<Cita> {
 	Connection conex;
@@ -30,27 +27,26 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 
 		boolean ret = false;
 
-		String consultaInsertStr = "insert into citas (idcita, tratamiento, secretariado, cirujano1, cirujano2, enfermeria1, enfermeria2, medicamento, rango, fechahora, tipo, anotacion, duracion) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String consultaInsertStr = "insert into citas (idcita, idTratamiento, idEmpleado, idEmpleado, idEmpleado, idEmpleado, idEmpleado, idMedicamento, rango, fechahora, tipo, anotacion, duracion) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			if (this.conex == null || this.conex.isClosed())
 				conex = ConexBD.establecerConexion();
 			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
 
 			pstmt.setLong(1, c.getIdCita());
-			 pstmt.setLong(2, c.getTratamiento().getIdTratamiento());
-			 pstmt.setLong(3, c.getEmpleado().getIdEmpleado());
-			 pstmt.setLong(4, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(2, c.getTratamiento().getIdTratamiento());
+			pstmt.setLong(3, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(4, c.getEmpleado().getIdEmpleado());
 			pstmt.setLong(5, c.getEmpleado().getIdEmpleado());
 			pstmt.setLong(6, c.getEmpleado().getIdEmpleado());
 			pstmt.setLong(7, c.getEmpleado().getIdEmpleado());
-			 pstmt.setLong(8, c.getMedicamento().getIdMedicamento());
-			 pstmt.setChar(9, c.getRango());
-			 
+			pstmt.setLong(8, c.getMedicamento().getIdMedicamento());
+			// pstmt.setChar(9, c.getRango());
 			java.sql.Date fechaSQL = java.sql.Date.valueOf(c.getFechahora().format(null));
 			pstmt.setDate(10, fechaSQL);
 			pstmt.setInt(11, c.getTipo());
-			// pstmt.setString(12, c.getRevision().getAnotacion());
-			// pstmt.setInt(13, c.getIntervencion().getDuracion());
+			pstmt.setString(12, c.getRevision().getAnotacion());
+			pstmt.setInt(13, c.getIntervencion().getDuracion());
 			int resultadoInsercion = pstmt.executeUpdate();
 			ret = (resultadoInsercion == 1);
 
@@ -65,44 +61,44 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 	public long insertarSinID(Cita c) {
 		long ret = -1;
 
-		String consultaInsertStr = "insert into citas (idcita, tratamiento, secretariado, cirujano1, cirujano2, enfermeria1, enfermeria2, medicamento, rango, fechahora, tipo, anotacion, duracion) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String consultaInsertStr = "insert into citas (idcita, idtTratamiento, idEmpleado, idEmpleado, idEmpleado, idEmpleado, idEmpleado2, idMedicamento, rango, fechahora, tipo, anotacion, duracion) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			if (this.conex == null || this.conex.isClosed())
 				conex = ConexBD.establecerConexion();
 			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
-			// pstmt.setLong(2, c.getTratamiento().getIdTratamiento());
-			// pstmt.setLong(3, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(4, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(5, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(6, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(7, c.getEmpleado().getIdEmpleado());
-			// pstmt.setLong(8, c.getMedicamento().getIdMedicamento());
+			pstmt.setLong(2, c.getTratamiento().getIdTratamiento());
+			pstmt.setLong(3, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(4, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(5, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(6, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(7, c.getEmpleado().getIdEmpleado());
+			pstmt.setLong(8, c.getMedicamento().getIdMedicamento());
 			// pstmt.setChar(9, c.getRango());
 			java.sql.Date fechaSQL = java.sql.Date.valueOf(c.getFechahora().format(null));
 			pstmt.setDate(10, fechaSQL);
 			pstmt.setInt(11, c.getTipo());
-			// pstmt.setString(12, c.getRevision().getAnotacion());
-			// pstmt.setInt(13, c.getIntervencion().getDuracion());
+			pstmt.setString(12, c.getRevision().getAnotacion());
+			pstmt.setInt(13, c.getIntervencion().getDuracion());
 			int resultadoInsercion = pstmt.executeUpdate();
 			if (resultadoInsercion == 1) {
-				String consultaSelect = "SELECT idcita FROM citas WHERE (tratamiento=? AND secretariado=? "
-						+ "AND cirujano1=?)" + "AND cirujano2=?)" + "AND enfermeria1=?)" + "AND enfermeria2=?)"
-						+ "AND medicamento=?)" + "AND rango=?)" + "AND fechahora=?)" + "AND tipo=?)"
+				String consultaSelect = "SELECT idcita FROM citas WHERE (idTratamiento=? AND idEmpleado=? "
+						+ "AND idEmpleado=?)" + "AND idEmpleado=?)" + "AND idEmpleado=?)" + "AND idEmpleado=?)"
+						+ "AND idMedicamento=?)" + "AND rango=?)" + "AND fechahora=?)" + "AND tipo=?)"
 						+ "AND anotacion=?)" + "AND duracion=?)";
 				PreparedStatement pstmt2 = conex.prepareStatement(consultaSelect);
-				// pstmt2.setLong(2, c.getTratamiento().getIdTratamiento());
-				// pstmt2.setLong(3, c.getEmpleado().getIdEmpleado());
-				// pstmt2.setLong(4, c.getEmpleado().getIdEmpleado());
-				// pstmt2.setLong(5, c.getEmpleado().getIdEmpleado());
-				// pstmt2.setLong(6, c.getEmpleado().getIdEmpleado());
-				// pstmt2.setLong(7, c.getEmpleado().getIdEmpleado());
-				// pstmt2.setLong(8, c.getMedicamento().getIdMedicamento());
+				pstmt2.setLong(2, c.getTratamiento().getIdTratamiento());
+				pstmt2.setLong(3, c.getEmpleado().getIdEmpleado());
+				pstmt2.setLong(4, c.getEmpleado().getIdEmpleado());
+				pstmt2.setLong(5, c.getEmpleado().getIdEmpleado());
+				pstmt2.setLong(6, c.getEmpleado().getIdEmpleado());
+				pstmt2.setLong(7, c.getEmpleado().getIdEmpleado());
+				pstmt2.setLong(8, c.getMedicamento().getIdMedicamento());
 				// pstmt2.setChar(9, c.getRango());
 				java.sql.Date fechaSQL2 = java.sql.Date.valueOf(c.getFechahora().format(null));
 				pstmt.setDate(10, fechaSQL2);
 				pstmt2.setInt(11, c.getTipo());
-				// pstmt2.setString(12, c.getRevision().getAnotacion());
-				// pstmt2.setInt(13, c.getIntervencion().getDuracion());
+				pstmt2.setString(12, c.getRevision().getAnotacion());
+				pstmt2.setInt(13, c.getIntervencion().getDuracion());
 
 				ResultSet result = pstmt2.executeQuery();
 				while (result.next()) {
@@ -140,7 +136,7 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 				long idBD = result.getLong("id");
 				long idcita = result.getLong("idcita");
 				// char rango = result.getCharAt("rango");
-				// LocalDateTime fechahora = result.getTime(fechahora);
+				java.sql.Date fechahora = result.getDate("fechahora");
 				ret = new Cita();
 				ret.setIdCita(idBD);
 				// ret.setRango(rango);
@@ -171,7 +167,7 @@ public class CitaDAO implements OperacionesCRUD<Cita> {
 				long idBD = result.getLong("id");
 				long idCita = result.getLong("idcita");
 				// char rango = result.getAtChar("rango");
-				// LocalDateTime fechahora = result.getTime("fechahora");
+				java.sql.Date fechahora = result.getDate("fechahora");
 				int tipo = result.getInt("tipo");
 
 				cita = new Cita();

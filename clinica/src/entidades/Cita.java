@@ -52,6 +52,8 @@ public class Cita implements Serializable, Comparable<Cita> {
 	private Tratamiento tratamiento;
 	private Empleado empleado;
 	private Medicamento medicamento;
+	private Revision revision;
+	private Intervencion intervencion;
 	private static long numeroCitas = 0;
 
 	public Cita() {
@@ -356,10 +358,12 @@ public class Cita implements Serializable, Comparable<Cita> {
 		}
 
 	}
-/**
- * Inserción de una Cita 
- * @return
- */
+
+	/**
+	 * Inserción de una Cita
+	 * 
+	 * @return
+	 */
 	public static boolean insertarCita() {
 		boolean ret = false;
 		String consultaInsertStr1 = "insert into citas(idCita, fechahora, rango, tipo) values (?,?,?,?)";
@@ -419,5 +423,21 @@ public class Cita implements Serializable, Comparable<Cita> {
 
 	public void setMedicamento(Medicamento medicamento) {
 		this.medicamento = medicamento;
+	}
+
+	public Revision getRevision() {
+		return revision;
+	}
+
+	public void setRevision(Revision revision) {
+		this.revision = revision;
+	}
+
+	public Intervencion getIntervencion() {
+		return intervencion;
+	}
+
+	public void setIntervencion(Intervencion intervencion) {
+		this.intervencion = intervencion;
 	}
 }
