@@ -165,20 +165,17 @@ public class PacienteDAO implements OperacionesCRUD<Paciente> {
 
 	@Override
 	public boolean modificar(Paciente p) {
-		String consultaInsertStr = "update pruebas SET nombre=?, fecha=?, idlugar=?, individual=?, idpatrocinador=? WHERE id=?";
+		String consultaInsertStr = "update pacientes SET nombre=?, telefono=?, direccion=?, nif=? WHERE idPaciente=?";
 		try {
 			if (this.conex == null || this.conex.isClosed())
 				conex = ConexBD.establecerConexion();
 			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
 			pstmt.setString(1, p.getNombre());
-			java.sql.Date fechaSQL = java.sql.Date.valueOf(p.getFecha());
-			pstmt.setDate(2, fechaSQL);
-			pstmt.setLong(3, p.getLugar().getId());
-			pstmt.setBoolean(4, p.isIndividual());
-			pstmt.setLong(5, p.getPatrocinador().getId());
-			pstmt.setLong(5, p.getId());
-			int resultadomodificacion = pstmt.executeUpdate();
-			if (resultadomodificacion == 1)
+			pstmt.setNString(3, p.getTelefono());
+			pstmt.setString(4, p.getDireccion());
+			pstmt.setNString(5, p.getNif());
+			int resultado = pstmt.executeUpdate();
+			if (resultado == 1)
 				return true;
 			else
 				return false;
@@ -188,17 +185,33 @@ public class PacienteDAO implements OperacionesCRUD<Paciente> {
 		}
 		return false;
 	}
-	}
+	
 
 	@Override
-	public boolean eliminar(Paciente elemento) {
-		// TODO Auto-generated method stub
+	public boolean eliminar(Paciente p) {
+		String consultaInsertStr = "Delete * from pacientes where idPaciente=?;";
+		try {
+			if (this.conex == null || this.conex.isClosed())
+				conex = ConexBD.establecerConexion();
+			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
+		} catch (Exception exc) {
+			System.out.println("Se ha producido una SQLException:" + exc.getMessage());
+			exc.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public Collection<Paciente> eliminarTodos() {
-		// TODO Auto-generated method stub
+		String consultaInsertStr = "Delete * from pacientes;";
+	try {
+		if (this.conex == null || this.conex.isClosed())
+			this.conex = ConexBD.establecerConexion();
+		PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
+	} catch (Exception exc) {
+		System.out.println("Se ha producido una SQLException:" + exc.getMessage());
+		exc.printStackTrace();
+	}
 		return null;
 	}
 
