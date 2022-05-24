@@ -188,7 +188,7 @@ public class PacienteDAO implements OperacionesCRUD<Paciente> {
 		}
 		return false;
 	}
-	
+	}
 
 	@Override
 	public boolean eliminar(Paciente elemento) {
