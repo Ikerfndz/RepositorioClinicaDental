@@ -165,8 +165,25 @@ public class TratamientoDAO implements OperacionesCRUD<Tratamiento> {
 	}
 
 	@Override
-	public boolean modificar(Tratamiento elemento) {
-		// TODO Auto-generated method stub
+	public boolean modificar(Tratamiento t) {
+		String consultaInsertStr = "update tratamientos SET  nombre_descriptivo=?, consentimiento=?, id_cobro=?, id_informe=? WHERE idTratamiento=?";
+		try {
+			if (this.conex == null || this.conex.isClosed())
+				conex = ConexBD.establecerConexion();
+			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
+			pstmt.setString(1, t.getNombreDescriptivo());
+			pstmt.setBoolean(2, t.isConsentimiento());
+			pstmt.setLong(3, t.getCobro().getIdCobro());
+			pstmt.setLong(4, t.getInforme().getIdInforme());
+			int resultado = pstmt.executeUpdate();
+			if (resultado == 1)
+				return true;
+			else
+				return false;
+		} catch (Exception exc) {
+			System.out.println("Se ha producido una SQLException:" + exc.getMessage());
+			exc.printStackTrace();
+		}
 		return false;
 	}
 

@@ -171,9 +171,9 @@ public class PacienteDAO implements OperacionesCRUD<Paciente> {
 				conex = ConexBD.establecerConexion();
 			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
 			pstmt.setString(1, p.getNombre());
-			pstmt.setNString(3, p.getTelefono());
-			pstmt.setString(4, p.getDireccion());
-			pstmt.setNString(5, p.getNif());
+			pstmt.setString(2, p.getTelefono());
+			pstmt.setString(3, p.getDireccion());
+			pstmt.setString(4, p.getNif());
 			int resultado = pstmt.executeUpdate();
 			if (resultado == 1)
 				return true;
@@ -189,29 +189,13 @@ public class PacienteDAO implements OperacionesCRUD<Paciente> {
 
 	@Override
 	public boolean eliminar(Paciente p) {
-		String consultaInsertStr = "Delete * from pacientes where idPaciente=?;";
-		try {
-			if (this.conex == null || this.conex.isClosed())
-				conex = ConexBD.establecerConexion();
-			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
-		} catch (Exception exc) {
-			System.out.println("Se ha producido una SQLException:" + exc.getMessage());
-			exc.printStackTrace();
-		}
+		
 		return false;
 	}
 
 	@Override
 	public Collection<Paciente> eliminarTodos() {
-		String consultaInsertStr = "Delete * from pacientes;";
-	try {
-		if (this.conex == null || this.conex.isClosed())
-			this.conex = ConexBD.establecerConexion();
-		PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
-	} catch (Exception exc) {
-		System.out.println("Se ha producido una SQLException:" + exc.getMessage());
-		exc.printStackTrace();
-	}
+
 		return null;
 	}
 

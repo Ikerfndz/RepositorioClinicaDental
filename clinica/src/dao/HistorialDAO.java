@@ -149,8 +149,24 @@ public class HistorialDAO implements OperacionesCRUD<Historial> {
 	}
 
 	@Override
-	public boolean modificar(Historial elemento) {
-		// TODO Auto-generated method stub
+	public boolean modificar(Historial h) {
+		String consultaInsertStr = "update historiales SET  descripcion=?, id_paciente=? WHERE idHistorial=?";
+		try {
+			if (this.conex == null || this.conex.isClosed())
+				conex = ConexBD.establecerConexion();
+			PreparedStatement pstmt = conex.prepareStatement(consultaInsertStr);
+			pstmt.setString(1, h.getDescripcion());
+			pstmt.setLong(2, h.getPaciente().getIdPaciente());
+			
+			int resultado = pstmt.executeUpdate();
+			if (resultado == 1)
+				return true;
+			else
+				return false;
+		} catch (Exception exc) {
+			System.out.println("Se ha producido una SQLException:" + exc.getMessage());
+			exc.printStackTrace();
+		}
 		return false;
 	}
 
